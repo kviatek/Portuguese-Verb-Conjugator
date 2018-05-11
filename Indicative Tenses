@@ -2,12 +2,14 @@ persons = ['Eu/I', 'Tu/You', 'Ele/Ela/você/He/She/It', 'Nós/We', "Else/Elas/vo
 
 
 def conjugar_indicativo_presente(word):
+    """
+    
+    :param word: Verb to be conjugated
+    :return: Conjugated verb in form of a dictionary
+    """
 
     if not isinstance(word, str):
         return 'Entrada de dados incorreta | An incorrect input value'
-
-    conjugated_forms = []
-    final_conjugated_forms = dict()
 
     endings_ar = ['o', 'as', 'a', 'amos', 'am']
     endings_er = ['o', 'es', 'e', 'emos', 'em']
@@ -21,6 +23,9 @@ def conjugar_indicativo_presente(word):
         endings = endings_ir
     else:
         return 'A palavra nao e um verbo | Not a verb'
+
+    conjugated_forms = []
+    final_conjugated_forms = dict()
 
     for ending in endings:
         conjugated_forms.append(word[:-2] + ending)
