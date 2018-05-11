@@ -1,6 +1,5 @@
 import verb_persons_lists
 
-
 persons = ['Eu/I', 'Tu/You', 'Ele/Ela/você/He/She/It', 'Nós/We', "Else/Elas/vocês/They"]
 
 
