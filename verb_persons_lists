@@ -1,3 +1,7 @@
+"""
+This module contains all constants related to portuguse verbs cojungtion as irregular verbs list, grammatical persons lists, etc. 
+"""
+
 irregular_verbs_list = ['abster', 'acudir', 'adequar', 'aderir', 'adjazer', 'advertir', 'advir', 'afazer', 'aferir',
                         'agredir', 'ansiar', 'antedar', 'antepor', 'antever', 'apor', 'aprazer', 'apropinquar',
                         'aspergir', 'assentir', 'ater', 'atrair', 'atribuir', 'autodestruir', 'avir', 'bem-dizer',
