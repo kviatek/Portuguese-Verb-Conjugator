@@ -1,31 +1,29 @@
-def conjugar_indicativo_presente(word):
-
-endings_ar = ['o', 'as', 'a', 'amos', 'am']
-endings_ir = ['o', 'es', 'e', 'imos', 'em']
-endings_er = ['o', 'es', 'e', 'emos', 'em']
 persons = ['Eu/I', 'Tu/You', 'Ele/Ela/você/He/She/It', 'Nós/We', "Else/Elas/vocês/They"]
 
-conjugated_forms = []
-final = dict()
 
-if not isinstance(word, str):
-    return 'Palavra incorreta/Incorrect word'
+def conjugar_indicativo_presente(word):
 
-if word.endswith('ar'):
-    for ending in endings_ar:
+    if not isinstance(word, str):
+        return 'Entrada de dados incorreta | An incorrect input value'
+
+    conjugated_forms = []
+    final_conjugated_forms = dict()
+
+    endings_ar = ['o', 'as', 'a', 'amos', 'am']
+    endings_er = ['o', 'es', 'e', 'emos', 'em']
+    endings_ir = ['o', 'es', 'e', 'imos', 'em']
+
+    if word.endswith('ar'):
+        endings = endings_ar
+    elif word.endswith('er'):
+        endings = endings_er
+    elif word.endswith('ir'):
+        endings = endings_ir
+    else:
+        return 'A palavra nao e um verbo | Not a verb'
+
+    for ending in endings:
         conjugated_forms.append(word[:-2] + ending)
-        list = zip(persons, conjugated_forms)
-        final_conjugated_forms = dict(list)  
-    return final_conjugated_forms
-elif word.endswith('er'):
-    for ending in endings_er:
-        conjugated_forms.append(word[:-2] + ending)
-        list = zip(persons, conjugated_forms)
-        final_conjugated_forms = dict(list)  
-    return final_conjugated_forms
-elif word.endswith('ir'):
-    for ending in endings_ir:
-        conjugated_forms.append(word[:-2] + ending)
-        list = zip(persons, conjugated_forms)
-        final_conjugated_forms = dict(list)  
+        conjugated_verbs_and_persons = zip(persons, conjugated_forms)
+        final_conjugated_forms = dict(conjugated_verbs_and_persons)
     return final_conjugated_forms
