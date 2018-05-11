@@ -1,3 +1,6 @@
+import verb_persons_lists
+
+
 persons = ['Eu/I', 'Tu/You', 'Ele/Ela/você/He/She/It', 'Nós/We', "Else/Elas/vocês/They"]
 
 
@@ -23,6 +26,8 @@ def conjugar_indicativo_presente(word):
         endings = endings_ir
     else:
         return 'A palavra nao e um verbo | Not a verb'
+        
+    is_irregular_verb = True if word in verb_persons_lists.irregular_verbs_list else False #  checking whether a verb is regular or not
 
     conjugated_forms = []
     final_conjugated_forms = dict()
