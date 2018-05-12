@@ -140,3 +140,37 @@ def conjugar_futuro_simples_indicativo(word):
         return final_conjugated_forms
     else:
         return 'A palavra não e um verbo | Not a verb'
+
+
+def conjugar_condicional_simples(word):
+    """
+
+    :param word: Verb to be conjugated
+    :return: Conjugated verb in form of a dictionary
+    """
+
+    if not isinstance(word, str):
+        return 'Entrada de dados incorreta | An incorrect input value'
+
+    endings = ('ia', 'ias', 'ia', 'íamos', 'iam')
+
+    if word == 'trazer':
+        return {'Eu/I': 'traria', 'Tu/You': 'trarias', 'Ele/Ela/você/He/She/It': 'traria', 'Nós/We': 'traríamos',
+                'Else/Elas/vocês/They': 'trariam'}
+    elif word == 'dizer':
+        return {'Eu/I': 'diria', 'Tu/You': 'dirias', 'Ele/Ela/você/He/She/It': 'diria', 'Nós/We': 'diríamos',
+                'Else/Elas/vocês/They': 'diriam'}
+    elif word == 'fazer':
+        return {'Eu/I': 'faria', 'Tu/You': 'farias', 'Ele/Ela/você/He/She/It': 'faria', 'Nós/We': 'faríamos',
+                'Else/Elas/vocês/They': 'fariam'}
+
+    if word.endswith(('ar', 'er', 'ir')):
+        conjugated_forms = []
+        final_conjugated_forms = dict()
+        for ending in endings:
+            conjugated_forms.append(word + ending)
+            conjugated_verbs_and_persons = zip(verb_persons_lists.grammatical_persons, conjugated_forms)
+            final_conjugated_forms = dict(conjugated_verbs_and_persons)
+        return final_conjugated_forms
+    else:
+        return 'A palavra não e um verbo | Not a verb'
