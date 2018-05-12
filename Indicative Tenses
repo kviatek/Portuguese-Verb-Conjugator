@@ -1,11 +1,11 @@
 import verb_persons_lists
 
-persons = ['Eu/I', 'Tu/You', 'Ele/Ela/você/He/She/It', 'Nós/We', "Else/Elas/vocês/They"]
+verb_persons_lists.grammatical_persons = ['Eu/I', 'Tu/You', 'Ele/Ela/você/He/She/It', 'Nós/We', "Else/Elas/vocês/They"]
 
 
-def conjugar_indicativo_presente(word):
+def conjugar_presente_indicativo(word):
     """
-    
+
     :param word: Verb to be conjugated
     :return: Conjugated verb in form of a dictionary
     """
@@ -13,9 +13,9 @@ def conjugar_indicativo_presente(word):
     if not isinstance(word, str):
         return 'Entrada de dados incorreta | An incorrect input value'
 
-    endings_ar = ['o', 'as', 'a', 'amos', 'am']
-    endings_er = ['o', 'es', 'e', 'emos', 'em']
-    endings_ir = ['o', 'es', 'e', 'imos', 'em']
+    endings_ar = ('o', 'as', 'a', 'amos', 'am')  # what to do to simplify?
+    endings_er = ('o', 'es', 'e', 'emos', 'em')
+    endings_ir = ('o', 'es', 'e', 'imos', 'em')
 
     if word.endswith('ar'):
         endings = endings_ar
@@ -24,15 +24,119 @@ def conjugar_indicativo_presente(word):
     elif word.endswith('ir'):
         endings = endings_ir
     else:
-        return 'A palavra nao e um verbo | Not a verb'
-        
-    is_irregular_verb = True if word in verb_persons_lists.irregular_verbs_list else False #  checking whether a verb is regular or not
+        return 'A palavra não e um verbo | Not a verb'
+
+    is_irregular_verb = True if word in verb_persons_lists.irregular_verbs_list else False
 
     conjugated_forms = []
     final_conjugated_forms = dict()
 
     for ending in endings:
         conjugated_forms.append(word[:-2] + ending)
-        conjugated_verbs_and_persons = zip(persons, conjugated_forms)
+        conjugated_verbs_and_persons = zip(verb_persons_lists.grammatical_persons, conjugated_forms)
         final_conjugated_forms = dict(conjugated_verbs_and_persons)
     return final_conjugated_forms
+
+
+def conjugar_preterito_perfeito_indicativo(word):
+    """
+
+    :param word: Verb to be conjugated
+    :return: Conjugated verb in form of a dictionary
+    """
+
+    if not isinstance(word, str):
+        return 'Entrada de dados incorreta | An incorrect input value'
+
+    endings_ar = ('ei', 'aste', 'ou', 'amos', 'aram')  # what to do to simplify?
+    endings_er = ('i', 'este', 'eu', 'emos', 'eram')
+    endings_ir = ('i', 'iste', 'iu', 'imos', 'iram')
+
+    if word.endswith('ar'):
+        endings = endings_ar
+    elif word.endswith('er'):
+        endings = endings_er
+    elif word.endswith('ir'):
+        endings = endings_ir
+    else:
+        return 'A palavra não e um verbo | Not a verb'
+
+    is_irregular_verb = True if word in verb_persons_lists.irregular_verbs_list else False
+
+    conjugated_forms = []
+    final_conjugated_forms = dict()
+
+    for ending in endings:
+        conjugated_forms.append(word[:-2] + ending)
+        conjugated_verbs_and_persons = zip(verb_persons_lists.grammatical_persons, conjugated_forms)
+        final_conjugated_forms = dict(conjugated_verbs_and_persons)
+    return final_conjugated_forms
+
+
+def conjugar_preterito_imperfeito_indicativo(word):
+    """
+
+    :param word: Verb to be conjugated
+    :return: Conjugated verb in form of a dictionary
+    """
+
+    if not isinstance(word, str):
+        return 'Entrada de dados incorreta | An incorrect input value'
+
+    endings_ar = ('ava', 'avas', 'ava', 'ávamos', 'avam')  # what to do to simplify?
+    endings_er_ir = ('ia', 'ias', 'ia', 'íamos', 'iam')
+
+    if word.endswith('ar'):
+        endings = endings_ar
+    elif word.endswith('er') or word.endswith('ir'):
+        endings = endings_er_ir
+    else:
+        return 'A palavra não e um verbo | Not a verb'
+
+    is_irregular_verb = True if word in verb_persons_lists.irregular_verbs_list else False
+
+    conjugated_forms = []
+    final_conjugated_forms = dict()
+
+    for ending in endings:
+        conjugated_forms.append(word[:-2] + ending)
+        conjugated_verbs_and_persons = zip(verb_persons_lists.grammatical_persons, conjugated_forms)
+        final_conjugated_forms = dict(conjugated_verbs_and_persons)
+    return final_conjugated_forms
+
+
+def conjugar_futuro_simples_indicativo(word):
+    """
+
+    :param word: Verb to be conjugated
+    :return: Conjugated verb in form of a dictionary
+    """
+
+    if not isinstance(word, str):
+        return 'Entrada de dados incorreta | An incorrect input value'
+
+    endings = ('ei', 'ás', 'á', 'emos', 'ão')
+
+    if word == 'trazer':
+        return {'Eu/I': 'trarei', 'Tu/You': 'trarás', 'Ele/Ela/você/He/She/It': 'trará', 'Nós/We': 'traremos',
+                'Else/Elas/vocês/They': 'trarão'}
+    elif word == 'ser':
+        return {'Eu/I': 'for', 'Tu/You': 'fores', 'Ele/Ela/você/He/She/It': 'for', 'Nós/We': 'formos',
+                'Else/Elas/vocês/They': 'forem'}
+    elif word == 'dizer':
+        return {'Eu/I': 'direi', 'Tu/You': 'dirás', 'Ele/Ela/você/He/She/It': 'dirá', 'Nós/We': 'diremos',
+                'Else/Elas/vocês/They': 'dirão'}
+    elif word == 'fazer':
+        return {'Eu/I': 'farei', 'Tu/You': 'farás', 'Ele/Ela/você/He/She/It': 'fará', 'Nós/We': 'faremos',
+                'Else/Elas/vocês/They': 'farão'}
+
+    if word.endswith(('ar', 'er', 'ir')):
+        conjugated_forms = []
+        final_conjugated_forms = dict()
+        for ending in endings:
+            conjugated_forms.append(word + ending)
+            conjugated_verbs_and_persons = zip(verb_persons_lists.grammatical_persons, conjugated_forms)
+            final_conjugated_forms = dict(conjugated_verbs_and_persons)
+        return final_conjugated_forms
+    else:
+        return 'A palavra não e um verbo | Not a verb'
