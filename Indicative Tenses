@@ -1,6 +1,6 @@
 import verb_persons_lists
 
-verb_persons_lists.grammatical_persons = ['Eu/I', 'Tu/You', 'Ele/Ela/você/He/She/It', 'Nós/We', "Else/Elas/vocês/They"]
+verb_persons_lists.grammatical_persons = ('Eu/I', 'Tu/You', 'Ele/Ela/você/He/She/It', 'Nós/We', "Else/Elas/vocês/They")
 
 
 def conjugar_presente_indicativo(word):
