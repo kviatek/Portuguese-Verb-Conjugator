@@ -6,9 +6,9 @@ from enum import Enum
 
 
 class GrammaticalPersons(Enum):
-    FIRST_PERSON_SING = 'Eu/I'
-    SECOND_PERSON_SING = 'Tu/You'
-    THIRD_PERSON_SING = 'Ele/Ela/você/He/She/It'
+    FIRST_PERSON_SINGULAR = 'Eu/I'
+    SECOND_PERSON_SINGULAR = 'Tu/You'
+    THIRD_PERSON_SINGULAR = 'Ele/Ela/você/He/She/It'
     FIRST_PERSON_PLURAL = 'Nós/We'
     SECOND_PERSON_PLURAL = 'Else/Elas/vocês/They'
 
