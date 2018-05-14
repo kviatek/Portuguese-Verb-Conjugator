@@ -1,5 +1,8 @@
 from enum import Enum
 
+# This module is a collection of all constants related to portuguese verbs conjugation, 
+# i.e. names of grammatical persons.
+
 
 class GrammaticalPersons(Enum):
     first_person_sing = 'Eu/I'
