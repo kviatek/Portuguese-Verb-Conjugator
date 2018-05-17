@@ -6,11 +6,7 @@ from enum import Enum
 
 
 class GrammaticalPersons(Enum):
-    FIRST_PERSON_SINGULAR = 'Eu/I'
-    SECOND_PERSON_SINGULAR = 'Tu/You'
-    THIRD_PERSON_SINGULAR = 'Ele/Ela/você/He/She/It'
-    FIRST_PERSON_PLURAL = 'Nós/We'
-    SECOND_PERSON_PLURAL = 'Else/Elas/vocês/They'
+    PERSONS = ('Eu/I', 'Tu/You', 'Ele/Ela/você/He/She/It', 'Nós/We', "Else/Elas/vocês/They")
 
 
 class TenseEndings(Enum):
@@ -22,14 +18,14 @@ class TenseEndings(Enum):
 
     # preterito_perfeito_endings
 
-    PRETERITO_PERFEITO_ENDINGS_AR = ('ei', 'aste', 'ou', 'amos', 'aram')
-    PRETERITO_PERFEITO_ENDINGS_ER = ('i', 'este', 'eu', 'emos', 'eram')
-    PRETERITO_PERFEITO_ENDINGS_IR = ('i', 'iste', 'iu', 'imos', 'iram')
+    PRETERITO_PERFEITO_INDICATIVO_ENDINGS_AR = ('ei', 'aste', 'ou', 'amos', 'aram')
+    PRETERITO_PERFEITO_INDICATIVO_ENDINGS_ER = ('i', 'este', 'eu', 'emos', 'eram')
+    PRETERITO_PERFEITO_INDICATIVO_ENDINGS_IR = ('i', 'iste', 'iu', 'imos', 'iram')
 
     # preterito_imperfeito_endings
 
-    PRETERITO_IMPERFEITO_ENDINGS_AR = ('ava', 'avas', 'ava', 'ávamos', 'avam')
-    PRETERITO_IMPERFEITO_ENDINGS_ER_IR = ('ia', 'ias', 'ia', 'íamos', 'iam')
+    PRETERITO_IMPERFEITO_INDICATIVO_ENDINGS_AR = ('ava', 'avas', 'ava', 'ávamos', 'avam')
+    PRETERITO_IMPERFEITO_INDICATIVO_ENDINGS_ER_IR = ('ia', 'ias', 'ia', 'íamos', 'iam')
 
     # futuro_simples_indicativo
 
@@ -38,6 +34,37 @@ class TenseEndings(Enum):
     # condicional_simples
 
     CONDICIONAL_SIMPLES_ENDIGNS = ('ia', 'ias', 'ia', 'íamos', 'iam')
+
+
+class FixedConjugations(Enum):
+    # FIXED CONJUGATIONS FOR CONDICIONAL SIMPLES TENSE
+    CONDICIONAL_TRAZER = {'Eu/I': 'traria', 'Tu/You': 'trarias', 'Ele/Ela/você/He/She/It': 'traria',
+                          'Nós/We': 'traríamos',
+                          'Else/Elas/vocês/They': 'trariam'}
+
+    CONDICIONAL_DIZER = {'Eu/I': 'diria', 'Tu/You': 'dirias', 'Ele/Ela/você/He/She/It': 'diria', 'Nós/We': 'diríamos',
+                         'Else/Elas/vocês/They': 'diriam'}
+
+    CONDICIONAL_FAZER = {'Eu/I': 'faria', 'Tu/You': 'farias', 'Ele/Ela/você/He/She/It': 'faria', 'Nós/We': 'faríamos',
+                         'Else/Elas/vocês/They': 'fariam'}
+
+    # FIXED CONJUGATIONS FOR FUTURO SIMPLES INDICATIVO TENSE
+
+    FUTURO_SIMPLES_INDICATIVO_DIZER = {'Eu/I': 'direi', 'Tu/You': 'dirás', 'Ele/Ela/você/He/She/It': 'dirá',
+                                       'Nós/We': 'diremos',
+                                       'Else/Elas/vocês/They': 'dirão'}
+
+    FUTURO_SIMPLES_INDICATIVO_FAZER = {'Eu/I': 'farei', 'Tu/You': 'farás', 'Ele/Ela/você/He/She/It': 'fará',
+                                       'Nós/We': 'faremos',
+                                       'Else/Elas/vocês/They': 'farão'}
+
+    FUTURO_SIMPLES_INDICATIVO_SER = {'Eu/I': 'for', 'Tu/You': 'fores', 'Ele/Ela/você/He/She/It': 'for',
+                                     'Nós/We': 'formos',
+                                     'Else/Elas/vocês/They': 'forem'}
+
+    FUTURO_SIMPLES_INDICATIVO_TRAZER = {'Eu/I': 'trarei', 'Tu/You': 'trarás', 'Ele/Ela/você/He/She/It': 'trará',
+                                        'Nós/We': 'traremos',
+                                        'Else/Elas/vocês/They': 'trarão'}
 
 
 class IrregularVerbs(Enum):
@@ -67,8 +94,8 @@ class IrregularVerbs(Enum):
         'J': ('jazer', 'justapor'),
         'L': ('ler', 'liquefazer'),
         'M': (
-                'maisquerer', 'maldispor', 'maldizer', 'malfazer', 'malinguar', 'malparir', 'malquerer', 'manter', 'mediar',
-                'medir', 'mentir', 'minguar', 'mobiliar', 'moer'),
+            'maisquerer', 'maldispor', 'maldizer', 'malfazer', 'malinguar', 'malparir', 'malquerer', 'manter', 'mediar',
+            'medir', 'mentir', 'minguar', 'mobiliar', 'moer'),
         'O': ('obter', 'obvir', 'odiar', 'opor', 'ouvir'),
         'P': ('parir', 'pedir', 'perder', 'perfazer', 'perseguir', 'persentir', 'pleitear', 'poder', 'polir', 'pospor',
               'pôr', 'prazer', 'precluir', 'predispor', 'predizer', 'preferir', 'prepor', 'pressentir', 'pressupor',
@@ -86,3 +113,4 @@ class IrregularVerbs(Enum):
         'T': ('telever', 'ter', 'torrefazer', 'tossir', 'trair', 'transfazer', ' transfugir', 'transgredir', 'transpor',
               'traspor', 'trazer', 'treler', 'tresler', 'trespor', 'tumefazer'),
         'V': ('valer', 'ver', 'vestir', 'vir')}
+
