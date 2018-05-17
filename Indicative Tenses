@@ -9,13 +9,10 @@ def is_string_check(word):
 
 def conjugate_change_last_two_letters(endings, word):
     conjugated_forms = []
-    final_conjugated_forms = dict()
     for ending in endings:
         conjugated_forms.append(word[:-2] + ending)
-        conjugated_verbs_and_persons = zip(enum_verbs_conjugator.GrammaticalPersons.PERSONS.value, conjugated_forms)
-        final_conjugated_forms = dict(conjugated_verbs_and_persons)
+        final_conjugated_forms = dict(zip(enum_verbs_conjugator.GrammaticalPersons.PERSONS.value, conjugated_forms))
     print(final_conjugated_forms)
-
 
 def conjugate_add_endings_to_the_end(word, tense):
     """
@@ -24,32 +21,30 @@ def conjugate_add_endings_to_the_end(word, tense):
     :param tense: Enter two possibilites: 'futuro' or 'condicional' which decides about used endings
     :return:
     """
+    word = word.lower()
 
     if tense == 'futuro':
         if word.endswith(('ar', 'er', 'ir')):
             conjugated_forms = []
-            final_conjugated_forms = dict()
             for ending in enum_verbs_conjugator.TenseEndings.FUTURO_SIMPLES_INDICATIVO_ENDINGS.value:
                 conjugated_forms.append(word + ending)
-                conjugated_verbs_and_persons = zip(enum_verbs_conjugator.GrammaticalPersons.PERSONS.value,
-                                                   conjugated_forms)
-                final_conjugated_forms = dict(conjugated_verbs_and_persons)
+                final_conjugated_forms = dict(zip(enum_verbs_conjugator.GrammaticalPersons.PERSONS.value,
+                                                  conjugated_forms))
             print(final_conjugated_forms)
         else:
-            return 'A palavra não e um verbo | Not a verb'
+            print('A palavra inserida não é infinitivo de um verbo | Not a verb infinitive')
+            return
     elif tense == 'condicional':
         if word.endswith(('ar', 'er', 'ir')):
             conjugated_forms = []
-            final_conjugated_forms = dict()
             for ending in enum_verbs_conjugator.TenseEndings.CONDICIONAL_SIMPLES_ENDIGNS.value:
                 conjugated_forms.append(word + ending)
-                conjugated_verbs_and_persons = zip(enum_verbs_conjugator.GrammaticalPersons.PERSONS.value,
-                                                   conjugated_forms)
-                final_conjugated_forms = dict(conjugated_verbs_and_persons)
+                final_conjugated_forms = dict(zip(enum_verbs_conjugator.GrammaticalPersons.PERSONS.value,
+                                                  conjugated_forms))
             print(final_conjugated_forms)
         else:
-            return 'A palavra não e um verbo | Not a verb'
-
+            print('A palavra inserida não é infinitivo de um verbo | Not a verb infinitive')
+            return
 
 def conjugate_presente_indicativo(word):
     """
@@ -57,9 +52,7 @@ def conjugate_presente_indicativo(word):
     :param word: Verb to be conjugated
     :return: Conjugated verb in form of a dictionary
     """
-
-    if not is_string_check(word):
-        return
+    word = word.lower()
 
     if word.endswith('ar'):
         endings = enum_verbs_conjugator.TenseEndings.INDICATIVO_PRESENTE_ENDINGS_AR.value
@@ -68,10 +61,12 @@ def conjugate_presente_indicativo(word):
     elif word.endswith('ir'):
         endings = enum_verbs_conjugator.TenseEndings.INDICATIVO_PRESENTE_ENDINGS_IR.value
     else:
-        return 'A palavra não e um verbo | Not a verb'
+        print('A palavra inserida não é infinitivo de um verbo | Not a verb infinitive')
+        return
 
     conjugate_change_last_two_letters(endings, word)
 
+conjugate_presente_indicativo('Acha')
 
 def conjugate_preterito_perfeito_indicativo(word):
     """
@@ -79,6 +74,8 @@ def conjugate_preterito_perfeito_indicativo(word):
     :param word: Verb to be conjugated
     :return: Conjugated verb in form of a dictionary
     """
+    word = word.lower()
+
     if word.endswith('ar'):
         endings = enum_verbs_conjugator.TenseEndings.PRETERITO_PERFEITO_INDICATIVO_ENDINGS_AR.value
     elif word.endswith('er'):
@@ -86,7 +83,8 @@ def conjugate_preterito_perfeito_indicativo(word):
     elif word.endswith('ir'):
         endings = enum_verbs_conjugator.TenseEndings.PRETERITO_PERFEITO_INDICATIVO_ENDINGS_IR.value
     else:
-        return 'A palavra não e um verbo | Not a verb'
+        print('A palavra inserida não é infinitivo de um verbo | Not a verb infinitive')
+        return
 
     conjugate_change_last_two_letters(endings, word)
 
@@ -97,13 +95,15 @@ def conjugate_preterito_imperfeito_indicativo(word):
     :param word: Verb to be conjugated
     :return: Conjugated verb in form of a dictionary
     """
+    word = word.lower()
 
     if word.endswith('ar'):
         endings = enum_verbs_conjugator.TenseEndings.PRETERITO_IMPERFEITO_INDICATIVO_ENDINGS_AR.value
     elif word.endswith('er') or word.endswith('ir'):
         endings = enum_verbs_conjugator.TenseEndings.PRETERITO_IMPERFEITO_INDICATIVO_ENDINGS_ER_IR.value
     else:
-        return 'A palavra não e um verbo | Not a verb'
+        print('A palavra inserida não é infinitivo de um verbo | Not a verb infinitive')
+        return
 
     conjugate_change_last_two_letters(endings, word)
 
@@ -114,6 +114,7 @@ def conjugate_futuro_simples_indicativo(word):
     :param word: Verb to be conjugated
     :return: Conjugated verb in form of a dictionary
     """
+    word = word.lower()
 
     if word == 'trazer':
         print(enum_verbs_conjugator.FixedConjugations.FUTURO_SIMPLES_INDICATIVO_TRAZER.value)
@@ -133,7 +134,8 @@ def conjugate_condicional_simples(word):
     :param word: Verb to be conjugated
     :return: Conjugated verb in form of a dictionary
     """
-
+    word = word.lower()
+    
     if word == 'trazer':
         print(enum_verbs_conjugator.FixedConjugations.CONDICIONAL_TRAZER.value)
     elif word == 'dizer':
@@ -142,5 +144,3 @@ def conjugate_condicional_simples(word):
         print(enum_verbs_conjugator.FixedConjugations.CONDICIONAL_FAZER.value)
     else:
         conjugate_add_endings_to_the_end(word, 'condicional')
-
-
