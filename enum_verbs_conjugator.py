@@ -10,6 +10,14 @@ class GrammaticalPersons(Enum):
 
 
 class TenseEndings(Enum):
+    
+    VERBO_AUXILIAR_PRESENTE_INDICATIVO_TER = {'Eu/I': 'tenho', 'Tu/You': 'tens', 'Ele/Ela/você/He/She/It': 'tem',
+                                              'Nós/We': 'temos',
+                                              'Else/Elas/vocês/They': 'têm'}
+
+    VERBO_AUXILIAR_PRESENTE_INDICATIVO_HAVER = {'Eu/I': 'hei', 'Tu/You': 'hás', 'Ele/Ela/você/He/She/It': 'há',
+                                              'Nós/We': 'havemos',
+                                              'Else/Elas/vocês/They': 'hão'}
     # indicativo_presente_endings
 
     INDICATIVO_PRESENTE_ENDINGS_AR = ('o', 'as', 'a', 'amos', 'am')
