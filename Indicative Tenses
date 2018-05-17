@@ -14,6 +14,7 @@ def conjugate_change_last_two_letters(endings, word):
         final_conjugated_forms = dict(zip(enum_verbs_conjugator.GrammaticalPersons.PERSONS.value, conjugated_forms))
     print(final_conjugated_forms)
 
+
 def conjugate_add_endings_to_the_end(word, tense):
     """
     The method conjugate verbs by adding to its root adequate grammatical endings.
@@ -46,6 +47,7 @@ def conjugate_add_endings_to_the_end(word, tense):
             print('A palavra inserida não é infinitivo de um verbo | Not a verb infinitive')
             return
 
+
 def conjugate_presente_indicativo(word):
     """
 
@@ -66,7 +68,6 @@ def conjugate_presente_indicativo(word):
 
     conjugate_change_last_two_letters(endings, word)
 
-conjugate_presente_indicativo('Acha')
 
 def conjugate_preterito_perfeito_indicativo(word):
     """
@@ -135,7 +136,7 @@ def conjugate_condicional_simples(word):
     :return: Conjugated verb in form of a dictionary
     """
     word = word.lower()
-    
+
     if word == 'trazer':
         print(enum_verbs_conjugator.FixedConjugations.CONDICIONAL_TRAZER.value)
     elif word == 'dizer':
