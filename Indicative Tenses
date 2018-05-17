@@ -109,6 +109,27 @@ def conjugate_preterito_imperfeito_indicativo(word):
     conjugate_change_last_two_letters(endings, word)
 
 
+def conjugate_preterito_mais_que_perfeito_indicativo(word):
+    """
+
+    :param word: Verb to be conjugated
+    :return: Conjugated verb in form of a dictionary
+    """
+    word = word.lower()
+
+    if word.endswith('ar'):
+        endings = enum_verbs_conjugator.TenseEndings.PRETERITO_MAIS_QUE_PERFEITO_ENDINGS_AR.value
+    elif word.endswith('er'):
+        endings = enum_verbs_conjugator.TenseEndings.PRETERITO_MAIS_QUE_PERFEITO_ENDINGS_ER.value
+    elif word.endswith('ir'):
+        endings = enum_verbs_conjugator.TenseEndings.PRETERITO_MAIS_QUE_PERFEITO_ENDINGS_IR.value
+    else:
+        print('A palavra inserida não é infinitivo de um verbo | Not a verb infinitive')
+        return
+
+    conjugate_change_last_two_letters(endings, word)
+
+
 def conjugate_futuro_simples_indicativo(word):
     """
 
@@ -145,3 +166,5 @@ def conjugate_condicional_simples(word):
         print(enum_verbs_conjugator.FixedConjugations.CONDICIONAL_FAZER.value)
     else:
         conjugate_add_endings_to_the_end(word, 'condicional')
+
+
