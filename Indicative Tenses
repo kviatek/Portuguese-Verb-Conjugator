@@ -168,3 +168,14 @@ def conjugate_condicional_simples(word):
         conjugate_add_endings_to_the_end(word, 'condicional')
 
 
+if __name__ == '__main__':
+    word = input('Enter averb to be conjugated\n')
+
+    conjugate_presente_indicativo(word)
+    conjugate_preterito_mais_que_perfeito_indicativo(word)
+    conjugate_preterito_perfeito_indicativo(word)
+    conjugate_preterito_imperfeito_indicativo(word)
+    conjugate_condicional_simples(word)
+    conjugate_futuro_simples_indicativo(word)
+
+
