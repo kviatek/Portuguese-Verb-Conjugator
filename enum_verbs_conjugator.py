@@ -10,20 +10,13 @@ class GrammaticalPersons(Enum):
 
 
 class TenseEndings(Enum):
-    
-    VERBO_AUXILIAR_PRESENTE_INDICATIVO_TER = {'Eu/I': 'tenho', 'Tu/You': 'tens', 'Ele/Ela/você/He/She/It': 'tem',
-                                              'Nós/We': 'temos',
-                                              'Else/Elas/vocês/They': 'têm'}
-
-    VERBO_AUXILIAR_PRESENTE_INDICATIVO_HAVER = {'Eu/I': 'hei', 'Tu/You': 'hás', 'Ele/Ela/você/He/She/It': 'há',
-                                              'Nós/We': 'havemos',
-                                              'Else/Elas/vocês/They': 'hão'}
     # indicativo_presente_endings
 
     INDICATIVO_PRESENTE_ENDINGS_AR = ('o', 'as', 'a', 'amos', 'am')
     INDICATIVO_PRESENTE_ENDINGS_ER = ('o', 'es', 'e', 'emos', 'em')
     INDICATIVO_PRESENTE_ENDINGS_IR = ('o', 'es', 'e', 'imos', 'em')
 
+    # PAST TENSES
     # preterito_perfeito_endings
 
     PRETERITO_PERFEITO_INDICATIVO_ENDINGS_AR = ('ei', 'aste', 'ou', 'amos', 'aram')
@@ -35,6 +28,12 @@ class TenseEndings(Enum):
     PRETERITO_IMPERFEITO_INDICATIVO_ENDINGS_AR = ('ava', 'avas', 'ava', 'ávamos', 'avam')
     PRETERITO_IMPERFEITO_INDICATIVO_ENDINGS_ER_IR = ('ia', 'ias', 'ia', 'íamos', 'iam')
 
+    # preterito mais que perfeito_endings
+
+    PRETERITO_MAIS_QUE_PERFEITO_ENDINGS_AR = ('ara', 'aras', 'ara', 'áramos', 'aram')
+    PRETERITO_MAIS_QUE_PERFEITO_ENDINGS_ER = ('era', 'eras', 'era', 'êramos', 'eram')
+    PRETERITO_MAIS_QUE_PERFEITO_ENDINGS_IR = ('ira', 'iras', 'ira', 'íramos', 'iram')
+
     # futuro_simples_indicativo
 
     FUTURO_SIMPLES_INDICATIVO_ENDINGS = ('ei', 'ás', 'á', 'emos', 'ão')
@@ -45,6 +44,15 @@ class TenseEndings(Enum):
 
 
 class FixedConjugations(Enum):
+    # AUXILIAR VERBS
+    VERBO_AUXILIAR_PRESENTE_INDICATIVO_TER = {'Eu/I': 'tenho', 'Tu/You': 'tens', 'Ele/Ela/você/He/She/It': 'tem',
+                                              'Nós/We': 'temos',
+                                              'Else/Elas/vocês/They': 'têm'}
+
+    VERBO_AUXILIAR_PRESENTE_INDICATIVO_HAVER = {'Eu/I': 'hei', 'Tu/You': 'hás', 'Ele/Ela/você/He/She/It': 'há',
+                                              'Nós/We': 'havemos',
+                                              'Else/Elas/vocês/They': 'hão'}
+
     # FIXED CONJUGATIONS FOR CONDICIONAL SIMPLES TENSE
     CONDICIONAL_TRAZER = {'Eu/I': 'traria', 'Tu/You': 'trarias', 'Ele/Ela/você/He/She/It': 'traria',
                           'Nós/We': 'traríamos',
@@ -121,4 +129,3 @@ class IrregularVerbs(Enum):
         'T': ('telever', 'ter', 'torrefazer', 'tossir', 'trair', 'transfazer', ' transfugir', 'transgredir', 'transpor',
               'traspor', 'trazer', 'treler', 'tresler', 'trespor', 'tumefazer'),
         'V': ('valer', 'ver', 'vestir', 'vir')}
-
