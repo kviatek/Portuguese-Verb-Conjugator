@@ -1,10 +1,9 @@
-import enum_verbs_conjugator
+from Conjugator import enum_verbs_conjugator
+import re
 
 
-def is_string_check(word):
-    if not isinstance(word, str):
-        # print('Entrada de dados incorreta | An incorrect input value')
-        return False
+class NotInfinitiveError(ValueError):
+    pass
 
 
 def conjugate_change_last_two_letters(endings, word):
@@ -32,9 +31,6 @@ def conjugate_add_endings_to_the_end(word, tense):
                 final_conjugated_forms = dict(zip(enum_verbs_conjugator.GrammaticalPersons.PERSONS.value,
                                                   conjugated_forms))
             print(final_conjugated_forms)
-        else:
-            print('A palavra inserida não é infinitivo de um verbo | Not a verb infinitive')
-            return
     elif tense == 'condicional':
         if word.endswith(('ar', 'er', 'ir')):
             conjugated_forms = []
@@ -43,9 +39,6 @@ def conjugate_add_endings_to_the_end(word, tense):
                 final_conjugated_forms = dict(zip(enum_verbs_conjugator.GrammaticalPersons.PERSONS.value,
                                                   conjugated_forms))
             print(final_conjugated_forms)
-        else:
-            print('A palavra inserida não é infinitivo de um verbo | Not a verb infinitive')
-            return
 
 
 def conjugate_presente_indicativo(word):
@@ -62,9 +55,6 @@ def conjugate_presente_indicativo(word):
         endings = enum_verbs_conjugator.TenseEndings.INDICATIVO_PRESENTE_ENDINGS_ER.value
     elif word.endswith('ir'):
         endings = enum_verbs_conjugator.TenseEndings.INDICATIVO_PRESENTE_ENDINGS_IR.value
-    else:
-        print('A palavra inserida não é infinitivo de um verbo | Not a verb infinitive')
-        return
 
     conjugate_change_last_two_letters(endings, word)
 
@@ -83,9 +73,6 @@ def conjugate_preterito_perfeito_indicativo(word):
         endings = enum_verbs_conjugator.TenseEndings.PRETERITO_PERFEITO_INDICATIVO_ENDINGS_ER.value
     elif word.endswith('ir'):
         endings = enum_verbs_conjugator.TenseEndings.PRETERITO_PERFEITO_INDICATIVO_ENDINGS_IR.value
-    else:
-        print('A palavra inserida não é infinitivo de um verbo | Not a verb infinitive')
-        return
 
     conjugate_change_last_two_letters(endings, word)
 
@@ -102,9 +89,6 @@ def conjugate_preterito_imperfeito_indicativo(word):
         endings = enum_verbs_conjugator.TenseEndings.PRETERITO_IMPERFEITO_INDICATIVO_ENDINGS_AR.value
     elif word.endswith('er') or word.endswith('ir'):
         endings = enum_verbs_conjugator.TenseEndings.PRETERITO_IMPERFEITO_INDICATIVO_ENDINGS_ER_IR.value
-    else:
-        print('A palavra inserida não é infinitivo de um verbo | Not a verb infinitive')
-        return
 
     conjugate_change_last_two_letters(endings, word)
 
@@ -123,9 +107,6 @@ def conjugate_preterito_mais_que_perfeito_indicativo(word):
         endings = enum_verbs_conjugator.TenseEndings.PRETERITO_MAIS_QUE_PERFEITO_ENDINGS_ER.value
     elif word.endswith('ir'):
         endings = enum_verbs_conjugator.TenseEndings.PRETERITO_MAIS_QUE_PERFEITO_ENDINGS_IR.value
-    else:
-        print('A palavra inserida não é infinitivo de um verbo | Not a verb infinitive')
-        return
 
     conjugate_change_last_two_letters(endings, word)
 
@@ -146,8 +127,6 @@ def conjugate_futuro_simples_indicativo(word):
         print(enum_verbs_conjugator.FixedConjugations.FUTURO_SIMPLES_INDICATIVO_DIZER.value)
     elif word == 'fazer':
         print(enum_verbs_conjugator.FixedConjugations.FUTURO_SIMPLES_INDICATIVO_FAZER.value)
-    else:
-        conjugate_add_endings_to_the_end(word, 'futuro')
 
 
 def conjugate_condicional_simples(word):
@@ -164,18 +143,25 @@ def conjugate_condicional_simples(word):
         print(enum_verbs_conjugator.FixedConjugations.CONDICIONAL_DIZER.value)
     elif word == 'fazer':
         print(enum_verbs_conjugator.FixedConjugations.CONDICIONAL_FAZER.value)
-    else:
-        conjugate_add_endings_to_the_end(word, 'condicional')
 
 
 if __name__ == '__main__':
-    word = input('Enter averb to be conjugated\n')
 
-    conjugate_presente_indicativo(word)
-    conjugate_preterito_mais_que_perfeito_indicativo(word)
-    conjugate_preterito_perfeito_indicativo(word)
-    conjugate_preterito_imperfeito_indicativo(word)
-    conjugate_condicional_simples(word)
-    conjugate_futuro_simples_indicativo(word)
+    try:
+        word = input('Enter a verb to be conjugated\n')
 
+        if not word.isalpha():
+            raise TypeError('A entrada incorreta | An incorrect input')
 
+        if not word.endswith(('ar', 'er', 'ir')):
+            raise NotInfinitiveError('A palavra inserida não é infinitivo | Not an infinitive')
+
+    except NotInfinitiveError as err:
+        print(err)
+
+    # conjugate_presente_indicativo(word)
+    # conjugate_preterito_mais_que_perfeito_indicativo(word)
+    # conjugate_preterito_perfeito_indicativo(word)
+    # conjugate_preterito_imperfeito_indicativo(word)
+    # conjugate_condicional_simples(word)
+    # conjugate_futuro_simples_indicativo(word)
