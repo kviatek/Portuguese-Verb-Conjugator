@@ -1,0 +1,124 @@
+class FixedConjugations(Enum):
+    # AUXILIAR VERBS
+    TER_VERBO_AUXILIAR_PRESENTE_INDICATIVO = {'Eu/I': 'tenho', 'Tu/You': 'tens', 'Ele/Ela/você/He/She/It': 'tem',
+                                              'Nós/We': 'temos', 'Else/Elas/vocês/They': 'têm'}
+
+    HAVER_VERBO_AUXILIAR_PRESENTE_INDICATIVO = {'Eu/I': 'hei', 'Tu/You': 'hás', 'Ele/Ela/você/He/She/It': 'há',
+                                                'Nós/We': 'havemos','Else/Elas/vocês/They': 'hão'}
+
+    DAR_PRESENTE_INDICATIVO = {'Eu/I': 'dou', 'Tu/You': 'dás', 'Ele/Ela/você/He/She/It': 'dá',
+                               'Nós/We': 'damos', 'Else/Elas/vocês/They': 'dão'}
+
+    DIZER_PRESENTE_INDICATIVO = {'Eu/I': 'digo', 'Tu/You': 'dizes', 'Ele/Ela/você/He/She/It': 'diz',
+                                'Nós/We': 'dizemos', 'Else/Elas/vocês/They': 'dizem'}
+
+
+    TRAZER_PRESENTE_INDICATIVO = {'Eu/I': 'digo', 'Tu/You': 'dizes', 'Ele/Ela/você/He/She/It': 'diz',
+                                'Nós/We': 'dizemos', 'Else/Elas/vocês/They': 'dizem'}
+
+
+    # FIXED CONJUGATIONS FOR CONDICIONAL SIMPLES TENSE
+    CONDICIONAL_TRAZER = {'Eu/I': 'traria', 'Tu/You': 'trarias', 'Ele/Ela/você/He/She/It': 'traria',
+                          'Nós/We': 'traríamos',
+                          'Else/Elas/vocês/They': 'trariam'}
+
+    CONDICIONAL_DIZER = {'Eu/I': 'diria', 'Tu/You': 'dirias', 'Ele/Ela/você/He/She/It': 'diria', 'Nós/We': 'diríamos',
+                         'Else/Elas/vocês/They': 'diriam'}
+
+    CONDICIONAL_FAZER = {'Eu/I': 'faria', 'Tu/You': 'farias', 'Ele/Ela/você/He/She/It': 'faria', 'Nós/We': 'faríamos',
+                         'Else/Elas/vocês/They': 'fariam'}
+
+    # FIXED CONJUGATIONS FOR FUTURO SIMPLES INDICATIVO TENSE
+
+    FUTURO_SIMPLES_INDICATIVO_DIZER = {'Eu/I': 'direi', 'Tu/You': 'dirás', 'Ele/Ela/você/He/She/It': 'dirá',
+                                       'Nós/We': 'diremos',
+                                       'Else/Elas/vocês/They': 'dirão'}
+
+    FUTURO_SIMPLES_INDICATIVO_FAZER = {'Eu/I': 'farei', 'Tu/You': 'farás', 'Ele/Ela/você/He/She/It': 'fará',
+                                       'Nós/We': 'faremos',
+                                       'Else/Elas/vocês/They': 'farão'}
+
+    FUTURO_SIMPLES_INDICATIVO_SER = {'Eu/I': 'for', 'Tu/You': 'fores', 'Ele/Ela/você/He/She/It': 'for',
+                                     'Nós/We': 'formos',
+                                     'Else/Elas/vocês/They': 'forem'}
+
+    FUTURO_SIMPLES_INDICATIVO_TRAZER = {'Eu/I': 'trarei', 'Tu/You': 'trarás', 'Ele/Ela/você/He/She/It': 'trará',
+                                        'Nós/We': 'traremos',
+                                        'Else/Elas/vocês/They': 'trarão'}
+
+
+irregular_verbs_without_pattern = {
+    'A': ['acudir', 'adequar', 'aderir', 'adjazer', 'advertir', 'aferir', 'agredir', 'ansiar', 'antever', 'aprazer',
+          'apropinquar', 'aspergir', 'assentir', 'atrair', 'atribuir', 'autodestruir'],
+    'B': ['benquerer', 'buir', 'bulir'],
+    'C': ['cair', 'cerzir', 'circunver', 'compelir', 'competir', 'comprazer', 'concernir', 'concluir', 'condoer',
+          'conferir', 'confugir', 'conseguir', 'consentir', 'construir', 'consumir', 'contrair', 'contrapropor',
+          'convergir', 'cuspir'],
+    'D': ['dar', 'deferir', 'delinquir', 'denegrir', 'desaguar', 'desaprazer', 'descomprazer', 'desconstruir',
+          'deslinguar', 'desmentir', 'desmobiliar', 'despir', 'desprazer', 'desprecaver', 'desprover', 'destruir',
+          'desver', 'digerir', 'disperder', 'distrair', 'divertir', 'doer', 'dormir'],
+    'E': ['embair', 'emergir', 'engolir', 'entrever', 'entrevir', 'entupir', 'enxaguar', 'escapulir', 'estar',
+          'estrear', 'esvair', 'expelir', 'extrapor'], 'F': ['fazer', 'ferir', 'fraguar', 'frigir', 'fugir'],
+    'G': ['gelifazer'], 'H': ['haver'],
+    'I': ['idear', 'imergir', 'impelir', 'incendiar', 'incluir', 'influir', 'inserir', 'intermediar', 'interver'],
+    'J': ['jazer'], 'L': ['ler'], 'M': ['malinguar', 'malparir', 'mediar', 'mentir', 'minguar', 'mobiliar', 'moer'],
+    'O': ['odiar', 'ouvir'],
+    'P': ['parir', 'perder', 'perseguir', 'persentir', 'pleitear', 'poder', 'pôr', 'prazer', 'precluir', 'preferir',
+          'pressentir', 'preterir', 'prevenir', 'prever', 'progredir', 'prossupor', 'prover', 'pruir', 'puir'],
+    'Q': ['querer'],
+    'R': ['raer', 'readequar', 'reaver', 'reavir', 'regredir', 'reindispor', 'remediar', 'repelir', 'repropor',
+          'resfolegar', 'ressentir', 'retrair', 'rever', 'rir', 'ruir'],
+    'S': ['saber', 'sacudir', 'sair', 'santiguar', 'seguir', 'sentir', 'ser', 'servir', 'sobre-expor', 'sobrepor',
+          'sobrestar', 'soer', 'sorrir', 'sortear', 'sortir', 'subir', 'submergir', 'subtrair', 'sugerir', 'sumir',
+          'superimpor', 'supor'],
+    'T': ['telever', 'ter', 'tossir', 'trair', ' transfugir', 'transgredir', 'traspor', 'trazer', 'tresler'],
+    'V': ['valer', 'ver', 'vestir', 'vir']}
+
+por_verbs = (
+    'antepor', 'apor', 'circumpor', 'compor', 'contrapor', 'contrapropor', 'decompor', 'depor', 'desapor', 'descompor',
+    'desimpor', 'despor', 'dispor', 'entrepor', 'expor', 'extrapor', 'fotocompor', 'impor', 'indispor', 'interpor',
+    'justapor', 'maldispor', 'opor', 'pospor', 'predispor', 'prepor', 'pressupor', 'propor', 'prossupor', 'recompor',
+    'redispor', 'reexpor', 'reimpor', 'reindispor', 'repor', 'repropor', 'retranspor', 'sobpor', 'sobre-expor',
+    'sobreexpor', 'sobrepor', 'sotopor', 'subpor', 'superexpor', 'superimpor', 'superpor', 'supor', 'transpor',
+    'traspor',
+    'trespor')
+
+ter_verbs = (
+    'abster', 'ater', 'conter', 'deter', 'manter',
+    'obter', 'reobter', 'reter', 'suster')
+
+vir_verbs = ('advir', 'avir', 'contravir', 'convir', 'desavir', 'desconvir', 'devir', 'ENTREVIR', 'intervir', 'obvir',
+             'provir', 'REAVIR', 'reconvir', 'revir', 'sobrevir')
+
+fazer_verbs = (
+    'afazer', 'bem-fazer', 'benfazer', 'contrafazer', 'desafazer', 'entrefazer', 'esfazer', 'insatisfazer',
+    'liquefazer', 'malfazer', 'perfazer', 'putrefazer', 'rarefazer', 'refazer', 'satisfazer', 'torrefazer',
+    'transfazer',
+    'tumefazer')
+
+ouvir_verbs = ('entreouvir', 'reouvir')
+
+dar_verbs = ('antedar', 'desdar', 'redar')
+
+caber_verbs = ('descaber')
+
+crer_verbs = ('descrer')
+
+valer_verbs = ('desvaler', 'equivaler')
+
+ler_verbs = ('reler', 'treler', 'tresler')
+
+querer_verbs = ('bem-querer', 'benquerer', 'desquerer', 'entrequerer', 'maisquerer', 'malquerer', 'requerer')
+
+saber_verbs = ('ressaber', 'dessaber')
+
+cobrir_verbs = ('cobrir', 'descobrir', 'encobrir', 'recobrir')
+
+medir_verbs = ('desmedir', 'medir', 'remedir')
+
+pedir_verbs = ('desimpedir', 'despedir', 'expedir', 'impedir', 'pedir', 'reexpedir', 'repedir')
+
+polir_verbs = ('despolir')
+
+dizer_verbs = ('bem-dizer', 'bendizer', 'condizer', 'contradizer', 'desdizer', 'dizer', 'entredizer', 'interdizer',
+               'maldizer', 'predizer', 'redizer')
