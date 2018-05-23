@@ -1,3 +1,6 @@
+from enum import Enum
+
+
 class FixedConjugations(Enum):
     # AUXILIAR VERBS
     TER_VERBO_AUXILIAR_PRESENTE_INDICATIVO = {'Eu/I': 'tenho', 'Tu/You': 'tens', 'Ele/Ela/você/He/She/It': 'tem',
