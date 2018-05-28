@@ -1,9 +1,15 @@
-from Conjugator import enum_verbs_conjugator
 import re
+from conjugator import enum_verbs_conjugator
 
 
 class NotInfinitiveError(ValueError):
     pass
+
+
+def conjugate_ar_ended_verb(word):
+    endings = enum_verbs_conjugator.TenseEndings.INDICATIVO_PRESENTE_ENDINGS_AR.value
+    conjugate_change_last_two_letters(endings, word)
+
 
 
 def conjugate_change_last_two_letters(endings, word):
@@ -135,7 +141,7 @@ def conjugate_condicional_simples(word):
     :param word: Verb to be conjugated
     :return: Conjugated verb in form of a dictionary
     """
-    word = word.lower()
+
 
     if word == 'trazer':
         print(enum_verbs_conjugator.FixedConjugations.CONDICIONAL_TRAZER.value)
@@ -148,7 +154,7 @@ def conjugate_condicional_simples(word):
 if __name__ == '__main__':
 
     try:
-        word = input('Enter a verb to be conjugated\n')
+        word = input('Enter a verb to be conjugated\n').lower()
 
         if not word.isalpha():
             raise TypeError('A entrada incorreta | An incorrect input')
@@ -156,8 +162,12 @@ if __name__ == '__main__':
         if not word.endswith(('ar', 'er', 'ir')):
             raise NotInfinitiveError('A palavra inserida não é infinitivo | Not an infinitive')
 
-    except NotInfinitiveError as err:
-        print(err)
+    except NotInfinitiveError as nie:
+        print(nie)
+    except TypeError as t_err:
+        print(t_err)
+
+    print(word)
 
     # conjugate_presente_indicativo(word)
     # conjugate_preterito_mais_que_perfeito_indicativo(word)
