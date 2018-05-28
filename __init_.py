@@ -6,20 +6,6 @@ class NotInfinitiveError(ValueError):
     pass
 
 
-def conjugate_ar_ended_verb(word):
-    endings = enum_verbs_conjugator.TenseEndings.INDICATIVO_PRESENTE_ENDINGS_AR.value
-    conjugate_change_last_two_letters(endings, word)
-
-
-
-def conjugate_change_last_two_letters(endings, word):
-    conjugated_forms = []
-    for ending in endings:
-        conjugated_forms.append(word[:-2] + ending)
-        final_conjugated_forms = dict(zip(enum_verbs_conjugator.GrammaticalPersons.PERSONS.value, conjugated_forms))
-    print(final_conjugated_forms)
-
-
 def conjugate_add_endings_to_the_end(word, tense):
     """
     The method conjugate verbs by adding to its root adequate grammatical endings.
@@ -45,6 +31,32 @@ def conjugate_add_endings_to_the_end(word, tense):
                 final_conjugated_forms = dict(zip(enum_verbs_conjugator.GrammaticalPersons.PERSONS.value,
                                                   conjugated_forms))
             print(final_conjugated_forms)
+
+
+def conjugate_change_last_two_letters(word, endings):  # DOKOŃCZ JUŻ MASZ DLA INDICATIVO, BRAKUJE OSÓB DLA POZOSTAŁYCH CZASÓW
+    conjugated_forms = []
+    for tens, terminations in endings.items():
+        for e in terminations:
+            conjugated_forms.append(word[:-2] + e)
+            final_conjugated_forms = dict(zip(enum_verbs_conjugator.GrammaticalPersons.PERSONS.value, conjugated_forms))
+    print(final_conjugated_forms)
+
+
+# achar
+
+def conjugate_ar_ended_verb(word):
+    endings = enum_verbs_conjugator.TenseEndings.AR_ENDINGS.value
+    # endings2 = enum_verbs_conjugator.TenseEndings.CONDICIONAL_AND_FUTURO_ENDINGS_COMMON_FOR_EVERY_ENDING.value
+    conjugate_change_last_two_letters(word, endings)
+    # conjugate_add_endings_to_the_end(word, endings2)
+
+
+def conjugate_er_ended_verb(word):
+    endings = enum_verbs_conjugator.TenseEndings.ENDINGS_ER.value
+
+
+def conjugate_ir_ended_verb(word):
+    endings = enum_verbs_conjugator.TenseEndings.ENDINGS_IR.value
 
 
 def conjugate_presente_indicativo(word):
@@ -142,7 +154,6 @@ def conjugate_condicional_simples(word):
     :return: Conjugated verb in form of a dictionary
     """
 
-
     if word == 'trazer':
         print(enum_verbs_conjugator.FixedConjugations.CONDICIONAL_TRAZER.value)
     elif word == 'dizer':
@@ -167,7 +178,7 @@ if __name__ == '__main__':
     except TypeError as t_err:
         print(t_err)
 
-    print(word)
+    conjugate_ar_ended_verb(word)
 
     # conjugate_presente_indicativo(word)
     # conjugate_preterito_mais_que_perfeito_indicativo(word)
