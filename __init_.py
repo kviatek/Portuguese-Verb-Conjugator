@@ -33,12 +33,18 @@ def conjugate_add_endings_to_the_end(word, tense):
             print(final_conjugated_forms)
 
 
-def conjugate_change_last_two_letters(word, endings):  # DOKOŃCZ JUŻ MASZ DLA INDICATIVO, BRAKUJE OSÓB DLA POZOSTAŁYCH CZASÓW
-    conjugated_forms = []
+def conjugate_change_last_two_letters(word, endings):
+    
+    '''
+    DOKOŃCZ JUŻ MASZ DLA INDICATIVO, BRAKUJE OSÓB DLA POZOSTAŁYCH CZASÓW, KLUCZE SIE POWTAZRAJA, dla teog nie wychodzi wszystko
+    '''
+   
+    conjugated_forms = [] 
     for tens, terminations in endings.items():
         for e in terminations:
             conjugated_forms.append(word[:-2] + e)
-            final_conjugated_forms = dict(zip(enum_verbs_conjugator.GrammaticalPersons.PERSONS.value, conjugated_forms))
+            list_of_conjugated_verbs = [conjugated_forms[i:i + 4] for i in range(0, len(conjugated_forms), 4)] # ODMIENIONE CZASOWNIKI, PODZIELONE NA GRUPY, N
+#           final_conjugated_forms = dict(zip(enum_verbs_conjugator.GrammaticalPersons.PERSONS.value, conjugated_forms))
     print(final_conjugated_forms)
 
 
