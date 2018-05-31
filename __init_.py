@@ -7,70 +7,61 @@ class NotInfinitiveError(ValueError):
     pass
 
 
-def conjugate_add_endings_to_the_end(word, tense):
+def conjugate_add_endings_to_the_end(word):
     """
     The method conjugate verbs by adding to its root adequate grammatical endings.
     :param word: Verb to conjugated
-    :param tense: Enter two possibilites: 'futuro' or 'condicional' which decides about used endings
     :return:
     """
-    word = word.lower()
+    tenses_number = 2
+    conjugated_forms = []
 
-    if tense == 'futuro':
-        if word.endswith(('ar', 'er', 'ir')):
-            conjugated_forms = []
-            for ending in enum_verbs_conjugator.TenseEndings.FUTURO_SIMPLES_INDICATIVO_ENDINGS.value:
-                conjugated_forms.append(word + ending)
-                final_conjugated_forms = dict(zip(enum_verbs_conjugator.GrammaticalPersons.PERSONS.value,
-                                                  conjugated_forms))
-            print(final_conjugated_forms)
-    elif tense == 'condicional':
-        if word.endswith(('ar', 'er', 'ir')):
-            conjugated_forms = []
-            for ending in enum_verbs_conjugator.TenseEndings.CONDICIONAL_SIMPLES_ENDIGNS.value:
-                conjugated_forms.append(word + ending)
-                final_conjugated_forms = dict(zip(enum_verbs_conjugator.GrammaticalPersons.PERSONS.value,
-                                                  conjugated_forms))
-            print(final_conjugated_forms)
+    for ending in enum_verbs_conjugator.TenseEndings.CONDICIONAL_AND_FUTURO_ENDINGS_COMMON_FOR_EVERY_ENDING.value:
+        for e in ending:
+            conjugated_forms.append(word + e)
+
+    final_conjugated_forms = list(
+        zip(enum_verbs_conjugator.GrammaticalPersons.PERSONS.value * tenses_number, conjugated_forms))
+
+    for e in final_conjugated_forms:
+        print(e)
 
 
 def conjugate_change_last_two_letters(word, endings):
     """
-
     :param word:
     :param endings:
     :return:
     """
-    tenses_number = 5
-    combined_persons_with_conjugated_forms = []
+    tenses_number = 6
     conjugated_forms = []
     for tens, terminations in enumerate(endings):
         for e in terminations:
             conjugated_forms.append(word[:-2] + e)
-            lists_of_conjugated_verbs = [conjugated_forms[i:i + tenses_number] for i in
-                                         range(0, len(conjugated_forms), tenses_number)]
 
-    for e in lists_of_conjugated_verbs:
-        combined_persons_with_conjugated_forms.append(
-            list(zip(enum_verbs_conjugator.GrammaticalPersons.PERSONS.value, e)))
+    final_conjugated_forms = list(
+        zip(enum_verbs_conjugator.GrammaticalPersons.PERSONS.value * tenses_number, conjugated_forms))
 
-    for tense in combined_persons_with_conjugated_forms:
-        print(tense)
+    for e in final_conjugated_forms:
+        print(e)
 
 
 def conjugate_ar_ended_verb(word):
     endings = enum_verbs_conjugator.TenseEndings.AR_ENDINGS.value
     conjugate_change_last_two_letters(word, endings)
+    conjugate_add_endings_to_the_end(word)
 
 
 def conjugate_er_ended_verb(word):
     endings = enum_verbs_conjugator.TenseEndings.ENDINGS_ER.value
     conjugate_change_last_two_letters(word, endings)
+    conjugate_add_endings_to_the_end(word)
 
 
 def conjugate_ir_ended_verb(word):
     endings = enum_verbs_conjugator.TenseEndings.ENDINGS_IR.value
     conjugate_change_last_two_letters(word, endings)
+    conjugate_add_endings_to_the_end(word)
 
 
 if __name__ == '__main__':
@@ -89,5 +80,5 @@ if __name__ == '__main__':
     except TypeError as t_err:
         print(t_err)
 
-    conjugate_ar_ended_verb(word)
+    conjugate_ar_ended_verb('encontrar')
 
