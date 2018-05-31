@@ -1,5 +1,7 @@
 import re
-from conjugator import enum_verbs_conjugator
+from pt_conjugator import enum_verbs_conjugator
+from pt_conjugator import irregular_verbs_patterns
+from pt_conjugator.enum_verbs_conjugator import TenseEndings
 
 
 class NotInfinitiveError(ValueError):
@@ -34,27 +36,33 @@ def conjugate_add_endings_to_the_end(word, tense):
 
 
 def conjugate_change_last_two_letters(word, endings):
-    
-    '''
-    DOKOŃCZ JUŻ MASZ DLA INDICATIVO, BRAKUJE OSÓB DLA POZOSTAŁYCH CZASÓW, KLUCZE SIE POWTAZRAJA, dla teog nie wychodzi wszystko
-    '''
-   
-    conjugated_forms = [] 
-    for tens, terminations in endings.items():
+    """
+
+    :param word:
+    :param endings:
+    :return:
+    """
+    tenses_number = 5
+    combined_persons_with_conjugated_forms = []
+    conjugated_forms = []
+    for tens, terminations in enumerate(endings):
         for e in terminations:
             conjugated_forms.append(word[:-2] + e)
-            list_of_conjugated_verbs = [conjugated_forms[i:i + 4] for i in range(0, len(conjugated_forms), 4)] # ODMIENIONE CZASOWNIKI, PODZIELONE NA GRUPY, N
-#           final_conjugated_forms = dict(zip(enum_verbs_conjugator.GrammaticalPersons.PERSONS.value, conjugated_forms))
-    print(final_conjugated_forms)
+            lists_of_conjugated_verbs = [conjugated_forms[i:i + tenses_number] for i in
+                                         range(0, len(conjugated_forms), tenses_number)]
+
+    for e in lists_of_conjugated_verbs:
+        combined_persons_with_conjugated_forms.append(
+            list(zip(enum_verbs_conjugator.GrammaticalPersons.PERSONS.value, e)))
+
+    for tense in combined_persons_with_conjugated_forms:
+        print(tense)
 
 
-# achar
 
 def conjugate_ar_ended_verb(word):
     endings = enum_verbs_conjugator.TenseEndings.AR_ENDINGS.value
-    # endings2 = enum_verbs_conjugator.TenseEndings.CONDICIONAL_AND_FUTURO_ENDINGS_COMMON_FOR_EVERY_ENDING.value
     conjugate_change_last_two_letters(word, endings)
-    # conjugate_add_endings_to_the_end(word, endings2)
 
 
 def conjugate_er_ended_verb(word):
@@ -171,8 +179,8 @@ def conjugate_condicional_simples(word):
 if __name__ == '__main__':
 
     try:
-        word = input('Enter a verb to be conjugated\n').lower()
-
+        # word = input('Enter a verb to be conjugated\n').lower()
+        word = 'encontrar'
         if not word.isalpha():
             raise TypeError('A entrada incorreta | An incorrect input')
 
@@ -186,6 +194,7 @@ if __name__ == '__main__':
 
     conjugate_ar_ended_verb(word)
 
+    # print(enum_verbs_conjugator.TenseEndings.AR_ENDINGS.value)
     # conjugate_presente_indicativo(word)
     # conjugate_preterito_mais_que_perfeito_indicativo(word)
     # conjugate_preterito_perfeito_indicativo(word)
