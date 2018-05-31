@@ -47,7 +47,7 @@ def conjugate_change_last_two_letters(word, endings):
 
 
 def conjugate_ar_ended_verb(word):
-    endings = enum_verbs_conjugator.TenseEndings.AR_ENDINGS.value
+    endings = enum_verbs_conjugator.TenseEndings.ENDINGS_AR.value
     conjugate_change_last_two_letters(word, endings)
     conjugate_add_endings_to_the_end(word)
 
