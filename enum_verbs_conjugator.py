@@ -9,7 +9,7 @@ class GrammaticalPersons(Enum):
 
 class TenseEndings(Enum):
 
-    AR_ENDINGS = [['o', 'as', 'a', 'amos', 'am'],
+    ENDINGS_AR = [['o', 'as', 'a', 'amos', 'am'],
                   ['ei', 'aste', 'ou', 'amos', 'aram'],
                   ['ava', 'avas', 'ava', 'ávamos', 'avam'],
                   ['ara', 'aras', 'ara', 'áramos', 'aram'],
