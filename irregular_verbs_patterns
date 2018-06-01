@@ -3,22 +3,20 @@ from enum import Enum
 
 class FixedConjugations(Enum):
     # AUXILIAR VERBS
-    TER_VERBO_AUXILIAR_PRESENTE_INDICATIVO = [['tenho', 'tens', 'tem', 'temos', 'têm'],
-                                              ['tive', 'tiveste', 'tive', 'tivemos', 'tiveram'],
-                                              ['tinha', 'tinhas', 'tinha', 'tínhamos', 'tinham'],
-                                              ['tinha', 'tinhas', 'tinha', 'tínhamos', 'tinham'],
-                                              ['tivera', 'tiveras', 'tivera', 'nóstivéramos', 'tiveram'],
-                                              ['terei', 'terás', 'terá', 'teremos', 'terão'],
-                                              ['teria', 'terias', 'teria', 'teríamos', 'teriam'],
-                                              ['tenha', 'tenhas', 'tenha', 'tenhamos', 'tenham'],
-                                              ['tivesse', 'tivesses', 'tivesse', 'tivéssemos', 'tivessem'],
-                                              ['tiver', 'tiveres', 'tiver', 'tivermos', 'tiverem'],
-                                              ['tem', 'tenha', 'tenhamos', 'tenham'],
-                                              ['não tenhas', 'não tenha', 'não tenhamos', 'não tenham']]
+    TER_VERBO_AUXILIAR = [['tenho', 'tens', 'tem', 'temos', 'têm'],
+                          ['tive', 'tiveste', 'tive', 'tivemos', 'tiveram'],
+                          ['tinha', 'tinhas', 'tinha', 'tínhamos', 'tinham'],
+                          ['tinha', 'tinhas', 'tinha', 'tínhamos', 'tinham'],
+                          ['tivera', 'tiveras', 'tivera', 'nóstivéramos', 'tiveram'],
+                          ['terei', 'terás', 'terá', 'teremos', 'terão'],
+                          ['teria', 'terias', 'teria', 'teríamos', 'teriam'],
+                          ['tenha', 'tenhas', 'tenha', 'tenhamos', 'tenham'],
+                          ['tivesse', 'tivesses', 'tivesse', 'tivéssemos', 'tivessem'],
+                          ['tiver', 'tiveres', 'tiver', 'tivermos', 'tiverem'],
+                          ['tem', 'tenha', 'tenhamos', 'tenham'],
+                          ['não tenhas', 'não tenha', 'não tenhamos', 'não tenham']]
 
-    HAVER_VERBO_AUXILIAR_PRESENTE_INDICATIVO = ['hei', 'hás', 'há',
-                                                'havemos', 'hão']
-
+    HAVER_VERBO_AUXILIAR = ['hei', 'hás', 'há', 'havemos', 'hão']
 
     DAR_PRESENTE_INDICATIVO = ['dou', 'dás', 'dá', 'damos', 'dão']
 
