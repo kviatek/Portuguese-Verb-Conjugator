@@ -7,20 +7,35 @@ class NotInfinitiveError(ValueError):
     pass
 
 
-def make_past_participle(word):
-    """
-    Method returns past participle form a verb
-    :param word: verb whose past participle form need to be created
-    :return: past participle form of a verb
-    """
-    if word.endswith('ar'):
-        return word[:-2] + 'ado'
-    elif word.endswith('er') or word.endswith('ir'):
-        return word[:-2] + 'ido'
+def print_final_conjugated_forms(final_conjugated_forms):
+    for e in final_conjugated_forms:
+        print(e)
 
 
-def pretérito_perfeito_composto(word):
-    pass
+def conjugate_compound_tenses(word):
+    """
+
+    :param word:
+    :return:
+    """
+
+    def make_past_participle(word):
+        """
+        Method returns past participle form a verb
+        :param word: verb whose past participle form need to be created
+        :return: past participle form of a verb
+        """
+        return word[:-2] + 'ado' if word.endswith('ar') else word[:-2] + 'ido'
+
+    final_conjugated_forms = []
+    past_participle = make_past_participle(word)
+    for index, auxiliary_verb in enumerate(irregular_verbs_patterns.FixedConjugations.TER_VERBO_AUXILIAR.value):
+        if index != 1 and index != 3 and index != 9 and index != 10:
+            for e in auxiliary_verb:
+                final_conjugated_forms.append(e + ' ' + past_participle)
+
+    print_final_conjugated_forms(final_conjugated_forms)
+
 
 
 def conjugate_add_endings_to_the_end(word):
@@ -39,8 +54,7 @@ def conjugate_add_endings_to_the_end(word):
     final_conjugated_forms = list(
         zip(enum_verbs_conjugator.GrammaticalPersons.PERSONS.value * tenses_number, conjugated_forms))
 
-    for e in final_conjugated_forms:
-        print(e)
+    print_final_conjugated_forms(final_conjugated_forms)
 
 
 def conjugate_change_last_two_letters(word, endings):
@@ -76,6 +90,7 @@ def conjugate_verb(word):  # main method
         endings = enum_verbs_conjugator.TenseEndings.ENDINGS_IR.value
 
     conjugate_change_last_two_letters(word, endings)
+    conjugate_compound_tenses(word)
     conjugate_add_endings_to_the_end(word)
 
 
