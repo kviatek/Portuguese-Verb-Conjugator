@@ -88,8 +88,7 @@ def conjugate_verb(word):  # main method
         :param word:
         :return: gerundium of a verb
         """
-        gerundium = word[:-1] + 'ndo'
-        return gerundium
+        return word[:-1] + 'ndo'
 
     if word.endswith('ar'):
         endings = enum_verbs_conjugator.TenseEndings.ENDINGS_AR.value
@@ -97,7 +96,6 @@ def conjugate_verb(word):  # main method
         endings = enum_verbs_conjugator.TenseEndings.ENDINGS_ER.value
     elif word.endswith('ir'):
         endings = enum_verbs_conjugator.TenseEndings.ENDINGS_IR.value
-
 
     conjugate_change_last_two_letters(word, endings)
     conjugate_compound_tenses(word)
@@ -121,4 +119,4 @@ if __name__ == '__main__':
     except TypeError as t_err:
         print(t_err)
 
-    conjugate_verb(word)
+    
