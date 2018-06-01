@@ -7,11 +7,27 @@ class NotInfinitiveError(ValueError):
     pass
 
 
+def make_past_participle(word):
+    """
+    Method returns past participle form a verb
+    :param word: verb whose past participle form need to be created
+    :return: past participle form of a verb
+    """
+    if word.endswith('ar'):
+        return word[:-2] + 'ado'
+    elif word.endswith('er') or word.endswith('ir'):
+        return word[:-2] + 'ido'
+
+
+def pretérito_perfeito_composto(word):
+    pass
+
+
 def conjugate_add_endings_to_the_end(word):
     """
     The method conjugate verbs by adding to its root adequate grammatical endings.
-    :param word: Verb to conjugated
-    :return:
+    :param word: Verb to be conjugated
+    :return: list of conjugated forms of all grammatical tenses
     """
     tenses_number = 2
     conjugated_forms = []
@@ -46,20 +62,19 @@ def conjugate_change_last_two_letters(word, endings):
         print(e)
 
 
-def conjugate_ar_ended_verb(word):
-    endings = enum_verbs_conjugator.TenseEndings.ENDINGS_AR.value
-    conjugate_change_last_two_letters(word, endings)
-    conjugate_add_endings_to_the_end(word)
+def conjugate_verb(word):
+    """
 
+    :param word:
+    :return:
+    """
+    if word.endswith('ar'):
+        endings = enum_verbs_conjugator.TenseEndings.ENDINGS_AR.value
+    elif word.endswith('er'):
+        endings = enum_verbs_conjugator.TenseEndings.ENDINGS_ER.value
+    elif word.endswith('ir'):
+        endings = enum_verbs_conjugator.TenseEndings.ENDINGS_IR.value
 
-def conjugate_er_ended_verb(word):
-    endings = enum_verbs_conjugator.TenseEndings.ENDINGS_ER.value
-    conjugate_change_last_two_letters(word, endings)
-    conjugate_add_endings_to_the_end(word)
-
-
-def conjugate_ir_ended_verb(word):
-    endings = enum_verbs_conjugator.TenseEndings.ENDINGS_IR.value
     conjugate_change_last_two_letters(word, endings)
     conjugate_add_endings_to_the_end(word)
 
@@ -80,5 +95,4 @@ if __name__ == '__main__':
     except TypeError as t_err:
         print(t_err)
 
-    conjugate_ar_ended_verb('encontrar')
-
+    conjugate_verb(word)
