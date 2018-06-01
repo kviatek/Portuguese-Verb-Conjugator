@@ -62,7 +62,7 @@ def conjugate_change_last_two_letters(word, endings):
         print(e)
 
 
-def conjugate_verb(word):
+def conjugate_verb(word):  # main method
     """
 
     :param word:
