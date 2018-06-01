@@ -1,28 +1,32 @@
 from enum import Enum
+from importlib._bootstrap_external import _check_name
 
 
 class FixedConjugations(Enum):
     # AUXILIAR VERBS
-    TER_VERBO_AUXILIAR = [['tenho', 'tens', 'tem', 'temos', 'têm'],
+    TER_AUXILIARY_VERB = [['tenho', 'tens', 'tem', 'temos', 'têm'],
                           ['tive', 'tiveste', 'tive', 'tivemos', 'tiveram'],
-                          ['tinha', 'tinhas', 'tinha', 'tínhamos', 'tinham'],
+                          # index 1 has not to be included in conjugate_compound_tenses()
                           ['tinha', 'tinhas', 'tinha', 'tínhamos', 'tinham'],
                           ['tivera', 'tiveras', 'tivera', 'nóstivéramos', 'tiveram'],
+                          # index 3 has not to be included in conjugate_compound_tenses()
                           ['terei', 'terás', 'terá', 'teremos', 'terão'],
                           ['teria', 'terias', 'teria', 'teríamos', 'teriam'],
                           ['tenha', 'tenhas', 'tenha', 'tenhamos', 'tenham'],
                           ['tivesse', 'tivesses', 'tivesse', 'tivéssemos', 'tivessem'],
                           ['tiver', 'tiveres', 'tiver', 'tivermos', 'tiverem'],
                           ['tem', 'tenha', 'tenhamos', 'tenham'],
-                          ['não tenhas', 'não tenha', 'não tenhamos', 'não tenham']]
+                          # index 9 has not to be included in conjugate_compound_tenses()
+                          ['não tenhas', 'não tenha', 'não tenhamos',
+                           'não tenham']]  # index 10 has not to be included in conjugate_compound_tenses()
 
-    HAVER_VERBO_AUXILIAR = ['hei', 'hás', 'há', 'havemos', 'hão']
+    HAVER_AUXILIARY_VERB = ['hei', 'hás', 'há', 'havemos', 'hão']
 
-    DAR_PRESENTE_INDICATIVO = ['dou', 'dás', 'dá', 'damos', 'dão']
+    DAR = ['dou', 'dás', 'dá', 'damos', 'dão']
 
-    DIZER_PRESENTE_INDICATIVO = ['digo', 'dizes', 'diz', 'dizemos', 'dizem']
+    DIZER = ['digo', 'dizes', 'diz', 'dizemos', 'dizem']
 
-    TRAZER_PRESENTE_INDICATIVO = ['digo', 'dizes', 'diz', 'dizemos', 'dizem']
+    TRAZER = ['digo', 'dizes', 'diz', 'dizemos', 'dizem']
 
     # FIXED CONJUGATIONS FOR CONDICIONAL SIMPLES TENSE
     CONDICIONAL_TRAZER = ['traria', 'trarias', 'traria', 'traríamos', 'trariam']
@@ -119,3 +123,7 @@ class FixedConjugations(Enum):
 
     dizer_verbs = ('bem-dizer', 'bendizer', 'condizer', 'contradizer', 'desdizer', 'dizer', 'entredizer', 'interdizer',
                    'maldizer', 'predizer', 'redizer')
+
+
+if __name__ == '__main__':
+    pass
