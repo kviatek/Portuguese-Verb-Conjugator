@@ -37,7 +37,6 @@ def conjugate_compound_tenses(word):
     print_final_conjugated_forms(final_conjugated_forms)
 
 
-
 def conjugate_add_endings_to_the_end(word):
     """
     The method conjugate verbs by adding to its root adequate grammatical endings.
@@ -82,6 +81,16 @@ def conjugate_verb(word):  # main method
     :param word:
     :return:
     """
+
+    def create_gerundium(word):
+        """
+        Method creates gerundium of a verb
+        :param word:
+        :return: gerundium of a verb
+        """
+        gerundium = word[:-1] + 'ndo'
+        return gerundium
+
     if word.endswith('ar'):
         endings = enum_verbs_conjugator.TenseEndings.ENDINGS_AR.value
     elif word.endswith('er'):
@@ -89,9 +98,11 @@ def conjugate_verb(word):  # main method
     elif word.endswith('ir'):
         endings = enum_verbs_conjugator.TenseEndings.ENDINGS_IR.value
 
+
     conjugate_change_last_two_letters(word, endings)
     conjugate_compound_tenses(word)
     conjugate_add_endings_to_the_end(word)
+    print(create_gerundium(word))
 
 
 if __name__ == '__main__':
