@@ -91,9 +91,6 @@ def conjugate_verb(word):  # main method
     :param word:
     :return:
     """
-
-
-
     if word.endswith('ar'):
         endings = enum_verbs_conjugator.TenseEndings.ENDINGS_AR.value
     elif word.endswith('er'):
