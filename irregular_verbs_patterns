@@ -4,47 +4,47 @@ from importlib._bootstrap_external import _check_name
 
 class FixedConjugations(Enum):
     # AUXILIAR VERBS
-    TER_AUXILIARY_VERB = [['tenho', 'tens', 'tem', 'temos', 'têm'],
-                          ['tive', 'tiveste', 'tive', 'tivemos', 'tiveram'],
+    TER_AUXILIARY_VERB = (('tenho', 'tens', 'tem', 'temos', 'têm'),
+                          ('tive', 'tiveste', 'tive', 'tivemos', 'tiveram'),
                           # index 1 has not to be included in conjugate_compound_tenses()
-                          ['tinha', 'tinhas', 'tinha', 'tínhamos', 'tinham'],
-                          ['tivera', 'tiveras', 'tivera', 'nóstivéramos', 'tiveram'],
+                          ('tinha', 'tinhas', 'tinha', 'tínhamos', 'tinham'),
+                          ('tivera', 'tiveras', 'tivera', 'nóstivéramos', 'tiveram'),
                           # index 3 has not to be included in conjugate_compound_tenses()
-                          ['terei', 'terás', 'terá', 'teremos', 'terão'],
-                          ['teria', 'terias', 'teria', 'teríamos', 'teriam'],
-                          ['tenha', 'tenhas', 'tenha', 'tenhamos', 'tenham'],
-                          ['tivesse', 'tivesses', 'tivesse', 'tivéssemos', 'tivessem'],
-                          ['tiver', 'tiveres', 'tiver', 'tivermos', 'tiverem'],
-                          ['tem', 'tenha', 'tenhamos', 'tenham'],
+                          ('terei', 'terás', 'terá', 'teremos', 'terão'),
+                          ('teria', 'terias', 'teria', 'teríamos', 'teriam'),
+                          ('tenha', 'tenhas', 'tenha', 'tenhamos', 'tenham'),
+                          ('tivesse', 'tivesses', 'tivesse', 'tivéssemos', 'tivessem'),
+                          ('tiver', 'tiveres', 'tiver', 'tivermos', 'tiverem'),
+                          ('tem', 'tenha', 'tenhamos', 'tenham'),
                           # index 9 has not to be included in conjugate_compound_tenses()
-                          ['não tenhas', 'não tenha', 'não tenhamos',
-                           'não tenham']]  # index 10 has not to be included in conjugate_compound_tenses()
+                          ('não tenhas', 'não tenha', 'não tenhamos',
+                           'não tenham'))  # index 10 has not to be included in conjugate_compound_tenses()
 
-    HAVER_AUXILIARY_VERB = ['hei', 'hás', 'há', 'havemos', 'hão']
+    HAVER_AUXILIARY_VERB = ('hei', 'hás', 'há', 'havemos', 'hão')
 
-    POR = [['ponho', 'pões', 'põe', 'pomos', 'põem'],
-           ['pus', 'puseste', 'pôs', 'pusemos', 'puseram'],
-           ['punha', 'punhas', 'punha', 'púnhamos', 'punham'],
-           ['pusera', 'puseras', 'pusera', 'puséramos', 'puseram'],
-           ['porei', 'porás', 'porá', 'poremos', 'porão'],
-           ['poria', 'porias', 'poria', 'poríamos', 'poriam'],
-           ['ponha', 'ponhas', 'ponha', 'ponhamos', 'ponham'],
-           ['pusesse', 'pusesses', 'pusesse', 'puséssemos', 'pusessem'],
-           ['puser', 'puseres', 'puser', 'spusermos', 'puserem'],
-           ['põe', 'ponha', 'ponhamos', 'ponham'],
-           ['não ponhas', 'não ponha', 'não ponhamos', 'não ponham']]
+    POR = (('ponho', 'pões', 'põe', 'pomos', 'põem'),
+           ('pus', 'puseste', 'pôs', 'pusemos', 'puseram'),
+           ('punha', 'punhas', 'punha', 'púnhamos', 'punham'),
+           ('pusera', 'puseras', 'pusera', 'puséramos', 'puseram'),
+           ('porei', 'porás', 'porá', 'poremos', 'porão'),
+           ('poria', 'porias', 'poria', 'poríamos', 'poriam'),
+           ('ponha', 'ponhas', 'ponha', 'ponhamos', 'ponham'),
+           ('pusesse', 'pusesses', 'pusesse', 'puséssemos', 'pusessem'),
+           ('puser', 'puseres', 'puser', 'spusermos', 'puserem'),
+           ('põe', 'ponha', 'ponhamos', 'ponham'),
+           ('não ponhas', 'não ponha', 'não ponhamos', 'não ponham'))
 
-    DAR = [['dou', 'dás', 'dá', 'nósdamos', 'dão'],
-           ['dei', 'deste', 'deu', 'demos', 'deram'],
-           ['dava', 'davas', 'dava', 'dávamos', 'davam'],
-           ['dera', 'deras', 'dera', 'déramos', 'deram'],
-           ['darei', 'darás', 'dará', 'daremos', 'darão'],
-           ['dê', 'dês', 'dê', 'dêmos', 'dêem'],
-           ['desse', 'desses', 'desse', 'déssemos', 'dessem'],
-           ['der', 'deres', 'der', 'dermos', 'derem'],
-           ['daria', 'darias', 'aria', 'daríamos', 'dariam'],
-           ['dá', 'dê', 'você', 'dêmos', 'dêem'],
-           ['não dês', 'não dê ', 'não dêmos', 'não dêem']]
+    DAR = (('dou', 'dás', 'dá', 'nósdamos', 'dão'),
+           ('dei', 'deste', 'deu', 'demos', 'deram'),
+           ('dava', 'davas', 'dava', 'dávamos', 'davam'),
+           ('dera', 'deras', 'dera', 'déramos', 'deram'),
+           ('darei', 'darás', 'dará', 'daremos', 'darão'),
+           ('dê', 'dês', 'dê', 'dêmos', 'dêem'),
+           ('desse', 'desses', 'desse', 'déssemos', 'dessem'),
+           ('der', 'deres', 'der', 'dermos', 'derem'),
+           ('daria', 'darias', 'aria', 'daríamos', 'dariam'),
+           ('dá', 'dê', 'você', 'dêmos', 'dêem'),
+           ('não dês', 'não dê ', 'não dêmos', 'não dêem'))
 
     DIZER = ['digo', 'dizes', 'diz', 'dizemos', 'dizem']
 
