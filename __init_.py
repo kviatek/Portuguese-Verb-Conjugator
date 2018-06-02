@@ -8,8 +8,8 @@ class NotInfinitiveError(ValueError):
 
 
 def print_final_conjugated_forms(final_conjugated_forms):
-    for e in final_conjugated_forms:
-        print(e)
+    for tense in final_conjugated_forms:
+        print(tense)
 
 
 def create_gerundium(word):
@@ -39,7 +39,7 @@ def conjugate_compound_tenses(word):
 
     final_conjugated_forms = []
     past_participle = create_past_participle(word)
-    for index, auxiliary_verb in enumerate(irregular_verbs_patterns.FixedConjugations.TER_VERBO_AUXILIAR.value):
+    for index, auxiliary_verb in enumerate(irregular_verbs_patterns.FixedConjugations.TER_AUXILIARY_VERB.value):
         if index != 1 and index != 3 and index != 9 and index != 10:
             for e in auxiliary_verb:
                 final_conjugated_forms.append(e + ' ' + past_participle)
@@ -121,3 +121,5 @@ if __name__ == '__main__':
         print(t_err)
 
 
+    # conjugate_change_last_two_letters(word, enum_verbs_conjugator.TenseEndings.ENDINGS_AR.value)
+    conjugate_compound_tenses(word)
