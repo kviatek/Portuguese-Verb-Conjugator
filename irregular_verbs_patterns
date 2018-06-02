@@ -5,15 +5,15 @@ from collections import namedtuple
 
 class FixedConjugations(Enum):
 
-    Tense = namedtuple('Tense', ("PresenteIndicativo", "PretéritoPerfeito", "PretéritoImperfeito",
-                                 "PretéritoMaisQuePerfeito",
-                                 "FuturoSimples",
-                                 "Condicional",
-                                 "PresentedeSubjuntivo",
-                                 "PretéritoImperfeitodeSubjuntivo",
-                                 "FuturodeSubjuntivo",
-                                 "ImperativoAfirmativo",
-                                 "ImperativoNegativo"))
+    Tense = namedtuple('Tense', ('PresenteIndicativo', 'PretéritoPerfeito', 'PretéritoImperfeito',
+                                 'PretéritoMaisQuePerfeito',
+                                 'FuturoSimples',
+                                 'Condicional',
+                                 'PresentedeSubjuntivo',
+                                 'PretéritoImperfeitodeSubjuntivo',
+                                 'FuturodeSubjuntivo',
+                                 'ImperativoAfirmativo',
+                                 'ImperativoNegativo'))
 
     TER = Tense(('tenho', 'tens', 'tem', 'temos', 'têm'),
                 ('tive', 'tiveste', 'tive', 'tivemos', 'tiveram'),
