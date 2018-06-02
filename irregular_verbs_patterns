@@ -23,14 +23,14 @@ class FixedConjugations(Enum):
     HAVER_AUXILIARY_VERB = ['hei', 'hás', 'há', 'havemos', 'hão']
 
     POR = [['ponho', 'pões', 'põe', 'pomos', 'põem'],
-           ['pus', 'puseste', 'pôs', 'pusemos', 'pusestes', 'puseram'],
+           ['pus', 'puseste', 'pôs', 'pusemos', 'puseram'],
            ['punha', 'punhas', 'punha', 'púnhamos', 'punham'],
-           ['pusera', 'puseras', 'pusera', 'puséramos', 'puséreis', 'puseram'],
-           ['porei', 'porás', 'porá', 'poremos', 'poreis', 'porão'],
+           ['pusera', 'puseras', 'pusera', 'puséramos', 'puseram'],
+           ['porei', 'porás', 'porá', 'poremos', 'porão'],
            ['poria', 'porias', 'poria', 'poríamos', 'poriam'],
-           ['ponha', 'ponhas', 'ponha', 'que', 'ponhamos', 'ponhais', 'ponham'],
-           ['pusesse', 'pusesses', 'pusesse', 'puséssemos', 'pusésseis', 'pusessem'],
-           ['puser', 'puseres', 'se', 'puser', 'spusermos', 'puserdes', 'puserem'],
+           ['ponha', 'ponhas', 'ponha', 'ponhamos', 'ponham'],
+           ['pusesse', 'pusesses', 'pusesse', 'puséssemos', 'pusessem'],
+           ['puser', 'puseres', 'puser', 'spusermos', 'puserem'],
            ['põe', 'ponha', 'ponhamos', 'ponham'],
            ['não ponhas', 'não ponha', 'não ponhamos', 'não ponham']]
 
@@ -41,7 +41,7 @@ class FixedConjugations(Enum):
            ['darei', 'darás', 'dará', 'daremos', 'darão'],
            ['dê', 'dês', 'dê', 'dêmos', 'dêem'],
            ['desse', 'desses', 'desse', 'déssemos', 'dessem'],
-           ['der', 'deres', 'der', 'dermos', 'derdes', 'derem'],
+           ['der', 'deres', 'der', 'dermos', 'derem'],
            ['daria', 'darias', 'aria', 'daríamos', 'dariam'],
            ['dá', 'dê', 'você', 'dêmos', 'dêem'],
            ['não dês', 'não dê ', 'não dêmos', 'não dêem']]
