@@ -12,6 +12,24 @@ def print_final_conjugated_forms(final_conjugated_forms):
         print(e)
 
 
+def create_gerundium(word):
+    """
+    Method creates gerundium of a verb
+    :param word:
+    :return: gerundium of a verb
+    """
+    return word[:-1] + 'ndo'
+
+
+def create_past_participle(word):
+    """
+    Method returns past participle form a verb
+    :param word: verb whose past participle form need to be created
+    :return: past participle form of a verb
+    """
+    return word[:-2] + 'ado' if word.endswith('ar') else word[:-2] + 'ido'
+
+
 def conjugate_compound_tenses(word):
     """
 
@@ -19,16 +37,8 @@ def conjugate_compound_tenses(word):
     :return:
     """
 
-    def make_past_participle(word):
-        """
-        Method returns past participle form a verb
-        :param word: verb whose past participle form need to be created
-        :return: past participle form of a verb
-        """
-        return word[:-2] + 'ado' if word.endswith('ar') else word[:-2] + 'ido'
-
     final_conjugated_forms = []
-    past_participle = make_past_participle(word)
+    past_participle = create_past_participle(word)
     for index, auxiliary_verb in enumerate(irregular_verbs_patterns.FixedConjugations.TER_VERBO_AUXILIAR.value):
         if index != 1 and index != 3 and index != 9 and index != 10:
             for e in auxiliary_verb:
@@ -82,13 +92,7 @@ def conjugate_verb(word):  # main method
     :return:
     """
 
-    def create_gerundium(word):
-        """
-        Method creates gerundium of a verb
-        :param word:
-        :return: gerundium of a verb
-        """
-        return word[:-1] + 'ndo'
+
 
     if word.endswith('ar'):
         endings = enum_verbs_conjugator.TenseEndings.ENDINGS_AR.value
@@ -119,4 +123,4 @@ if __name__ == '__main__':
     except TypeError as t_err:
         print(t_err)
 
-    
+
