@@ -1,38 +1,52 @@
 from enum import Enum
 from importlib._bootstrap_external import _check_name
+from collections import namedtuple
 
 
 class FixedConjugations(Enum):
-    # AUXILIAR VERBS
-    TER_AUXILIARY_VERB = (('tenho', 'tens', 'tem', 'temos', 'têm'),
-                          ('tive', 'tiveste', 'tive', 'tivemos', 'tiveram'),
-                          # index 1 has not to be included in conjugate_compound_tenses()
-                          ('tinha', 'tinhas', 'tinha', 'tínhamos', 'tinham'),
-                          ('tivera', 'tiveras', 'tivera', 'nóstivéramos', 'tiveram'),
-                          # index 3 has not to be included in conjugate_compound_tenses()
-                          ('terei', 'terás', 'terá', 'teremos', 'terão'),
-                          ('teria', 'terias', 'teria', 'teríamos', 'teriam'),
-                          ('tenha', 'tenhas', 'tenha', 'tenhamos', 'tenham'),
-                          ('tivesse', 'tivesses', 'tivesse', 'tivéssemos', 'tivessem'),
-                          ('tiver', 'tiveres', 'tiver', 'tivermos', 'tiverem'),
-                          ('tem', 'tenha', 'tenhamos', 'tenham'),
-                          # index 9 has not to be included in conjugate_compound_tenses()
-                          ('não tenhas', 'não tenha', 'não tenhamos',
-                           'não tenham'))  # index 10 has not to be included in conjugate_compound_tenses()
+
+    Tense = namedtuple('Tense', ("PresenteIndicativo", "PretéritoPerfeito", "PretéritoImperfeito",
+                                 "PretéritoMaisQuePerfeito",
+                                 "FuturoSimples",
+                                 "Condicional",
+                                 "PresentedeSubjuntivo",
+                                 "PretéritoImperfeitodeSubjuntivo",
+                                 "FuturodeSubjuntivo",
+                                 "ImperativoAfirmativo",
+                                 "ImperativoNegativo"))
+
+    TER = Tense(('tenho', 'tens', 'tem', 'temos', 'têm'),
+                ('tive', 'tiveste', 'tive', 'tivemos', 'tiveram'),
+                # index 1 has not to be included in conjugate_compound_tenses()
+                ('tinha', 'tinhas', 'tinha', 'tínhamos', 'tinham'),
+                ('tivera', 'tiveras', 'tivera', 'nóstivéramos', 'tiveram'),
+                # index 3 has not to be included in conjugate_compound_tenses()
+                ('terei', 'terás', 'terá', 'teremos', 'terão'),
+                ('teria', 'terias', 'teria', 'teríamos', 'teriam'),
+                ('tenha', 'tenhas', 'tenha', 'tenhamos', 'tenham'),
+                ('tivesse', 'tivesses', 'tivesse', 'tivéssemos', 'tivessem'),
+                ('tiver', 'tiveres', 'tiver', 'tivermos', 'tiverem'),
+                ('tem', 'tenha', 'tenhamos', 'tenham'),
+                # index 9 has not to be included in conjugate_compound_tenses()
+                ('não tenhas', 'não tenha', 'não tenhamos',
+                 'não tenham'))  # index 10 has not to be included in conjugate_compound_tenses()
+
+    POR = Tense(('ponho', 'pões', 'põe', 'pomos', 'põem'),
+                ('pus', 'pseste', 'pôs', 'pusemos', 'puseram'),
+                ('punha', 'punhas', 'punha', 'púnhamos', 'punham'),
+                ('pusera', 'puseras', 'pusera', 'puséramos', 'puseram'),
+                ('porei', 'porás', 'porá', 'poremos', 'porão'),
+                ('poria', 'porias', 'poria', 'poríamos', 'poriam'),
+                ('ponha', 'ponhas', 'ponha', 'ponhamos', 'ponham'),
+                ('pusesse', 'pusesses', 'pusesse', 'puséssemos', 'pusessem'),
+                ('puser', 'puseres', 'puser', 'spusermos', 'puserem'),
+                ('põe', 'ponha', 'ponhamos', 'ponham'),
+                ('não ponhas', 'não ponha', 'não ponhamos', 'não ponham'))
+
+    # PRESENTE_INDICATIVO = Tense('tenho', 'tens', 'tem', 'temos', 'têm')
 
     HAVER_AUXILIARY_VERB = ('hei', 'hás', 'há', 'havemos', 'hão')
 
-    POR = (('ponho', 'pões', 'põe', 'pomos', 'põem'),
-           ('pus', 'puseste', 'pôs', 'pusemos', 'puseram'),
-           ('punha', 'punhas', 'punha', 'púnhamos', 'punham'),
-           ('pusera', 'puseras', 'pusera', 'puséramos', 'puseram'),
-           ('porei', 'porás', 'porá', 'poremos', 'porão'),
-           ('poria', 'porias', 'poria', 'poríamos', 'poriam'),
-           ('ponha', 'ponhas', 'ponha', 'ponhamos', 'ponham'),
-           ('pusesse', 'pusesses', 'pusesse', 'puséssemos', 'pusessem'),
-           ('puser', 'puseres', 'puser', 'spusermos', 'puserem'),
-           ('põe', 'ponha', 'ponhamos', 'ponham'),
-           ('não ponhas', 'não ponha', 'não ponhamos', 'não ponham'))
 
     DAR = (('dou', 'dás', 'dá', 'nósdamos', 'dão'),
            ('dei', 'deste', 'deu', 'demos', 'deram'),
@@ -146,6 +160,5 @@ class FixedConjugations(Enum):
     dizer_verbs = ('bem-dizer', 'bendizer', 'condizer', 'contradizer', 'desdizer', 'dizer', 'entredizer', 'interdizer',
                    'maldizer', 'predizer', 'redizer')
 
-
-if __name__ == '__main__':
-    pass
+    if __name__ == '__main__':
+        pass
