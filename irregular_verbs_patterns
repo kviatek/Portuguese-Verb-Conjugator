@@ -60,7 +60,17 @@ class FixedConjugations(Enum):
            ('dá', 'dê', 'você', 'dêmos', 'dêem'),
            ('não dês', 'não dê ', 'não dêmos', 'não dêem'))
 
-    DIZER = ['digo', 'dizes', 'diz', 'dizemos', 'dizem']
+    DIZER = Tense(('digo', 'dizes', 'dizemos', 'dizem'),
+                  ('disse', 'disseste', 'disse', 'dissemos', 'disseram'),
+                  ('dizia', 'dizias', 'dizia', 'dizíamos', 'diziam'),
+                  ('dissera', 'disseras', 'dissera', 'disséramos', 'disseram'),
+                  ('direi', 'dirás', 'dirá', 'diremos', 'dirão'),
+                  ('diga', 'digas', 'diga', 'digamos', 'digam'),
+                  ('dissesse', 'dissesses', 'dissesse', 'disséssemos', 'dissessem'),
+                  ('disser', 'disseres', 'disser', 'dissermos', 'disserem'),
+                  ('diria', 'dirias', 'diria', 'diríamos', 'diriam'),
+                  ('diga', 'digamos', 'digam', 'digas'),
+                  ('não digas', 'não diga', 'não digamos', 'não digam'))
 
     TRAZER = ['digo', 'dizes', 'diz', 'dizemos', 'dizem']
 
