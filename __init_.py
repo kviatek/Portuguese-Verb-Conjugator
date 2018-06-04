@@ -17,7 +17,7 @@ __license__ = "GPL"
 __version__ = "1.0.0"
 __maintainer__ = "Paweł Kwiatkowski"  # should be the person who will fix bugs and make improvements if imported.
 __email__ = "kwiatkowski.pawel87@gmail.com"
-__status__ = "Production"  # "Prototype", "Development" or "Production"
+__status__ = "Development"  # "Prototype", "Development" or "Production"
 
 
 class NotInfinitiveError(ValueError):
