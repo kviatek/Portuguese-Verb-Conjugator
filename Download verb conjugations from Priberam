@@ -1,12 +1,29 @@
+#!/usr/bin/env python
+
+"""
+Docstring will go here
+
+"""
+
 import collections
 import string
 import subprocess
-from urllib.request import urlopen
-from bs4 import BeautifulSoup as soup
-import requests
 import sys
 import itertools
 import re
+from urllib.request import urlopen
+from bs4 import BeautifulSoup as soup
+import requests
+
+__author__ = "Paweł Kwiatkowski"
+__copyright__ = "Copyright 2018, Paweł Kwiatkowski"
+__credits__ = [
+    "Paweł Kwiatkowski"]  # includes people who reported bug fixes, made suggestions, etc. but did not actually write the code
+__license__ = "GPL"
+__version__ = "1.0.0"
+__maintainer__ = "Paweł Kwiatkowski"  # should be the person who will fix bugs and make improvements if imported.
+__email__ = "kwiatkowski.pawel87@gmail.com"
+__status__ = "Production"  # "Prototype", "Development" or "Production"
 
 
 def main():
@@ -44,14 +61,12 @@ def main():
 
         # print(wreszcie)
 
-
         for run in range(10):
             pass
 
-        divided = [wreszcie[i:i+5] for i in range(0, len(wreszcie), 5)]
+        divided = [wreszcie[i:i + 5] for i in range(0, len(wreszcie), 5)]
 
         print(divided)
-
 
         # final = list()
         # for e in list_of_conjugations:
