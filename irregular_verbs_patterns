@@ -169,6 +169,24 @@ class FixedConjugations(Enum):
 
     dizer_verbs = ('bem-dizer', 'bendizer', 'condizer', 'contradizer', 'desdizer', 'dizer', 'entredizer', 'interdizer',
                    'maldizer', 'predizer', 'redizer')
+                   
+    # Model for verbs based upon other
+
+    basic_irregualr_verbs = ['caber', 'cobrir', 'crer', 'dar', 'dizer', 'fazer', 'ler', 'medir', 'ouvir', 'pedir',
+                             'polir', 'por', 'querer', 'saber', 'ter', 'valer', 'vir']
+
+    conjugation_of_basic_irregular_verbs = OrderedDict.fromkeys(basic_irregualr_verbs, [])
+    print(conjugation_of_basic_irregular_verbs)
+
+    word = 'contrafazer'
+
+    verb_to_be_used = []
+    for index, verb in enumerate(basic_irregualr_verbs):
+        if word.endswith(verb):
+            verb_to_be_used = conjugation_of_basic_irregular_verbs.get(verb)
+    
+
+    # print('supor'[-3:])
 
     if __name__ == '__main__':
         pass
