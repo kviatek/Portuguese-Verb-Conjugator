@@ -1,0 +1,49 @@
+import collections
+import string
+import subprocess
+from urllib.request import urlopen
+from bs4 import BeautifulSoup as soup
+import requests
+import sys
+import itertools
+import re
+
+
+def main():
+    my_url = 'https://www.priberam.pt/dlpo/Conjugar/dizer'
+
+    with urlopen(my_url) as page_to_download:
+        file_to_see = page_to_download.read()
+        page_soup = soup(file_to_see, 'lxml')
+        list_of_conjugations = list(page_soup.find_all('div', class_='tdCONJ'))
+        final = []
+
+        for e in list_of_conjugations:
+            e = str(e)
+            final.append(e)
+
+        all = []
+        pattern = re.compile(r'(di)[^v]\w+')
+        matches = re.finditer(pattern, ', '.join(final))
+        for match in matches:
+            match = str(match)
+            all.append(match)
+
+        # for a in all:
+        #     print(a, end='')
+        print(all)
+
+        # final = list()
+        # for e in list_of_conjugations:
+        #     final.append(e.text)
+    #
+    # a = []
+    # for t in final:
+    #     a.append(t.split())
+    #
+    # for t in a:
+    #     print(t)
+
+
+if __name__ == '__main__':
+    main()
