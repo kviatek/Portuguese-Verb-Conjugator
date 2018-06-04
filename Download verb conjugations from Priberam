@@ -31,7 +31,27 @@ def main():
 
         # for a in all:
         #     print(a, end='')
-        print(all)
+
+        my = []
+
+        for e in all:
+            my.append(e.split('='))
+
+        wreszcie = []
+
+        for e in my:
+            wreszcie.append(e[-1].strip("'>"))
+
+        # print(wreszcie)
+
+
+        for run in range(10):
+            pass
+
+        divided = [wreszcie[i:i+5] for i in range(0, len(wreszcie), 5)]
+
+        print(divided)
+
 
         # final = list()
         # for e in list_of_conjugations:
