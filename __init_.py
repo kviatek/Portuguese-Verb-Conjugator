@@ -1,6 +1,23 @@
-from pt_conjugator import enum_verbs_conjugator
-from pt_conjugator import irregular_verbs_patterns
-from pt_conjugator.enum_verbs_conjugator import TenseEndings
+#!/usr/bin/env python
+
+"""
+Docstring will go here
+
+"""
+
+from PortugueseConjugatorApp import enum_verbs_conjugator
+from PortugueseConjugatorApp import irregular_verbs_patterns
+from PortugueseConjugatorApp.enum_verbs_conjugator import TenseEndings
+
+__author__ = "Paweł Kwiatkowski"
+__copyright__ = "Copyright 2018, Paweł Kwiatkowski"
+__credits__ = [
+    "Paweł Kwiatkowski"]  # includes people who reported bug fixes, made suggestions, etc. but did not actually write the code
+__license__ = "GPL"
+__version__ = "1.0.0"
+__maintainer__ = "Paweł Kwiatkowski"  # should be the person who will fix bugs and make improvements if imported.
+__email__ = "kwiatkowski.pawel87@gmail.com"
+__status__ = "Production"  # "Prototype", "Development" or "Production"
 
 
 class NotInfinitiveError(ValueError):
@@ -122,4 +139,5 @@ if __name__ == '__main__':
 
 
     # conjugate_change_last_two_letters(word, enum_verbs_conjugator.TenseEndings.ENDINGS_AR.value)
+    
     conjugate_compound_tenses(word)
