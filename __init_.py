@@ -101,25 +101,34 @@ def conjugate_change_last_two_letters(word, endings):
     for e in final_conjugated_forms:
         print(e)
         
-def irregular_conjugation_pattern(word):  # TERAZ TO ROBIĘ
+def conjugate_irregular_verb(word):
 
-    # conjugations_tuple = namedtuple('irregular_verbs_conjugations', (
-    # 'caber', 'cobrir', 'crer', 'dar', 'dizer', 'fazer', 'ler', 'medir', 'ouvir', 'pedir',
-    # 'polir', 'por', 'querer', 'saber', 'ter', 'valer', 'vir'))
+    def irregular_conjugation_pattern(word):
 
-    conjugations_tuple = namedtuple('irregular_verbs_conjugations', ('dar', 'por', 'ter',))
+        # conjugations_tuple = namedtuple('irregular_verbs_conjugations', (
+        # 'caber', 'cobrir', 'crer', 'dar', 'dizer', 'fazer', 'ler', 'medir', 'ouvir', 'pedir',
+        # 'polir', 'por', 'querer', 'saber', 'ter', 'valer', 'vir'))
 
-    verbs_conjugations_patterns = conjugations_tuple(irregular_verbs_patterns.FixedConjugations.DAR,
-                                                     irregular_verbs_patterns.FixedConjugations.POR,
-                                                     irregular_verbs_patterns.FixedConjugations.TER)  # tu musz abyc odmiany
+        conjugations_tuple = namedtuple('irregular_verbs_conjugations', ('dar', 'por', 'ter',))
 
-    # for e in verbs_conjugations_patterns:
-    #     print(e.PresenteIndicativo)
-    print(verbs_conjugations_patterns._fields)
+        verbs_conjugations_patterns = conjugations_tuple(irregular_verbs_patterns.FixedConjugations.DAR,
+                                                         irregular_verbs_patterns.FixedConjugations.POR,
+                                                         irregular_verbs_patterns.FixedConjugations.TER)  # tu muszą być odmiany
 
-    for index, field in enumerate(verbs_conjugations_patterns._fields):
-        if word.endswith(field):
-            return field, getattr(verbs_conjugations_patterns,field)
+        for index, field in enumerate(verbs_conjugations_patterns._fields):
+            if word.endswith(field):
+                return field, getattr(verbs_conjugations_patterns, field)
+
+    verb, conjugation = irregular_conjugation_pattern(word)
+
+    base = word[:-len(verb)]
+    final = []
+
+    for tense in conjugation.value:
+        for form in tense:
+            final.append(base + form)
+
+    return final
 
 
 def conjugate_verb(word):  # main method
