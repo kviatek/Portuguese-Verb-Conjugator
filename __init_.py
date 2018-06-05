@@ -100,6 +100,26 @@ def conjugate_change_last_two_letters(word, endings):
 
     for e in final_conjugated_forms:
         print(e)
+        
+def irregular_conjugation_pattern(word):  # TERAZ TO ROBIĘ
+
+    # conjugations_tuple = namedtuple('irregular_verbs_conjugations', (
+    # 'caber', 'cobrir', 'crer', 'dar', 'dizer', 'fazer', 'ler', 'medir', 'ouvir', 'pedir',
+    # 'polir', 'por', 'querer', 'saber', 'ter', 'valer', 'vir'))
+
+    conjugations_tuple = namedtuple('irregular_verbs_conjugations', ('dar', 'por', 'ter',))
+
+    verbs_conjugations_patterns = conjugations_tuple(irregular_verbs_patterns.FixedConjugations.DAR,
+                                                     irregular_verbs_patterns.FixedConjugations.POR,
+                                                     irregular_verbs_patterns.FixedConjugations.TER)  # tu musz abyc odmiany
+
+    # for e in verbs_conjugations_patterns:
+    #     print(e.PresenteIndicativo)
+    print(verbs_conjugations_patterns._fields)
+
+    for index, field in enumerate(verbs_conjugations_patterns._fields):
+        if word.endswith(field):
+            return field, getattr(verbs_conjugations_patterns,field)
 
 
 def conjugate_verb(word):  # main method
