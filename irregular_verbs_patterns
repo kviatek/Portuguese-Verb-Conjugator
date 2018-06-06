@@ -9,6 +9,18 @@ class FixedConjugations(Enum):
                         'FuturodeSubjuntivo', 'ImperativoAfirmativo', 'ImperativoNegativo'))
 
     # w poniższych nie ma infinitivo pessoal
+    
+    CABER = Tense(('caibo', 'cabes', 'cabe', 'cabemos', 'cabeis', 'cabem'),
+                  ('coube', 'coubeste', 'coube', 'coubemos', 'coubestes', 'couberam'),
+                  ('cabia', 'cabias', 'cabia', 'cabíamos', 'cabíeis', 'cabiame'),
+                  ('coubera', 'couberas', 'coubera', 'coubéramos', 'coubéreis', 'couberam'),
+                  ('caberei', 'caberás', 'caberá', 'caberemos', 'cabereis', 'caberão'),
+                  ('caiba', 'caibas', 'caiba', 'caibamos', 'caibais', 'caibam'),
+                  ('coubesse', 'coubesses', 'coubesse', 'coubéssemos', 'coubésseis', 'coubessem'),
+                  ('couber', 'couberes', 'couber', 'coubermos', 'couberdes', 'couberem'),
+                  ('caberia', 'caberias', 'caberia', 'caberíamos', 'caberíeis', 'caberiam'),
+                  ('-', '-', '-', '-',),
+                  ('-', '-', '-', '-',))
 
     TER = Tense(('tenho', 'tens', 'tem', 'temos', 'têm'),
                 ('tive', 'tiveste', 'tive', 'tivemos', 'tiveram'),
