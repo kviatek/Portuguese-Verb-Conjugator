@@ -21,6 +21,18 @@ class FixedConjugations(Enum):
                   ('caberia', 'caberias', 'caberia', 'caberíamos', 'caberíeis', 'caberiam'),
                   ('-', '-', '-', '-',),
                   ('-', '-', '-', '-',))
+                  
+    COBRIR = Tense(('cubro', 'cobres', 'cobre', 'cobrimos', 'cobris', 'cobrem'),
+                   ('cobri', 'cobriste', 'cobriu', 'cobrimos', 'cobristes', 'cobriram'),
+                   ('cobria', 'cobrias', 'cobria', 'cobríamos', 'cobríeis', 'cobriam'),
+                   ('cobrira', 'cobriras', 'cobrira', 'cobríramos', 'cobríreis', 'cobriram'),
+                   ('cobrirei', 'cobrirás', 'cobrirá', 'cobriremos', 'cobrireis', 'cobrirão'),
+                   ('cubra', 'cubras', 'cubra', 'cubramos', 'cubrais', 'cubram'),
+                   ('cobrisse', 'cobrisses', 'cobrisse', 'cobríssemos', 'cobrísseis', 'cobrissem'),
+                   ('cobrir', 'cobrires', 'cobrir', 'cobrirmos', 'cobrirdes', 'cobrirem'),
+                   ('cobriria', 'cobririas', 'cobriria', 'cobriríamos', 'cobriríeis', 'cobririam'),
+                   ('-', 'cobre', 'cubra', 'cubramos', 'cobri', 'cubram'),
+                   ('-', 'não cubras', 'não cubra', 'não cubramos', 'não cubrais', 'não cubram'))
 
     TER = Tense(('tenho', 'tens', 'tem', 'temos', 'têm'),
                 ('tive', 'tiveste', 'tive', 'tivemos', 'tiveram'),
