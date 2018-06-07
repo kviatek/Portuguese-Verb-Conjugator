@@ -105,6 +105,18 @@ class FixedConjugations(Enum):
                 ('leria', 'lerias', 'leria', 'leríamos', 'leríeis', 'leriam'),
                 ('-', 'lê', 'leia', 'leiamos', 'lede', 'leiam'),
                 ('-', 'não leias', 'não leia', 'não leiamos', 'não leiais', 'não leiam'))
+                
+    MEDIR = Tense(('meço', 'medes', 'mede', 'medimos', 'medis', 'medem'),
+                  ('medi', 'mediste', 'mediu', 'medimos', 'medistes', 'mediram'),
+                  ('media', 'medias', 'media', 'medíamos', 'medíeis', 'mediam'),
+                  ('medira', 'mediras', 'medira', 'medíramos', 'medíreis', 'mediram'),
+                  ('medirei', 'medirás', 'medirá', 'mediremos', 'medireis', 'medirão'),
+                  ('meça', 'meças', 'meça', 'meçamos', 'meçais', 'meçam'),
+                  ('medisse', 'medisses', 'medisse', 'medíssemos', 'medísseis', 'medissem'),
+                  ('medir', 'medires', 'medir', 'medirmos', 'medirdes', 'medirem'),
+                  ('mediria', 'medirias', 'mediria', 'mediríamos', 'mediríeis', 'mediriam'),
+                  ('' - ', medetu', 'meçaele', 'meçamosnós', 'medivós', 'meçameles'),
+                  ('-', 'não meçastu', 'não meçaele', 'não meçamosnós', 'não meçaisvós', 'não meçameles'))
 
     POR = Tense(('ponho', 'pões', 'põe', 'pomos', 'pondes', 'põem'),
                 ('pus', 'pseste', 'pôs', 'pusemos', 'pusestes', 'puseram'),
