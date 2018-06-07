@@ -165,6 +165,18 @@ class FixedConjugations(Enum):
                 ('poria', 'porias', 'poria', 'poríamos', 'poríeis', 'poriam'),
                 ('-', 'põe', 'ponha', 'ponhamos', 'ponham'),
                 ('-', 'não ponhas', 'não ponha', 'não ponhamos', 'não ponham'))
+                
+    QUERER = Tense(('quero', 'queres', 'quer', 'queremos', 'quereis', 'querem'),
+                   ('quis', 'quiseste', 'quis', 'quisemos', 'quisestes', 'quiseram'),
+                   ('queria', 'querias', 'queria', 'queríamos', 'queríeis', 'queriam'),
+                   ('quisera', 'quiseras', 'quisera', 'quiséramos', 'quiséreis', 'quiseram'),
+                   ('quererei', 'quererás', 'quererá', 'quereremos', 'querereis', 'quererão'),
+                   ('queira', 'queiras', 'queira', 'queiramos', 'queirais', 'queiram'),
+                   ('quisesse', 'quisesses', 'quisesse', 'quiséssemos', 'quisésseis', 'quisessem'),
+                   ('quiser', 'quiseres', 'quiser', 'quisermos', 'quiserdes', 'quiserem'),
+                   ('quereria', 'quererias', 'quereria', 'quereríamos', 'quereríeis', 'quereriam'),
+                   ('-', 'queira', 'queiramos', 'querei', 'queiram'),
+                   ('-', '-', '-', '-', '-'))
 
     TER = Tense(('tenho', 'tens', 'tem', 'temos', 'tendes', 'têm'),
                 ('tive', 'tiveste', 'tive', 'tivemos', 'tivestes', 'tiveram'),
