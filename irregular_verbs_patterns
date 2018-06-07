@@ -109,6 +109,18 @@ class FixedConjugations(Enum):
                   ('diria', 'dirias', 'diria', 'diríamos', 'diriam'),
                   ('diga', 'digamos', 'digam', 'digas'),
                   ('não digas', 'não diga', 'não digamos', 'não digam'))
+                  
+     FAZER = Tense(('faço', 'fazes', 'faz', 'fazemos', 'fazeis', 'fazem'),
+                  ('fiz', 'fizeste', 'fez', 'fizemos', 'fizestes', 'fizeram'),
+                  ('fazia', 'fazias', 'fazia', 'fazíamos', 'fazíeis', 'faziam'),
+                  ('fizera', 'fizeras', 'fizera', 'fizéramos', 'fizéreis', 'fizeram'),
+                  ('farei', 'farás', 'fará', 'faremos', 'fareis', 'farão'),
+                  ('faça', 'faças', 'faça', 'façamos', 'façais', 'façam'),
+                  ('fizesse', 'fizesses', 'fizesse', 'fizéssemos', 'fizésseis', 'fizessem'),
+                  ('fizer', 'fizeres', 'fizer', 'fizermos', 'fizerdes', 'fizerem'),
+                  ('faria', 'farias', 'faria', 'faríamos', 'faríeis', 'fariam'),
+                  ('-', 'faz', 'faça', 'façamos', 'fazei', 'façam'),
+                  ('-', 'não faças', 'não faça', 'não façamos', 'não façais', 'não façam'))
 
 
 irregular_verbs_without_pattern = {
