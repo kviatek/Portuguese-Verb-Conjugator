@@ -177,6 +177,18 @@ class FixedConjugations(Enum):
                    ('quereria', 'quererias', 'quereria', 'quereríamos', 'quereríeis', 'quereriam'),
                    ('-', 'queira', 'queiramos', 'querei', 'queiram'),
                    ('-', '-', '-', '-', '-'))
+                   
+    SABER = Tense(('sei', 'sabes', 'sabe', 'sabemos', 'sabeis', 'sabem'),
+                  ('soube', 'soubeste', 'soube', 'soubemos', 'soubestes', 'souberam'),
+                  ('sabia', 'sabias', 'sabia', 'sabíamos', 'sabíeis', 'sabiam'),
+                  ('soubera', 'souberas', 'soubera', 'soubéramos', 'soubéreis', 'souberam'),
+                  ('saberei', 'saberás', 'saberá', 'saberemos', 'sabereis', 'saberão'),
+                  ('saiba', 'saibas', 'saiba', 'saibamos', 'saibais', 'saibam'),
+                  ('soubesse', 'soubesses', 'soubesse', 'soubéssemos', 'soubésseis', 'soubessem'),
+                  ('souber', 'souberes', 'souber', 'soubermos', 'souberdes', 'souberem'),
+                  ('saberia', 'saberias', 'saberia', 'ssaberíamos', 'saberíeis', 'saberiam'),
+                  ('-', 'sabe', 'saiba', 'saibamos', 'sabei', 'saibam'),
+                  ('-', 'não saibas', 'não saiba', 'não saibamos', 'não saibais', 'não saibam'))
 
     TER = Tense(('tenho', 'tens', 'tem', 'temos', 'tendes', 'têm'),
                 ('tive', 'tiveste', 'tive', 'tivemos', 'tivestes', 'tiveram'),
