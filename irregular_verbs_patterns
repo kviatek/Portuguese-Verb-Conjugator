@@ -9,7 +9,7 @@ class FixedConjugations(Enum):
                         'FuturodeSubjuntivo', 'ImperativoAfirmativo', 'ImperativoNegativo'))
 
     # w poniższych nie ma infinitivo pessoal
-    
+
     CABER = Tense(('caibo', 'cabes', 'cabe', 'cabemos', 'cabeis', 'cabem'),
                   ('coube', 'coubeste', 'coube', 'coubemos', 'coubestes', 'couberam'),
                   ('cabia', 'cabias', 'cabia', 'cabíamos', 'cabíeis', 'cabiame'),
@@ -21,7 +21,7 @@ class FixedConjugations(Enum):
                   ('caberia', 'caberias', 'caberia', 'caberíamos', 'caberíeis', 'caberiam'),
                   ('-', '-', '-', '-',),
                   ('-', '-', '-', '-',))
-                  
+
     COBRIR = Tense(('cubro', 'cobres', 'cobre', 'cobrimos', 'cobris', 'cobrem'),
                    ('cobri', 'cobriste', 'cobriu', 'cobrimos', 'cobristes', 'cobriram'),
                    ('cobria', 'cobrias', 'cobria', 'cobríamos', 'cobríeis', 'cobriam'),
@@ -33,7 +33,7 @@ class FixedConjugations(Enum):
                    ('cobriria', 'cobririas', 'cobriria', 'cobriríamos', 'cobriríeis', 'cobririam'),
                    ('-', 'cobre', 'cubra', 'cubramos', 'cobri', 'cubram'),
                    ('-', 'não cubras', 'não cubra', 'não cubramos', 'não cubrais', 'não cubram'))
-                   
+
     CRER = Tense(('creio', 'crês', 'crê', 'cremos', 'credes', 'crêem'),
                  ('cri', 'creste', 'creu', 'cremos', 'crestes', 'creram'),
                  ('cria', 'crias', 'cria', 'críamos', 'críeis', 'criam'),
@@ -46,71 +46,31 @@ class FixedConjugations(Enum):
                  ('-', 'crê', 'creia', 'creiamos', 'crede' 'creiam',),
                  ('-', 'não creias', 'não creia', 'não creiamos', 'não creiais', 'não creiam'))
 
-    TER = Tense(('tenho', 'tens', 'tem', 'temos', 'têm'),
-                ('tive', 'tiveste', 'tive', 'tivemos', 'tiveram'),
-                # index 1 has not to be included in conjugate_compound_tenses()
-                ('tinha', 'tinhas', 'tinha', 'tínhamos', 'tinham'),
-                ('tivera', 'tiveras', 'tivera', 'nóstivéramos', 'tiveram'),
-                # index 3 has not to be included in conjugate_compound_tenses()
-                ('terei', 'terás', 'terá', 'teremos', 'terão'),
-                ('teria', 'terias', 'teria', 'teríamos', 'teriam'),
-                ('tenha', 'tenhas', 'tenha', 'tenhamos', 'tenham'),
-                ('tivesse', 'tivesses', 'tivesse', 'tivéssemos', 'tivessem'),
-                ('tiver', 'tiveres', 'tiver', 'tivermos', 'tiverem'),
-                ('tem', 'tenha', 'tenhamos', 'tenham'),
-                # index 9 has not to be included in conjugate_compound_tenses()
-                ('não tenhas', 'não tenha', 'não tenhamos',
-                 'não tenham'))  # index 10 has not to be included in conjugate_compound_tenses()
+    DAR = Tense(('dou', 'dás', 'dá', 'damos', 'dais', 'dão'),
+                ('dei', 'deste', 'deu', 'demos', 'destes', 'deram'),
+                ('dava', 'davas', 'dava', 'dávamos', 'dáveis', 'davam'),
+                ('dera', 'deras', 'dera', 'déramos', 'déreis', 'deram'),
+                ('darei', 'darás', 'dará', 'daremos', 'dareis', 'darão'),
+                ('dê', 'dês', 'dê', 'dêmos', 'deis', 'dêem'),
+                ('desse', 'desses', 'desse', 'déssemos', 'désseis', 'dessem'),
+                ('der', 'deres', 'der', 'dermos', 'derdes', 'derem'),
+                ('daria', 'darias', 'daria', 'daríamos', 'dariam'),
+                ('-', 'dá', 'dê', 'você', 'dêmos', 'daríeis', 'dêem'),
+                ('-', 'não dês', 'não dê ', 'não dêmos', 'não dêem'))
 
-    POR = Tense(('ponho', 'pões', 'põe', 'pomos', 'põem'),
-                ('pus', 'pseste', 'pôs', 'pusemos', 'puseram'),
-                ('punha', 'punhas', 'punha', 'púnhamos', 'punham'),
-                ('pusera', 'puseras', 'pusera', 'puséramos', 'puseram'),
-                ('porei', 'porás', 'porá', 'poremos', 'porão'),
-                ('poria', 'porias', 'poria', 'poríamos', 'poriam'),
-                ('ponha', 'ponhas', 'ponha', 'ponhamos', 'ponham'),
-                ('pusesse', 'pusesses', 'pusesse', 'puséssemos', 'pusessem'),
-                ('puser', 'puseres', 'puser', 'spusermos', 'puserem'),
-                ('põe', 'ponha', 'ponhamos', 'ponham'),
-                ('não ponhas', 'não ponha', 'não ponhamos', 'não ponham'))
+    DIZER = Tense(('digo', 'dizes', 'diz', 'dizemos', 'dizeis', 'dizem'),
+                  ('disse', 'disseste', 'disse', 'dissemos', 'dissestes', 'disseram'),
+                  ('dizia', 'dizias', 'dizia', 'dizíamos', 'dizíeis', 'diziam'),
+                  ('dissera', 'disseras', 'dissera', 'disséramos', 'disséreis', 'disseram'),
+                  ('direi', 'dirás', 'dirá', 'diremos', 'direis', 'dirão'),
+                  ('diga', 'digas', 'diga', 'digamos', 'digais', 'digam'),
+                  ('dissesse', 'dissesses', 'dissesse', 'disséssemos', 'dissésseis', 'dissessem'),
+                  ('disser', 'disseres', 'disser', 'dissermos', 'disserdes', 'disserem'),
+                  ('diria', 'dirias', 'diria', 'diríamos', 'diríeis', 'diriam'),
+                  ('-', 'diz', 'diga', 'digamos', 'dizei', 'digas'),
+                  ('-', 'não digas', 'não diga', 'não digamos', 'não digais', 'não digam'))
 
-    HAVER = Tense(('hei', 'hás', 'há', 'havemos', 'haveis', 'hão'),
-                  ('houve', 'houveste', 'houve', 'houvemos', 'houvestes', 'houveram'),
-                  ('havia', 'havias', 'havia', 'havíamos,', 'havíeis', 'haviam'),
-                  ('houvera', 'houveras', 'houvera', 'houvéramos', 'houvéreis', 'houveram'),
-                  ('haverei', 'haverás', 'haverá', 'haveremos', 'havereis', 'haverão'),
-                  ('haja', 'hajas', 'haja', 'hajamos', 'hajais', 'hajam'),
-                  ('houvesse', 'houvesses', 'houvesse', 'houvéssemos', 'houvésseis', 'houvessem'),
-                  ('houver', 'houveres', 'houver', 'houvermos', 'houverdes', 'houverem'),
-                  ('haveria', 'haverias', 'haveria', 'haveríamos', 'haveríeis', 'haveriam'),
-                  ('há', 'haja', 'hajamos', 'havei', 'hajam'),
-                  ('não hajas', 'não haja', 'não hajamos', 'não hajais', 'não hajam'))
-
-    DAR = Tense(('dou', 'dás', 'dá', 'damos', 'dão'),
-                ('dei', 'deste', 'deu', 'demos', 'deram'),
-                ('dava', 'davas', 'dava', 'dávamos', 'davam'),
-                ('dera', 'deras', 'dera', 'déramos', 'deram'),
-                ('darei', 'darás', 'dará', 'daremos', 'darão'),
-                ('dê', 'dês', 'dê', 'dêmos', 'dêem'),
-                ('desse', 'desses', 'desse', 'déssemos', 'dessem'),
-                ('der', 'deres', 'der', 'dermos', 'derem'),
-                ('daria', 'darias', 'aria', 'daríamos', 'dariam'),
-                ('dá', 'dê', 'você', 'dêmos', 'dêem'),
-                ('não dês', 'não dê ', 'não dêmos', 'não dêem'))
-
-    DIZER = Tense(('digo', 'dizes', 'dizemos', 'dizem'),
-                  ('disse', 'disseste', 'disse', 'dissemos', 'disseram'),
-                  ('dizia', 'dizias', 'dizia', 'dizíamos', 'diziam'),
-                  ('dissera', 'disseras', 'dissera', 'disséramos', 'disseram'),
-                  ('direi', 'dirás', 'dirá', 'diremos', 'dirão'),
-                  ('diga', 'digas', 'diga', 'digamos', 'digam'),
-                  ('dissesse', 'dissesses', 'dissesse', 'disséssemos', 'dissessem'),
-                  ('disser', 'disseres', 'disser', 'dissermos', 'disserem'),
-                  ('diria', 'dirias', 'diria', 'diríamos', 'diriam'),
-                  ('diga', 'digamos', 'digam', 'digas'),
-                  ('não digas', 'não diga', 'não digamos', 'não digam'))
-                  
-     FAZER = Tense(('faço', 'fazes', 'faz', 'fazemos', 'fazeis', 'fazem'),
+    FAZER = Tense(('faço', 'fazes', 'faz', 'fazemos', 'fazeis', 'fazem'),
                   ('fiz', 'fizeste', 'fez', 'fizemos', 'fizestes', 'fizeram'),
                   ('fazia', 'fazias', 'fazia', 'fazíamos', 'fazíeis', 'faziam'),
                   ('fizera', 'fizeras', 'fizera', 'fizéramos', 'fizéreis', 'fizeram'),
@@ -122,115 +82,165 @@ class FixedConjugations(Enum):
                   ('-', 'faz', 'faça', 'façamos', 'fazei', 'façam'),
                   ('-', 'não faças', 'não faça', 'não façamos', 'não façais', 'não façam'))
 
+    HAVER = Tense(('hei', 'hás', 'há', 'havemos', 'haveis', 'hão'),
+                  ('houve', 'houveste', 'houve', 'houvemos', 'houvestes', 'houveram'),
+                  ('havia', 'havias', 'havia', 'havíamos,', 'havíeis', 'haviam'),
+                  ('houvera', 'houveras', 'houvera', 'houvéramos', 'houvéreis', 'houveram'),
+                  ('haverei', 'haverás', 'haverá', 'haveremos', 'havereis', 'haverão'),
+                  ('haja', 'hajas', 'haja', 'hajamos', 'hajais', 'hajam'),
+                  ('houvesse', 'houvesses', 'houvesse', 'houvéssemos', 'houvésseis', 'houvessem'),
+                  ('houver', 'houveres', 'houver', 'houvermos', 'houverdes', 'houverem'),
+                  ('haveria', 'haverias', 'haveria', 'haveríamos', 'haveríeis', 'haveriam'),
+                  ('-', 'há', 'haja', 'hajamos', 'havei', 'hajam'),
+                  ('-', 'não hajas', 'não haja', 'não hajamos', 'não hajais', 'não hajam'))
 
-irregular_verbs_without_pattern = {
-    'A': ['acudir', 'adequar', 'aderir', 'adjazer', 'advertir', 'aferir', 'agredir', 'ansiar', 'antedar', 'antever',
-          'aprazer', 'apropinquar', 'aspergir', 'assentir', 'atrair', 'atribuir', 'autodestruir'],
-    'B': ['benquerer', 'buir', 'bulir'],
-    'C': ['cair', 'cerzir', 'circunver', 'compelir', 'competir', 'comprazer', 'concernir', 'concluir', 'condoer',
-          'conferir', 'confugir', 'conseguir', 'consentir', 'construir', 'consumir', 'contrair', 'contrapropor',
-          'convergir', 'cuspir'],
-    'D': ['dar', 'deferir', 'delinquir', 'denegrir', 'desaguar', 'desaprazer', 'descomprazer', 'desconstruir',
-          'deslinguar', 'desmentir', 'desmobiliar', 'despir', 'desprazer', 'desprecaver', 'desprover', 'destruir',
-          'desver', 'digerir', 'disperder', 'distrair', 'divertir', 'doer', 'dormir'],
-    'E': ['embair', 'emergir', 'engolir', 'entrever', 'entrevir', 'entupir', 'enxaguar', 'escapulir', 'estar',
-          'estrear', 'esvair', 'expelir', 'extrapor'], 'F': ['fazer', 'ferir', 'fraguar', 'frigir', 'fugir'],
-    'G': ['gelifazer'], 'H': ['haver'],
-    'I': ['idear', 'imergir', 'impelir', 'incendiar', 'incluir', 'influir', 'inserir', 'intermediar', 'interver'],
-    'J': ['jazer'], 'L': ['ler'], 'M': ['malinguar', 'malparir', 'mediar', 'mentir', 'minguar', 'mobiliar', 'moer'],
-    'O': ['odiar', 'ouvir'],
-    'P': ['parir', 'perder', 'perseguir', 'persentir', 'pleitear', 'poder', 'pôr', 'prazer', 'precluir', 'preferir',
-          'pressentir', 'preterir', 'prevenir', 'prever', 'progredir', 'prossupor', 'prover', 'pruir', 'puir'],
-    'Q': ['querer'],
-    'R': ['raer', 'readequar', 'reaver', 'reavir', 'regredir', 'reindispor', 'remediar', 'repelir', 'repropor',
-          'resfolegar', 'ressentir', 'retrair', 'rever', 'rir', 'ruir'],
-    'S': ['saber', 'sacudir', 'sair', 'santiguar', 'seguir', 'sentir', 'ser', 'servir', 'sobre-expor', 'sobrepor',
-          'sobrestar', 'soer', 'sorrir', 'sortear', 'sortir', 'subir', 'submergir', 'subtrair', 'sugerir', 'sumir',
-          'superimpor', 'supor'],
-    'T': ['telever', 'ter', 'tossir', 'trair', ' transfugir', 'transgredir', 'traspor', 'trazer', 'tresler'],
-    'V': ['valer', 'ver', 'vestir', 'vir']}
+    LER = Tense(('leio', 'lês', 'lê', 'lemos', 'ledes', 'lêem'),
+                ('li', 'leste', 'leu', 'lemos', 'lestes', 'leram'),
+                ('lia', 'lias', 'lia', 'líamos', 'líeis', 'liam'),
+                ('lera', 'leras', 'lera', 'lêramos', 'lêreis', 'leram'),
+                ('lerei', 'lerás', 'lerá', 'leremos', 'lereis', 'lerão'),
+                ('leia', 'leias', 'leia', 'leiamos', 'leiais', 'leiam'),
+                ('lesse', 'lesses', 'lesse', 'lêssemos', 'lêsseis', 'lessem'),
+                ('ler', 'leres', 'ler', 'lermos', 'lerdes', 'lerem'),
+                ('leria', 'lerias', 'leria', 'leríamos', 'leríeis', 'leriam'),
+                ('-', 'lê', 'leia', 'leiamos', 'lede', 'leiam'),
+                ('-', 'não leias', 'não leia', 'não leiamos', 'não leiais', 'não leiam'))
 
-por_verbs = (
-    'antepor', 'apor', 'circumpor', 'compor', 'contrapor', 'contrapropor', 'decompor', 'depor', 'desapor',
-    'descompor',
-    'desimpor', 'despor', 'dispor', 'entrepor', 'expor', 'extrapor', 'fotocompor', 'impor', 'indispor', 'interpor',
-    'justapor', 'maldispor', 'opor', 'pospor', 'predispor', 'prepor', 'pressupor', 'propor', 'prossupor',
-    'recompor',
-    'redispor', 'reexpor', 'reimpor', 'reindispor', 'repor', 'repropor', 'retranspor', 'sobpor', 'sobre-expor',
-    'sobreexpor', 'sobrepor', 'sotopor', 'subpor', 'superexpor', 'superimpor', 'superpor', 'supor', 'transpor',
-    'traspor',
-    'trespor')
+    POR = Tense(('ponho', 'pões', 'põe', 'pomos', 'pondes', 'põem'),
+                ('pus', 'pseste', 'pôs', 'pusemos', 'pusestes', 'puseram'),
+                ('punha', 'punhas', 'punha', 'púnhamos', 'púnheis', 'punham'),
+                ('pusera', 'puseras', 'pusera', 'puséramos', 'puséreis', 'puseram'),
+                ('porei', 'porás', 'porá', 'poremos', 'poreis', 'porão'),
+                ('ponha', 'ponhas', 'ponha', 'ponhamos', 'ponhais', 'ponham'),
+                ('pusesse', 'pusesses', 'pusesse', 'puséssemos', 'pusésseis', 'pusessem'),
+                ('puser', 'puseres', 'puser', 'spusermos', 'puserdes', 'puserem'),
+                ('poria', 'porias', 'poria', 'poríamos', 'poríeis', 'poriam'),
+                ('-', 'põe', 'ponha', 'ponhamos', 'ponham'),
+                ('-', 'não ponhas', 'não ponha', 'não ponhamos', 'não ponham'))
 
-ter_verbs = (
-    'abster', 'ater', 'conter', 'deter', 'manter',
-    'obter', 'reobter', 'reter', 'suster')
+    TER = Tense(('tenho', 'tens', 'tem', 'temos', 'tendes', 'têm'),
+                ('tive', 'tiveste', 'tive', 'tivemos', 'tivestes', 'tiveram'),
+                # index 1 has not to be included in conjugate_compound_tenses()
+                ('tinha', 'tinhas', 'tinha', 'tínhamos', 'tínheis', 'tinham'),
+                ('tivera', 'tiveras', 'tivera', 'nóstivéramos', 'tivéreis', 'tiveram'),
+                # index 3 has not to be included in conjugate_compound_tenses()
+                ('terei', 'terás', 'terá', 'teremos', 'tereis', 'terão'),
+                ('tenha', 'tenhas', 'tenha', 'tenhamos', 'tenhais', 'tenham'),
+                ('tivesse', 'tivesses', 'tivesse', 'tivéssemos', 'tivésseis', 'tivessem'),
+                ('tiver', 'tiveres', 'tiver', 'tivermos', 'tiverdes', 'tiverem'),
+                ('teria', 'terias', 'teria', 'teríamos', 'teríeis', 'teriam'),
+                ('-', 'tem', 'tenha', 'tenhamos', 'tenham'),
+                # index 9 has not to be included in conjugate_compound_tenses()
+                ('-', 'não tenhas', 'não tenha', 'não tenhamos',
+                 'não tenham'))  # index 10 has not to be included in conjugate_compound_tenses()
+    
+    irregular_verbs_without_pattern = {
+        'A': ['acudir', 'adequar', 'aderir', 'adjazer', 'advertir', 'aferir', 'agredir', 'ansiar', 'antedar', 'antever',
+              'aprazer', 'apropinquar', 'aspergir', 'assentir', 'atrair', 'atribuir', 'autodestruir'],
+        'B': ['benquerer', 'buir', 'bulir'],
+        'C': ['cair', 'cerzir', 'circunver', 'compelir', 'competir', 'comprazer', 'concernir', 'concluir', 'condoer',
+              'conferir', 'confugir', 'conseguir', 'consentir', 'construir', 'consumir', 'contrair', 'contrapropor',
+              'convergir', 'cuspir'],
+        'D': ['dar', 'deferir', 'delinquir', 'denegrir', 'desaguar', 'desaprazer', 'descomprazer', 'desconstruir',
+              'deslinguar', 'desmentir', 'desmobiliar', 'despir', 'desprazer', 'desprecaver', 'desprover', 'destruir',
+              'desver', 'digerir', 'disperder', 'distrair', 'divertir', 'doer', 'dormir'],
+        'E': ['embair', 'emergir', 'engolir', 'entrever', 'entrevir', 'entupir', 'enxaguar', 'escapulir', 'estar',
+              'estrear', 'esvair', 'expelir', 'extrapor'], 'F': ['fazer', 'ferir', 'fraguar', 'frigir', 'fugir'],
+        'G': ['gelifazer'], 'H': ['haver'],
+        'I': ['idear', 'imergir', 'impelir', 'incendiar', 'incluir', 'influir', 'inserir', 'intermediar', 'interver'],
+        'J': ['jazer'], 'L': ['ler'], 'M': ['malinguar', 'malparir', 'mediar', 'mentir', 'minguar', 'mobiliar', 'moer'],
+        'O': ['odiar', 'ouvir'],
+        'P': ['parir', 'perder', 'perseguir', 'persentir', 'pleitear', 'poder', 'pôr', 'prazer', 'precluir', 'preferir',
+              'pressentir', 'preterir', 'prevenir', 'prever', 'progredir', 'prossupor', 'prover', 'pruir', 'puir'],
+        'Q': ['querer'],
+        'R': ['raer', 'readequar', 'reaver', 'reavir', 'regredir', 'reindispor', 'remediar', 'repelir', 'repropor',
+              'resfolegar', 'ressentir', 'retrair', 'rever', 'rir', 'ruir'],
+        'S': ['saber', 'sacudir', 'sair', 'santiguar', 'seguir', 'sentir', 'ser', 'servir', 'sobre-expor', 'sobrepor',
+              'sobrestar', 'soer', 'sorrir', 'sortear', 'sortir', 'subir', 'submergir', 'subtrair', 'sugerir', 'sumir',
+              'superimpor', 'supor'],
+        'T': ['telever', 'ter', 'tossir', 'trair', ' transfugir', 'transgredir', 'traspor', 'trazer', 'tresler'],
+        'V': ['valer', 'ver', 'vestir', 'vir']}
 
-vir_verbs = (
-    'advir', 'avir', 'contravir', 'convir', 'desavir', 'desconvir', 'devir', 'ENTREVIR', 'intervir', 'obvir',
-    'provir', 'REAVIR', 'reconvir', 'revir', 'sobrevir')
+    por_verbs = (
+        'antepor', 'apor', 'circumpor', 'compor', 'contrapor', 'contrapropor', 'decompor', 'depor', 'desapor',
+        'descompor',
+        'desimpor', 'despor', 'dispor', 'entrepor', 'expor', 'extrapor', 'fotocompor', 'impor', 'indispor', 'interpor',
+        'justapor', 'maldispor', 'opor', 'pospor', 'predispor', 'prepor', 'pressupor', 'propor', 'prossupor',
+        'recompor',
+        'redispor', 'reexpor', 'reimpor', 'reindispor', 'repor', 'repropor', 'retranspor', 'sobpor', 'sobre-expor',
+        'sobreexpor', 'sobrepor', 'sotopor', 'subpor', 'superexpor', 'superimpor', 'superpor', 'supor', 'transpor',
+        'traspor',
+        'trespor')
 
-fazer_verbs = (
-    'afazer', 'bem-fazer', 'benfazer', 'contrafazer', 'desafazer', 'entrefazer', 'esfazer', 'insatisfazer',
-    'liquefazer', 'malfazer', 'perfazer', 'putrefazer', 'rarefazer', 'refazer', 'satisfazer', 'torrefazer',
-    'transfazer',
-    'tumefazer')
+    ter_verbs = (
+        'abster', 'ater', 'conter', 'deter', 'manter',
+        'obter', 'reobter', 'reter', 'suster')
 
-ouvir_verbs = ('entreouvir', 'reouvir')
+    vir_verbs = (
+        'advir', 'avir', 'contravir', 'convir', 'desavir', 'desconvir', 'devir', 'ENTREVIR', 'intervir', 'obvir',
+        'provir', 'REAVIR', 'reconvir', 'revir', 'sobrevir')
 
-dar_verbs = ('desdar', 'redar')
+    fazer_verbs = (
+        'afazer', 'bem-fazer', 'benfazer', 'contrafazer', 'desafazer', 'entrefazer', 'esfazer', 'insatisfazer',
+        'liquefazer', 'malfazer', 'perfazer', 'putrefazer', 'rarefazer', 'refazer', 'satisfazer', 'torrefazer',
+        'transfazer',
+        'tumefazer')
 
-caber_verbs = ('descaber')
+    ouvir_verbs = ('entreouvir', 'reouvir')
 
-crer_verbs = ('descrer')
+    dar_verbs = ('desdar', 'redar')
 
-valer_verbs = ('desvaler', 'equivaler')
+    caber_verbs = ('descaber')
 
-ler_verbs = ('reler', 'treler', 'tresler')
+    crer_verbs = ('descrer')
 
-querer_verbs = ('bem-querer', 'benquerer', 'desquerer', 'entrequerer', 'maisquerer', 'malquerer', 'requerer')
+    valer_verbs = ('desvaler', 'equivaler')
 
-saber_verbs = ('ressaber', 'dessaber')
+    ler_verbs = ('reler', 'treler', 'tresler')
 
-cobrir_verbs = ('cobrir', 'descobrir', 'encobrir', 'recobrir')
+    querer_verbs = ('bem-querer', 'benquerer', 'desquerer', 'entrequerer', 'maisquerer', 'malquerer', 'requerer')
 
-medir_verbs = ('desmedir', 'medir', 'remedir')
+    saber_verbs = ('ressaber', 'dessaber')
 
-pedir_verbs = ('desimpedir', 'despedir', 'expedir', 'impedir', 'pedir', 'reexpedir', 'repedir')
+    cobrir_verbs = ('cobrir', 'descobrir', 'encobrir', 'recobrir')
 
-polir_verbs = ('despolir')
+    medir_verbs = ('desmedir', 'medir', 'remedir')
 
-dizer_verbs = ('bem-dizer', 'bendizer', 'condizer', 'contradizer', 'desdizer', 'dizer', 'entredizer', 'interdizer',
-               'maldizer', 'predizer', 'redizer')
+    pedir_verbs = ('desimpedir', 'despedir', 'expedir', 'impedir', 'pedir', 'reexpedir', 'repedir')
 
+    polir_verbs = ('despolir')
 
-# # Model for verbs based upon other
-#
-#     basic_irregualr_verbs = ['caber', 'cobrir', 'crer', 'dar', 'dizer', 'fazer', 'ler', 'medir', 'ouvir', 'pedir',
-#                              'polir', 'por', 'querer', 'saber', 'ter', 'valer', 'vir']
-#
-#     conjugation_of_basic_irregular_verbs = OrderedDict.fromkeys(basic_irregualr_verbs, [])
-#     print(conjugation_of_basic_irregular_verbs)
-#
-#     word = 'contrafazer'
-#
-#     verb_to_be_used = []
-#     for index, verb in enumerate(basic_irregualr_verbs):
-#         if word.endswith(verb):
-#             verb_to_be_used = conjugation_of_basic_irregular_verbs.get(verb)
+    dizer_verbs = ('bem-dizer', 'bendizer', 'condizer', 'contradizer', 'desdizer', 'dizer', 'entredizer', 'interdizer',
+                   'maldizer', 'predizer', 'redizer')
 
-# def irregular_conjugation_pattern(word='supor'):
-#     basic_irregualr_verbs = ['caber', 'cobrir', 'crer', 'dar', 'dizer', 'fazer', 'ler', 'medir', 'ouvir', 'pedir',
-#                              'polir', 'por', 'querer', 'saber', 'ter', 'valer', 'vir']
-#
-#     dictionary_of_all_irregular_base_for_other = OrderedDict.fromkeys(basic_irregualr_verbs, [])
-#
-#     verb_to_be_used_conjugation_list = []
-#
-#     for index, verb in enumerate(basic_irregualr_verbs):
-#         if word.endswith(verb):
-#             verb_to_be_used_conjugation_list = dictionary_of_all_irregular_base_for_other.get(verb)
-#
-#         return verb_to_be_used_conjugation_list
+    # # Model for verbs based upon other
+    #
+    #     basic_irregualr_verbs = ['caber', 'cobrir', 'crer', 'dar', 'dizer', 'fazer', 'ler', 'medir', 'ouvir', 'pedir',
+    #                              'polir', 'por', 'querer', 'saber', 'ter', 'valer', 'vir']
+    #
+    #     conjugation_of_basic_irregular_verbs = OrderedDict.fromkeys(basic_irregualr_verbs, [])
+    #     print(conjugation_of_basic_irregular_verbs)
+    #
+    #     word = 'contrafazer'
+    #
+    #     verb_to_be_used = []
+    #     for index, verb in enumerate(basic_irregualr_verbs):
+    #         if word.endswith(verb):
+    #             verb_to_be_used = conjugation_of_basic_irregular_verbs.get(verb)
+
+    # def irregular_conjugation_pattern(word='supor'):
+    #     basic_irregualr_verbs = ['caber', 'cobrir', 'crer', 'dar', 'dizer', 'fazer', 'ler', 'medir', 'ouvir', 'pedir',
+    #                              'polir', 'por', 'querer', 'saber', 'ter', 'valer', 'vir']
+    #
+    #     dictionary_of_all_irregular_base_for_other = OrderedDict.fromkeys(basic_irregualr_verbs, [])
+    #
+    #     verb_to_be_used_conjugation_list = []
+    #
+    #     for index, verb in enumerate(basic_irregualr_verbs):
+    #         if word.endswith(verb):
+    #             verb_to_be_used_conjugation_list = dictionary_of_all_irregular_base_for_other.get(verb)
+    #
+    #         return verb_to_be_used_conjugation_list
 
 
 def irregular_conjugation_pattern(word):
