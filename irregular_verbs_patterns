@@ -33,6 +33,18 @@ class FixedConjugations(Enum):
                    ('cobriria', 'cobririas', 'cobriria', 'cobriríamos', 'cobriríeis', 'cobririam'),
                    ('-', 'cobre', 'cubra', 'cubramos', 'cobri', 'cubram'),
                    ('-', 'não cubras', 'não cubra', 'não cubramos', 'não cubrais', 'não cubram'))
+                   
+    CRER = Tense(('creio', 'crês', 'crê', 'cremos', 'credes', 'crêem'),
+                 ('cri', 'creste', 'creu', 'cremos', 'crestes', 'creram'),
+                 ('cria', 'crias', 'cria', 'críamos', 'críeis', 'criam'),
+                 ('crera', 'creras', 'crera', 'crêramos', 'crêreis', 'creram'),
+                 ('crerei', 'crerás', 'crerá', 'creremos', 'crereis', 'crerão'),
+                 ('creia', 'creias', 'creia', 'creiamos', 'creiais', 'creiam'),
+                 ('cresse', 'cresses', 'cresse', 'crêssemos', 'crêsseis', 'cressem'),
+                 ('crer', 'creres', 'crer', 'crermos', 'crerdes', 'crerem'),
+                 ('creria', 'creria', 'crerias', 'creríamos', 'creríeis', 'creriam'),
+                 ('-', 'crê', 'creia', 'creiamos', 'crede' 'creiam',),
+                 ('-', 'não creias', 'não creia', 'não creiamos', 'não creiais', 'não creiam'))
 
     TER = Tense(('tenho', 'tens', 'tem', 'temos', 'têm'),
                 ('tive', 'tiveste', 'tive', 'tivemos', 'tiveram'),
