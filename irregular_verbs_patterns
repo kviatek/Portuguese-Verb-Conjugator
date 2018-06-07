@@ -117,6 +117,18 @@ class FixedConjugations(Enum):
                   ('mediria', 'medirias', 'mediria', 'mediríamos', 'mediríeis', 'mediriam'),
                   ('' - ', medetu', 'meçaele', 'meçamosnós', 'medivós', 'meçameles'),
                   ('-', 'não meçastu', 'não meçaele', 'não meçamosnós', 'não meçaisvós', 'não meçameles'))
+                  
+    OUVIR = Tense(('ouço', 'oiço', 'ouves', 'ouve', 'ouvimos', 'ouvis', 'ouvem'),
+                  ('ouvi', 'ouviste', 'ouviu', 'ouvimos', 'ouvistes', 'ouviram'),
+                  ('ouvia', 'ouvias', 'ouvia', 'ouvíamos', 'ouvíeis', 'ouviam'),
+                  ('ouvira', 'ouviras', 'ouvira', 'ouvíramos', 'ouvíreis', 'ouviram'),
+                  ('ouvirei', 'ouvirás', 'ouvirá', 'ouviremos', 'ouvireis', 'ouvirão'),
+                  ('ouça', 'ouças', 'ouça', 'ouçamos', 'ouçais', 'ouçam', 'oiçam'),
+                  ('ouvisse', 'ouvisses', 'ouvisse', 'ouvíssemos', 'ouvísseis', 'ocêsouvissem'),
+                  ('ouvir', 'ouvires', 'ouvir', 'ouvirmos', 'ouvirdes', 'ouvirem'),
+                  ('ouviria', 'ouvirias', 'ouviria', 'ouviríamos', 'ouviríeis', 'ouviriam'),
+                  ('-', 'ouve', 'ouça', 'oiçamos', 'ouvi', 'oiçam'),
+                  ('-', 'não ouças', 'não ouça', 'não ouçamos', 'não ouçais', 'não ouçam'))              
 
     POR = Tense(('ponho', 'pões', 'põe', 'pomos', 'pondes', 'põem'),
                 ('pus', 'pseste', 'pôs', 'pusemos', 'pusestes', 'puseram'),
