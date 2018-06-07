@@ -141,6 +141,18 @@ class FixedConjugations(Enum):
                   ('pediria', 'pedirias', 'pediria', 'pediríamos', 'pediríeis', 'pediriam'),
                   ('-', 'pede', 'peça', 'peçamos', 'pedi', 'peçam'),
                   ('-', 'não peças', 'não peça', 'não peçamos', 'não peçais', 'não peçam'))
+    
+    POLIR = Tense(('pulo', 'pules', 'pule', 'polimos', 'polis', 'pulem'),
+                  ('poli', 'poliste', 'poliu', 'polimos', 'polistes', 'poliram'),
+                  ('polia', 'polias', 'polia', 'políamos', 'políeis', 'poliam'),
+                  ('polira', 'poliras', 'polira', 'políramos', 'políreis', 'poliram'),
+                  ('polirei', 'polirás', 'polirá', 'poliremos', 'polireis', 'polirão'),
+                  ('pula', 'pulas', 'pula', 'pulamos', 'pulais', 'pulam'),
+                  ('polisse', 'polisses', 'polisse', 'políssemos', 'polísseis', 'polissem'),
+                  ('polir', 'polires', 'polir', 'polirmos', 'polirdes', 'polirem'),
+                  ('poliria', 'polirias', 'poliria', 'poliríamos', 'poliríeis', 'poliriam'),
+                  ('-', 'pule', 'pula', 'pulamos', 'poli', 'pulam'),
+                  ('-', 'não pulas', 'não pula', 'não pulamos', 'não pulais', 'não pulam'))
 
     POR = Tense(('ponho', 'pões', 'põe', 'pomos', 'pondes', 'põem'),
                 ('pus', 'pseste', 'pôs', 'pusemos', 'pusestes', 'puseram'),
