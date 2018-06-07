@@ -205,6 +205,18 @@ class FixedConjugations(Enum):
                 # index 9 has not to be included in conjugate_compound_tenses()
                 ('-', 'não tenhas', 'não tenha', 'não tenhamos',
                  'não tenham'))  # index 10 has not to be included in conjugate_compound_tenses()
+                 
+     VALER = Tense(('valho', 'vales', 'vale', 'valemos', 'valeis', 'valem'),
+                  ('vali', 'valeste', 'valeu', 'valemos', 'valestes', 'valeram'),
+                  ('valia', 'valias', 'valia', 'valíamos', 'valíeis', 'valiam'),
+                  ('valera', 'valeras', 'valera', 'valêramos', 'valêreis', 'valeram'),
+                  ('valerei', 'valerás', 'valerá', 'valeremos', 'valereis', 'valerão'),
+                  ('valha', 'valhas', 'valha', 'valhamos', 'valhais', 'valham'),
+                  ('valesse', 'valesses', 'valesse', 'valêssemos', 'valêsseis', 'valessem'),
+                  ('valer', 'valeres', 'valer', 'valermos', 'valerdes', 'valerem'),
+                  ('valeria', 'valerias', 'valeria', 'valeríamos', 'valeríeis', 'valeriam'),
+                  ('-', 'vale', 'valha', 'valhamos', 'valei', 'valham'),
+                  ('-', 'não valhas', 'não valha', 'não valhamos', 'não valhais', 'não valham'))
     
     irregular_verbs_without_pattern = {
         'A': ['acudir', 'adequar', 'aderir', 'adjazer', 'advertir', 'aferir', 'agredir', 'ansiar', 'antedar', 'antever',
