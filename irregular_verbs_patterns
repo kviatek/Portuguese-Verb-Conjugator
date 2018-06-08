@@ -242,85 +242,42 @@ class FixedConjugations(Enum):
                 ('-', 'vem', 'venha', 'venhamos', 'vinde', 'venham'),
                 ('-', 'não não venhas', 'não venha', 'não venhamos', 'não venhais', 'não venham'))
 
-    irregular_verbs_without_pattern = {
-        'A': ['acudir', 'adequar', 'aderir', 'adjazer', 'advertir', 'aferir', 'agredir', 'ansiar', 'antedar', 'antever',
-              'aprazer', 'apropinquar', 'aspergir', 'assentir', 'atrair', 'atribuir', 'autodestruir'],
-        'B': ['benquerer', 'buir', 'bulir'],
-        'C': ['cair', 'cerzir', 'circunver', 'compelir', 'competir', 'comprazer', 'concernir', 'concluir', 'condoer',
-              'conferir', 'confugir', 'conseguir', 'consentir', 'construir', 'consumir', 'contrair', 'contrapropor',
-              'convergir', 'cuspir'],
-        'D': ['dar', 'deferir', 'delinquir', 'denegrir', 'desaguar', 'desaprazer', 'descomprazer', 'desconstruir',
-              'deslinguar', 'desmentir', 'desmobiliar', 'despir', 'desprazer', 'desprecaver', 'desprover', 'destruir',
-              'desver', 'digerir', 'disperder', 'distrair', 'divertir', 'doer', 'dormir'],
-        'E': ['embair', 'emergir', 'engolir', 'entrever', 'entrevir', 'entupir', 'enxaguar', 'escapulir', 'estar',
-              'estrear', 'esvair', 'expelir', 'extrapor'], 'F': ['fazer', 'ferir', 'fraguar', 'frigir', 'fugir'],
-        'G': ['gelifazer'], 'H': ['haver'],
-        'I': ['idear', 'imergir', 'impelir', 'incendiar', 'incluir', 'influir', 'inserir', 'intermediar', 'interver'],
-        'J': ['jazer'], 'L': ['ler'], 'M': ['malinguar', 'malparir', 'mediar', 'mentir', 'minguar', 'mobiliar', 'moer'],
-        'O': ['odiar', 'ouvir'],
-        'P': ['parir', 'perder', 'perseguir', 'persentir', 'pleitear', 'poder', 'pôr', 'prazer', 'precluir', 'preferir',
-              'pressentir', 'preterir', 'prevenir', 'prever', 'progredir', 'prossupor', 'prover', 'pruir', 'puir'],
-        'Q': ['querer'],
-        'R': ['raer', 'readequar', 'reaver', 'reavir', 'regredir', 'reindispor', 'remediar', 'repelir', 'repropor',
-              'resfolegar', 'ressentir', 'retrair', 'rever', 'rir', 'ruir'],
-        'S': ['saber', 'sacudir', 'sair', 'santiguar', 'seguir', 'sentir', 'ser', 'servir', 'sobre-expor', 'sobrepor',
-              'sobrestar', 'soer', 'sorrir', 'sortear', 'sortir', 'subir', 'submergir', 'subtrair', 'sugerir', 'sumir',
-              'superimpor', 'supor'],
-        'T': ['telever', 'ter', 'tossir', 'trair', ' transfugir', 'transgredir', 'traspor', 'trazer', 'tresler'],
-        'V': ['valer', 'ver', 'vestir', 'vir']}
+    ALL_IRREGULAR_VERBS_TUPLE = (
+        'abster', 'acudir', 'adequar', 'adjazer', 'advertir', 'advir', 'afazer', 'aferir', 'agredir', 'ansiar',
+        'antedar', 'antepor', 'antever', 'apor', 'aprazer', 'apropinquar', 'aspergir', 'assentir', 'ater', 'atrair',
+        'atribuir', 'autodestruir', 'avir', 'bem-dizer', 'bem-fazer', 'bem-querer', 'bendizer', 'benfazer', 'benquerer',
+        'buir', 'bulir', 'caber', 'cair', 'cerzir', 'circumpor', 'circunver', 'cobrir', 'compor', 'comprazer',
+        'concernir', 'concluir', 'condizer', 'condoer', 'conferir', 'confugir', 'conseguir', 'consentir', 'construir',
+        'consumir', 'conter', 'contradizer', 'contrafazer', 'contrair', 'contrapor', 'contrapropor', 'contravir',
+        'convergir', 'convir', 'crer', 'cuspir', 'dar', 'decompor', 'delinquir', 'denegrir', 'depor', 'desafazer',
+        'desaguar', 'desapor', 'desaprazer', 'desavir', 'descaber', 'descobrir', 'descompor', 'descomprazer',
+        'desconstruir', 'desconvir', 'descrer', 'desdar', 'desdizer', 'desimpedir', 'desimpor', 'deslinguar',
+        'desmedir', 'desmentir', 'desmobiliar', 'despedir', 'despolir', 'despor', 'desprazer', 'desprecaver',
+        'desprover', 'desquerer', 'dessaber', 'destruir', 'desvaler', 'desver', 'deter', 'devir', 'digerir',
+        'disperder', 'dispor', 'distrair', 'divertir', 'dizer', 'doer', 'dormir', 'embair', 'emergir', 'encobrir',
+        'engolir', 'entredizer', 'entrefazer', 'entreouvir', 'entrepor', 'entrequerer', 'entrever', 'entrevir',
+        'entupir', 'enxaguar', 'equivaler', 'escapulir', 'esfazer', 'estar', 'estrear', 'esvair', 'expedir', 'expelir',
+        'expor', 'extrapor', 'fazer', 'fotocompor', 'fraguar', 'frigir', 'fugir', 'gelifazer', 'haver', 'idear',
+        'imergir', 'impedir', 'impelir', 'impor', 'incendiar', 'incluir', 'indispor', 'influir', 'insatisfazer',
+        'inserir', 'interdizer', 'intermediar', 'interpor', 'interver', 'intervir', 'ir', 'jazer', 'justapor', 'ler',
+        'liquefazer', 'maisquerer', 'maldispor', 'maldizer', 'malfazer', 'malinguar', 'malparir', 'malquerer',
+        'manter', 'mediar', 'medir', 'mentir', 'minguar', 'mobiliar', 'moer', 'obter', 'obvir', 'odiar', 'opor',
+        'ouvir', 'parir', 'pedir', 'perder', 'perfazer', 'perseguir', 'persentir', 'pleitear', 'poder', 'polir',
+        'pospor', 'pôr', 'prazer', 'precluir', 'predispor', 'predizer', 'prepor', 'pressentir', 'pressupor',
+        'preterir', 'prevenir', 'prever', 'progredir', 'propor', 'prossupor', 'prover', 'provir', 'pruir', 'puir',
+        'putrefazer', 'querer', 'raer', 'rarefazer', 'readequar', 'reaver', 'reavir', 'recobrir', 'recompor',
+        'reconvir', 'redar', 'redispor', 'redizer', 'reexpedir', 'reexpor', 'refazer', 'regredir', 'reimpor',
+        'reindispor', 'reler', 'remediar', 'remedir', 'reobter', 'reouvir', 'repedir', 'repelir', 'repor', 'repropor',
+        'requerer', 'resfolegar', 'ressentir', 'reter', 'retrair', 'retranspor', 'rever', 'revir', 'rir', 'ruir',
+        'saber', 'sacudir', 'sair', 'santiguar', 'satisfazer', 'seguir', 'sentir', 'ser', 'servir', 'sobpor',
+        'sobre-expor', 'sobreexpor', 'sobrepor', 'sobrestar', 'sobrevir', 'soer', 'sorrir', 'sortear', 'sortir',
+        'sotopor', 'subir', 'submergir', 'subpor', 'subtrair', 'sugerir', 'sumir', 'superexpor', 'superimpor',
+        'superpor', 'supor', 'suster', 'telever', 'ter', 'torrefazer', 'tossir', 'trair', 'transfazer', 'transfugir',
+        'transgredir', 'transpor', 'traspor', 'trazer', 'treler', 'tresler', 'trespor', 'tumefazer', 'valer', 'ver',
+        'vestir', 'vir')
 
-    por_verbs = (
-        'antepor', 'apor', 'circumpor', 'compor', 'contrapor', 'contrapropor', 'decompor', 'depor', 'desapor',
-        'descompor',
-        'desimpor', 'despor', 'dispor', 'entrepor', 'expor', 'extrapor', 'fotocompor', 'impor', 'indispor', 'interpor',
-        'justapor', 'maldispor', 'opor', 'pospor', 'predispor', 'prepor', 'pressupor', 'propor', 'prossupor',
-        'recompor',
-        'redispor', 'reexpor', 'reimpor', 'reindispor', 'repor', 'repropor', 'retranspor', 'sobpor', 'sobre-expor',
-        'sobreexpor', 'sobrepor', 'sotopor', 'subpor', 'superexpor', 'superimpor', 'superpor', 'supor', 'transpor',
-        'traspor',
-        'trespor')
 
-    ter_verbs = (
-        'abster', 'ater', 'conter', 'deter', 'manter',
-        'obter', 'reobter', 'reter', 'suster')
-
-    vir_verbs = (
-        'advir', 'avir', 'contravir', 'convir', 'desavir', 'desconvir', 'devir', 'ENTREVIR', 'intervir', 'obvir',
-        'provir', 'REAVIR', 'reconvir', 'revir', 'sobrevir')
-
-    fazer_verbs = (
-        'afazer', 'bem-fazer', 'benfazer', 'contrafazer', 'desafazer', 'entrefazer', 'esfazer', 'insatisfazer',
-        'liquefazer', 'malfazer', 'perfazer', 'putrefazer', 'rarefazer', 'refazer', 'satisfazer', 'torrefazer',
-        'transfazer',
-        'tumefazer')
-
-    ouvir_verbs = ('entreouvir', 'reouvir')
-
-    dar_verbs = ('desdar', 'redar')
-
-    caber_verbs = ('descaber')
-
-    crer_verbs = ('descrer')
-
-    valer_verbs = ('desvaler', 'equivaler')
-
-    ler_verbs = ('reler', 'treler', 'tresler')
-
-    querer_verbs = ('bem-querer', 'benquerer', 'desquerer', 'entrequerer', 'maisquerer', 'malquerer', 'requerer')
-
-    saber_verbs = ('ressaber', 'dessaber')
-
-    cobrir_verbs = ('cobrir', 'descobrir', 'encobrir', 'recobrir')
-
-    medir_verbs = ('desmedir', 'medir', 'remedir')
-
-    pedir_verbs = ('desimpedir', 'despedir', 'expedir', 'impedir', 'pedir', 'reexpedir', 'repedir')
-
-    polir_verbs = ('despolir')
-
-    dizer_verbs = ('bem-dizer', 'bendizer', 'condizer', 'contradizer', 'desdizer', 'dizer', 'entredizer', 'interdizer',
-                   'maldizer', 'predizer', 'redizer')
-
+dict_of_verbs_based_on_basic_ones = {}
 
 conjugations_tuple = namedtuple('irregular_verbs_conjugations', (
     'caber', 'cobrir', 'crer', 'dar', 'dizer', 'fazer', 'ler', 'medir', 'ouvir', 'pedir',
@@ -336,7 +293,5 @@ verbs_conjugations_patterns = conjugations_tuple(FixedConjugations.CABER.value, 
                                                  FixedConjugations.TER.value, FixedConjugations.VALER.value,
                                                  FixedConjugations.VER.value)
 
-
 if __name__ == '__main__':
     pass
-
