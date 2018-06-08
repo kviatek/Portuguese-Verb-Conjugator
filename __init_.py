@@ -47,7 +47,7 @@ def conjugate_compound_tenses(word):
 
     final_conjugated_forms = []
     past_participle = create_past_participle(word)
-    for index, auxiliary_verb in enumerate(irregular_verbs_patterns.FixedConjugations.TER_AUXILIARY_VERB.value):
+    for index, auxiliary_verb in enumerate(irregular_verbs_patterns.FixedConjugations.TER.value):
         if index != 1 and index != 3 and index != 9 and index != 10:
             for e in auxiliary_verb:
                 final_conjugated_forms.append(e + ' ' + past_participle)
@@ -64,7 +64,7 @@ def conjugate_add_endings_to_the_end(word):
     tenses_number = 2
     conjugated_forms = []
 
-    for ending in enum_verbs_conjugator.TenseEndings.CONDICIONAL_AND_FUTURO_ENDINGS_COMMON_FOR_EVERY_ENDING.value:
+    for ending in enum_verbs_conjugator.TenseEndings.CONDITIONAL_AND_FUTURE_ENDINGS.value:
         for e in ending:
             conjugated_forms.append(word + e)
 
@@ -92,10 +92,8 @@ def conjugate_change_last_two_letters(word, endings):
     for e in final_conjugated_forms:
         print(e)
 
-# IRREGULAR VERB METHOD --->
 
-
-def conjugate_irregular_verb(word):  # TERAZ ROBIĘ TO
+def conjugate_irregular_verb(word):
     def irregular_conjugation_pattern(word):
 
         for index, field in enumerate(irregular_verbs_patterns.verbs_conjugations_patterns._fields):
@@ -120,6 +118,15 @@ def conjugate_verb(word):  # main method
     :param word:
     :return:
     """
+
+    def is_regular_verb(word):  # sprawdzam, czy regularny
+        """
+
+        :param word:
+        :return:
+        """
+        return True if word not in irregular_verbs_patterns.FixedConjugations.ALL_IRREGULAR_VERBS_TUPLE.value else False
+
     if word.endswith('ar'):
         endings = enum_verbs_conjugator.TenseEndings.ENDINGS_AR.value
     elif word.endswith('er'):
@@ -127,10 +134,13 @@ def conjugate_verb(word):  # main method
     elif word.endswith('ir'):
         endings = enum_verbs_conjugator.TenseEndings.ENDINGS_IR.value
 
-    conjugate_change_last_two_letters(word, endings)
-    conjugate_compound_tenses(word)
-    conjugate_add_endings_to_the_end(word)
-    print(conjugate_irregular_verb(word))
+    if is_regular_verb(word):
+        conjugate_change_last_two_letters(word, endings)
+        conjugate_compound_tenses(word)
+        conjugate_add_endings_to_the_end(word)
+    else:
+        print(conjugate_irregular_verb(word))
+
     print(create_gerundium(word))
     print(create_past_participle(word))
 
@@ -151,4 +161,4 @@ if __name__ == '__main__':
     except TypeError as t_err:
         print(t_err)
 
-    print(conjugate_irregular_verb('sobrepor'))
+    conjugate_verb('achar')
