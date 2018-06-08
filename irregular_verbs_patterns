@@ -105,7 +105,7 @@ class FixedConjugations(Enum):
                 ('leria', 'lerias', 'leria', 'leríamos', 'leríeis', 'leriam'),
                 ('-', 'lê', 'leia', 'leiamos', 'lede', 'leiam'),
                 ('-', 'não leias', 'não leia', 'não leiamos', 'não leiais', 'não leiam'))
-                
+
     MEDIR = Tense(('meço', 'medes', 'mede', 'medimos', 'medis', 'medem'),
                   ('medi', 'mediste', 'mediu', 'medimos', 'medistes', 'mediram'),
                   ('media', 'medias', 'media', 'medíamos', 'medíeis', 'mediam'),
@@ -115,9 +115,9 @@ class FixedConjugations(Enum):
                   ('medisse', 'medisses', 'medisse', 'medíssemos', 'medísseis', 'medissem'),
                   ('medir', 'medires', 'medir', 'medirmos', 'medirdes', 'medirem'),
                   ('mediria', 'medirias', 'mediria', 'mediríamos', 'mediríeis', 'mediriam'),
-                  ('' - ', medetu', 'meçaele', 'meçamosnós', 'medivós', 'meçameles'),
+                  ('-', 'medetu', 'meçaele', 'meçamosnós', 'medivós', 'meçameles'),
                   ('-', 'não meçastu', 'não meçaele', 'não meçamosnós', 'não meçaisvós', 'não meçameles'))
-                  
+
     OUVIR = Tense(('ouço', 'oiço', 'ouves', 'ouve', 'ouvimos', 'ouvis', 'ouvem'),
                   ('ouvi', 'ouviste', 'ouviu', 'ouvimos', 'ouvistes', 'ouviram'),
                   ('ouvia', 'ouvias', 'ouvia', 'ouvíamos', 'ouvíeis', 'ouviam'),
@@ -128,8 +128,8 @@ class FixedConjugations(Enum):
                   ('ouvir', 'ouvires', 'ouvir', 'ouvirmos', 'ouvirdes', 'ouvirem'),
                   ('ouviria', 'ouvirias', 'ouviria', 'ouviríamos', 'ouviríeis', 'ouviriam'),
                   ('-', 'ouve', 'ouça', 'oiçamos', 'ouvi', 'oiçam'),
-                  ('-', 'não ouças', 'não ouça', 'não ouçamos', 'não ouçais', 'não ouçam'))  
-                  
+                  ('-', 'não ouças', 'não ouça', 'não ouçamos', 'não ouçais', 'não ouçam'))
+
     PEDIR = Tense(('peço', 'pedes', 'pede', 'pedimos', 'pedis', 'pedem'),
                   ('pedi', 'pediste', 'pediu', 'pedimos', 'pedistes', 'pediram'),
                   ('pedia', 'pedias', 'pedia', 'pedíamos', 'pedíeis', 'pediam'),
@@ -141,7 +141,7 @@ class FixedConjugations(Enum):
                   ('pediria', 'pedirias', 'pediria', 'pediríamos', 'pediríeis', 'pediriam'),
                   ('-', 'pede', 'peça', 'peçamos', 'pedi', 'peçam'),
                   ('-', 'não peças', 'não peça', 'não peçamos', 'não peçais', 'não peçam'))
-    
+
     POLIR = Tense(('pulo', 'pules', 'pule', 'polimos', 'polis', 'pulem'),
                   ('poli', 'poliste', 'poliu', 'polimos', 'polistes', 'poliram'),
                   ('polia', 'polias', 'polia', 'políamos', 'políeis', 'poliam'),
@@ -165,7 +165,7 @@ class FixedConjugations(Enum):
                 ('poria', 'porias', 'poria', 'poríamos', 'poríeis', 'poriam'),
                 ('-', 'põe', 'ponha', 'ponhamos', 'ponham'),
                 ('-', 'não ponhas', 'não ponha', 'não ponhamos', 'não ponham'))
-                
+
     QUERER = Tense(('quero', 'queres', 'quer', 'queremos', 'quereis', 'querem'),
                    ('quis', 'quiseste', 'quis', 'quisemos', 'quisestes', 'quiseram'),
                    ('queria', 'querias', 'queria', 'queríamos', 'queríeis', 'queriam'),
@@ -177,7 +177,7 @@ class FixedConjugations(Enum):
                    ('quereria', 'quererias', 'quereria', 'quereríamos', 'quereríeis', 'quereriam'),
                    ('-', 'queira', 'queiramos', 'querei', 'queiram'),
                    ('-', '-', '-', '-', '-'))
-                   
+
     SABER = Tense(('sei', 'sabes', 'sabe', 'sabemos', 'sabeis', 'sabem'),
                   ('soube', 'soubeste', 'soube', 'soubemos', 'soubestes', 'souberam'),
                   ('sabia', 'sabias', 'sabia', 'sabíamos', 'sabíeis', 'sabiam'),
@@ -205,8 +205,8 @@ class FixedConjugations(Enum):
                 # index 9 has not to be included in conjugate_compound_tenses()
                 ('-', 'não tenhas', 'não tenha', 'não tenhamos',
                  'não tenham'))  # index 10 has not to be included in conjugate_compound_tenses()
-                 
-     VALER = Tense(('valho', 'vales', 'vale', 'valemos', 'valeis', 'valem'),
+
+    VALER = Tense(('valho', 'vales', 'vale', 'valemos', 'valeis', 'valem'),
                   ('vali', 'valeste', 'valeu', 'valemos', 'valestes', 'valeram'),
                   ('valia', 'valias', 'valia', 'valíamos', 'valíeis', 'valiam'),
                   ('valera', 'valeras', 'valera', 'valêramos', 'valêreis', 'valeram'),
@@ -217,7 +217,31 @@ class FixedConjugations(Enum):
                   ('valeria', 'valerias', 'valeria', 'valeríamos', 'valeríeis', 'valeriam'),
                   ('-', 'vale', 'valha', 'valhamos', 'valei', 'valham'),
                   ('-', 'não valhas', 'não valha', 'não valhamos', 'não valhais', 'não valham'))
-    
+
+    VER = Tense(('vejo', 'vês', 'vê', 'vemos', 'vedes', 'vêem'),
+                ('vi', 'viste', 'viu', 'vimos', 'vistes', 'viram'),
+                ('via', 'vias', 'via', 'víamos', 'víeis', 'viam'),
+                ('vira', 'viras', 'vira', 'víramos', 'víreis', 'viram'),
+                ('verei', 'verás', 'verá', 'veremos', 'vereis', 'verão'),
+                ('veja', 'vejas', 'veja', 'vejamos', 'vejais', 'vejam'),
+                ('visse', 'visses', 'visse', 'víssemos', 'vísseis', 'vissem'),
+                ('ver', 'veres', 'ver', 'vermos', 'verdes', 'verem'),
+                ('veria', 'verias', 'veria', 'veríamos', 'veríeis', 'veriam'),
+                ('-', 'vê', 'veja', 'vejamos', 'vede', 'vejam'),
+                ('-', 'não vejas', 'não veja', 'não vejamos', 'não vejais', 'não vejam'))
+
+    VIR = Tense(('venho', 'vens', 'vem', 'vimos', 'vindes', 'vêm'),
+                ('vim', 'vieste', 'veio', 'viemos', 'viestes', 'vieram'),
+                ('vinha', 'vinhas', 'vinha', 'vínhamos', 'vínheis', 'vinham'),
+                ('viera', 'vieras', 'viera', 'viéramos', 'viéreis', 'vieram'),
+                ('virei', 'virás', 'virá', 'viremos', 'vireis', 'virão'),
+                ('venha', 'venhas', 'venha', 'venhamos', 'venhais', 'venham'),
+                ('viesse', 'viesses', 'viesse', 'viéssemos', 'viésseis', 'viessem'),
+                ('vier', 'vieres', 'vier', 'viermos', 'vierdes', 'vierem'),
+                ('viria', 'virias', 'viria', 'viríamos', 'viríeis', 'viriam'),
+                ('-', 'vem', 'venha', 'venhamos', 'vinde', 'venham'),
+                ('-', 'não não venhas', 'não venha', 'não venhamos', 'não venhais', 'não venham'))
+
     irregular_verbs_without_pattern = {
         'A': ['acudir', 'adequar', 'aderir', 'adjazer', 'advertir', 'aferir', 'agredir', 'ansiar', 'antedar', 'antever',
               'aprazer', 'apropinquar', 'aspergir', 'assentir', 'atrair', 'atribuir', 'autodestruir'],
@@ -300,7 +324,7 @@ class FixedConjugations(Enum):
     # # Model for verbs based upon other
     #
     #     basic_irregualr_verbs = ['caber', 'cobrir', 'crer', 'dar', 'dizer', 'fazer', 'ler', 'medir', 'ouvir', 'pedir',
-    #                              'polir', 'por', 'querer', 'saber', 'ter', 'valer', 'vir']
+    #                              'polir', 'por', 'querer', 'saber', 'ter', 'valer', 'ver','vir']
     #
     #     conjugation_of_basic_irregular_verbs = OrderedDict.fromkeys(basic_irregualr_verbs, [])
     #     print(conjugation_of_basic_irregular_verbs)
@@ -327,15 +351,20 @@ class FixedConjugations(Enum):
     #         return verb_to_be_used_conjugation_list
 
 
-def irregular_conjugation_pattern(word):
-    # conjugations_tuple = namedtuple('irregular_verbs_conjugations', (
-    # 'caber', 'cobrir', 'crer', 'dar', 'dizer', 'fazer', 'ler', 'medir', 'ouvir', 'pedir',
-    # 'polir', 'por', 'querer', 'saber', 'ter', 'valer', 'vir'))
+def irregular_conjugation_pattern():
+    conjugations_tuple = namedtuple('irregular_verbs_conjugations', (
+        'caber', 'cobrir', 'crer', 'dar', 'dizer', 'fazer', 'ler', 'medir', 'ouvir', 'pedir',
+        'polir', 'por', 'querer', 'saber', 'ter', 'valer', 'vir'))
 
-    conjugations_tuple = namedtuple('irregular_verbs_conjugations', ('dar', 'por', 'ter'))
-
-    verbs_conjugations_patterns = conjugations_tuple(FixedConjugations.DAR.value, FixedConjugations.POR.value,
-                                                     FixedConjugations.TER.value)  # tu musz abyc odmiany
+    verbs_conjugations_patterns = conjugations_tuple(FixedConjugations.CABER.value, FixedConjugations.COBRIR.value,
+                                                     FixedConjugations.CRER.value, FixedConjugations.DAR.value,
+                                                     FixedConjugations.DIZER.value, FixedConjugations.FAZER.value,
+                                                     FixedConjugations.LER.value, FixedConjugations.MEDIR.value,
+                                                     FixedConjugations.OUVIR.value, FixedConjugations.PEDIR.value,
+                                                     FixedConjugations.POLIR.value, FixedConjugations.POR.value,
+                                                     FixedConjugations.QUERER.value, FixedConjugations.SABER.value,
+                                                     FixedConjugations.TER.value, FixedConjugations.VALER.value,
+                                                     FixedConjugations.VER.value)  # tu musza byc odmiany
 
     print(verbs_conjugations_patterns._fields)
 
@@ -344,3 +373,4 @@ def irregular_conjugation_pattern(word):
 
 if __name__ == '__main__':
     pass
+
