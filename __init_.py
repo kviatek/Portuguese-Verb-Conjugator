@@ -5,19 +5,10 @@ Docstring will go here
 
 """
 
-from PortugueseConjugatorApp import enum_verbs_conjugator
-from PortugueseConjugatorApp import irregular_verbs_patterns
-from PortugueseConjugatorApp.enum_verbs_conjugator import TenseEndings
-
-__author__ = "Paweł Kwiatkowski"
-__copyright__ = "Copyright 2018, Paweł Kwiatkowski"
-__credits__ = [
-    "Paweł Kwiatkowski"]  # includes people who reported bug fixes, made suggestions, etc. but did not actually write the code
-__license__ = "GPL"
-__version__ = "1.0.0"
-__maintainer__ = "Paweł Kwiatkowski"  # should be the person who will fix bugs and make improvements if imported.
-__email__ = "kwiatkowski.pawel87@gmail.com"
-__status__ = "Development"  # "Prototype", "Development" or "Production"
+from app import enum_verbs_conjugator
+from app import irregular_verbs_patterns
+from app.enum_verbs_conjugator import TenseEndings
+from collections import namedtuple
 
 
 class NotInfinitiveError(ValueError):
@@ -100,35 +91,27 @@ def conjugate_change_last_two_letters(word, endings):
 
     for e in final_conjugated_forms:
         print(e)
-        
-def conjugate_irregular_verb(word):
 
+# IRREGULAR VERB METHOD --->
+
+
+def conjugate_irregular_verb(word):  # TERAZ ROBIĘ TO
     def irregular_conjugation_pattern(word):
 
-        # conjugations_tuple = namedtuple('irregular_verbs_conjugations', (
-        # 'caber', 'cobrir', 'crer', 'dar', 'dizer', 'fazer', 'ler', 'medir', 'ouvir', 'pedir',
-        # 'polir', 'por', 'querer', 'saber', 'ter', 'valer', 'vir'))
-
-        conjugations_tuple = namedtuple('irregular_verbs_conjugations', ('dar', 'por', 'ter',))
-
-        verbs_conjugations_patterns = conjugations_tuple(irregular_verbs_patterns.FixedConjugations.DAR,
-                                                         irregular_verbs_patterns.FixedConjugations.POR,
-                                                         irregular_verbs_patterns.FixedConjugations.TER)  # tu muszą być odmiany
-
-        for index, field in enumerate(verbs_conjugations_patterns._fields):
+        for index, field in enumerate(irregular_verbs_patterns.verbs_conjugations_patterns._fields):
             if word.endswith(field):
-                return field, getattr(verbs_conjugations_patterns, field)
+                return field, getattr(irregular_verbs_patterns.verbs_conjugations_patterns, field)
 
     verb, conjugation = irregular_conjugation_pattern(word)
 
     base = word[:-len(verb)]
-    final = []
+    final_conjugated_list = []
 
-    for tense in conjugation.value:
+    for tense in conjugation:
         for form in tense:
-            final.append(base + form)
+            final_conjugated_list.append(base + form)
 
-    return final
+    return final_conjugated_list
 
 
 def conjugate_verb(word):  # main method
@@ -147,7 +130,9 @@ def conjugate_verb(word):  # main method
     conjugate_change_last_two_letters(word, endings)
     conjugate_compound_tenses(word)
     conjugate_add_endings_to_the_end(word)
+    print(conjugate_irregular_verb(word))
     print(create_gerundium(word))
+    print(create_past_participle(word))
 
 
 if __name__ == '__main__':
@@ -166,7 +151,4 @@ if __name__ == '__main__':
     except TypeError as t_err:
         print(t_err)
 
-
-    # conjugate_change_last_two_letters(word, enum_verbs_conjugator.TenseEndings.ENDINGS_AR.value)
-    
-    conjugate_compound_tenses(word)
+    print(conjugate_irregular_verb('sobrepor'))
