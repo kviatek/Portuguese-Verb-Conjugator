@@ -321,54 +321,20 @@ class FixedConjugations(Enum):
     dizer_verbs = ('bem-dizer', 'bendizer', 'condizer', 'contradizer', 'desdizer', 'dizer', 'entredizer', 'interdizer',
                    'maldizer', 'predizer', 'redizer')
 
-    # # Model for verbs based upon other
-    #
-    #     basic_irregualr_verbs = ['caber', 'cobrir', 'crer', 'dar', 'dizer', 'fazer', 'ler', 'medir', 'ouvir', 'pedir',
-    #                              'polir', 'por', 'querer', 'saber', 'ter', 'valer', 'ver','vir']
-    #
-    #     conjugation_of_basic_irregular_verbs = OrderedDict.fromkeys(basic_irregualr_verbs, [])
-    #     print(conjugation_of_basic_irregular_verbs)
-    #
-    #     word = 'contrafazer'
-    #
-    #     verb_to_be_used = []
-    #     for index, verb in enumerate(basic_irregualr_verbs):
-    #         if word.endswith(verb):
-    #             verb_to_be_used = conjugation_of_basic_irregular_verbs.get(verb)
 
-    # def irregular_conjugation_pattern(word='supor'):
-    #     basic_irregualr_verbs = ['caber', 'cobrir', 'crer', 'dar', 'dizer', 'fazer', 'ler', 'medir', 'ouvir', 'pedir',
-    #                              'polir', 'por', 'querer', 'saber', 'ter', 'valer', 'vir']
-    #
-    #     dictionary_of_all_irregular_base_for_other = OrderedDict.fromkeys(basic_irregualr_verbs, [])
-    #
-    #     verb_to_be_used_conjugation_list = []
-    #
-    #     for index, verb in enumerate(basic_irregualr_verbs):
-    #         if word.endswith(verb):
-    #             verb_to_be_used_conjugation_list = dictionary_of_all_irregular_base_for_other.get(verb)
-    #
-    #         return verb_to_be_used_conjugation_list
+conjugations_tuple = namedtuple('irregular_verbs_conjugations', (
+    'caber', 'cobrir', 'crer', 'dar', 'dizer', 'fazer', 'ler', 'medir', 'ouvir', 'pedir',
+    'polir', 'por', 'querer', 'saber', 'ter', 'valer', 'vir'))
 
-
-def irregular_conjugation_pattern():
-    conjugations_tuple = namedtuple('irregular_verbs_conjugations', (
-        'caber', 'cobrir', 'crer', 'dar', 'dizer', 'fazer', 'ler', 'medir', 'ouvir', 'pedir',
-        'polir', 'por', 'querer', 'saber', 'ter', 'valer', 'vir'))
-
-    verbs_conjugations_patterns = conjugations_tuple(FixedConjugations.CABER.value, FixedConjugations.COBRIR.value,
-                                                     FixedConjugations.CRER.value, FixedConjugations.DAR.value,
-                                                     FixedConjugations.DIZER.value, FixedConjugations.FAZER.value,
-                                                     FixedConjugations.LER.value, FixedConjugations.MEDIR.value,
-                                                     FixedConjugations.OUVIR.value, FixedConjugations.PEDIR.value,
-                                                     FixedConjugations.POLIR.value, FixedConjugations.POR.value,
-                                                     FixedConjugations.QUERER.value, FixedConjugations.SABER.value,
-                                                     FixedConjugations.TER.value, FixedConjugations.VALER.value,
-                                                     FixedConjugations.VER.value)  # tu musza byc odmiany
-
-    print(verbs_conjugations_patterns._fields)
-
-    # return verb_conjugation_to_be_used, founded_verb musi zwrócić odmianę do użycia i znaleziony czasownik
+verbs_conjugations_patterns = conjugations_tuple(FixedConjugations.CABER.value, FixedConjugations.COBRIR.value,
+                                                 FixedConjugations.CRER.value, FixedConjugations.DAR.value,
+                                                 FixedConjugations.DIZER.value, FixedConjugations.FAZER.value,
+                                                 FixedConjugations.LER.value, FixedConjugations.MEDIR.value,
+                                                 FixedConjugations.OUVIR.value, FixedConjugations.PEDIR.value,
+                                                 FixedConjugations.POLIR.value, FixedConjugations.POR.value,
+                                                 FixedConjugations.QUERER.value, FixedConjugations.SABER.value,
+                                                 FixedConjugations.TER.value, FixedConjugations.VALER.value,
+                                                 FixedConjugations.VER.value)
 
 
 if __name__ == '__main__':
