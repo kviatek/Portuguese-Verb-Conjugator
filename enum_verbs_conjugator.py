@@ -43,18 +43,16 @@ class TenseEndings(Enum):
                          ('ir', 'ires', 'ir', 'irmos', 'irdes', 'irem')
                          )
 
-    CONDITIONAL_MOOD_AND_FUTURE_INDICATIVE_MOOD = namedtuple('conditional_and_future_simple',
+    CONDITIONAL_MOOD_AND_FUTURE_INDICATIVE_MOOD = namedtuple('NAME_FUTURE_CONDITIONAL',
                                                              'conditional future_simple')
 
     CONDITIONAL_AND_FUTURE_ENDINGS = CONDITIONAL_MOOD_AND_FUTURE_INDICATIVE_MOOD(
-        ('ei', 'ás', 'á', 'emos', 'ão'), ('ia', 'ias', 'ia', 'íamos', 'iam'))
+        ('ei', 'ás', 'á', 'emos', 'des', 'ão'), ('ia', 'ias', 'ia', 'íamos', 'íeis', 'iam'))
 
-    IMPERATIVE_MOOD = namedtuple('imperative_mood', 'affirmative_imperative negative_imperative')
-
-    IMPERATIVE_ENDINGS = IMPERATIVE_MOOD()
+    # IMPERATIVE_MOOD = namedtuple('imperative_mood', 'affirmative_imperative negative_imperative')
+    #
+    # IMPERATIVE_ENDINGS = IMPERATIVE_MOOD()
 
 
 if __name__ == '__main__':
     pass
-
-
