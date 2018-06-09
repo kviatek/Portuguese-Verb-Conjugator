@@ -16,7 +16,7 @@ class NotInfinitiveError(ValueError):
 
 def create_gerundium(word):
     """
-    Method creates gerundium of a verb
+    Method creates a gerundium form of a verb
     :param word:
     :return: gerundium of a verb
     """
@@ -25,7 +25,7 @@ def create_gerundium(word):
 
 def create_past_participle(word):
     """
-    Method returns past participle form a verb
+    Method returns a past participle form a verb
     :param word: verb whose past participle form need to be created
     :return: past participle form of a verb
     """
@@ -34,11 +34,10 @@ def create_past_participle(word):
 
 def conjugate_compound_tenses(word):
     """
-
-    :param word:
-    :return:
+    Method create conjugations of all compund tenses with use of auxiliary verb 'ter'
+    :param word: a verb to be conjugated
+    :return: list of conjugated forms
     """
-
     final_conjugated_forms = []
     past_participle = create_past_participle(word)
     for index, auxiliary_verb in enumerate(irregular_verbs_patterns.ter):
@@ -52,7 +51,7 @@ def conjugate_compound_tenses(word):
 def conjugate_add_endings_to_the_end(word):
     """
     The method conjugate verbs by adding to its root adequate grammatical endings.
-    :param word: Verb to be conjugated
+    :param word: a verb to be conjugated
     :return: list of conjugated forms of all grammatical tenses
     """
     tenses_number = 2
@@ -115,32 +114,41 @@ def conjugate_irregular_verb(word):
         return irregular_verbs_patterns.all_irregular_verbs_dict.get(word)
 
 
-def conjugate_verb(word):  # main method
+def conjugate_regular_verb(word):
     """
 
     :param word:
     :return:
     """
+    if word.endswith('ar'):
+        endings = enum_verbs_conjugator.TenseEndings.ENDINGS_AR.value
+    elif word.endswith('er'):
+        endings = enum_verbs_conjugator.TenseEndings.ENDINGS_ER.value
+    elif word.endswith('ir'):
+        endings = enum_verbs_conjugator.TenseEndings.ENDINGS_IR.value
+
+    return conjugate_change_last_two_letters(word, endings), conjugate_add_endings_to_the_end(
+        word), conjugate_compound_tenses(word), create_gerundium(word), create_past_participle(word)
+
+
+def conjugate_verb(word):  # main method
+    """
+    Main method which evaluates whether a verb is regular or not and produces a corresponding
+    list of conjugations in all grammatical tenses.
+    :param word: a verb to be conjugated
+    :return: a list of conjugations in all grammatical tenses
+    """
 
     def is_regular_verb(word):  # sprawdzam, czy regularny
         """
         The method checks whether a verb is regular or not.
-        :param word:
+        :param word: a verb to be checked
         :return: True if a verb is regular otherwise False
         """
         return True if word not in irregular_verbs_patterns.all_irregular_verbs_dict else False
 
     if is_regular_verb(word):
-
-        if word.endswith('ar'):
-            endings = enum_verbs_conjugator.TenseEndings.ENDINGS_AR.value
-        elif word.endswith('er'):
-            endings = enum_verbs_conjugator.TenseEndings.ENDINGS_ER.value
-        elif word.endswith('ir'):
-            endings = enum_verbs_conjugator.TenseEndings.ENDINGS_IR.value
-
-        return conjugate_change_last_two_letters(word, endings), conjugate_add_endings_to_the_end(
-            word), conjugate_compound_tenses(word), create_gerundium(word), create_past_participle(word)
+        return conjugate_regular_verb(word)
     else:
         return conjugate_irregular_verb(word)
 
@@ -161,4 +169,4 @@ if __name__ == '__main__':
     except TypeError as te:
         print(te)
 
-    conjugate_verb('achar')
+    print(conjugate_verb('achar'))
