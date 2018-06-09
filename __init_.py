@@ -47,7 +47,7 @@ def conjugate_compound_tenses(word):
 
     final_conjugated_forms = []
     past_participle = create_past_participle(word)
-    for index, auxiliary_verb in enumerate(irregular_verbs_patterns.FixedConjugations.TER.value):
+    for index, auxiliary_verb in enumerate(irregular_verbs_patterns.ter):
         if index != 1 and index != 3 and index != 9 and index != 10:
             for e in auxiliary_verb:
                 final_conjugated_forms.append(e + ' ' + past_participle)
@@ -94,15 +94,22 @@ def conjugate_change_last_two_letters(word, endings):
 
 
 def conjugate_irregular_verb(word):
-    def irregular_conjugation_pattern(word):
+    """
 
-        for index, field in enumerate(irregular_verbs_patterns.verbs_conjugations_patterns._fields):
-            if word.endswith(field):
-                return field, getattr(irregular_verbs_patterns.verbs_conjugations_patterns, field)
+    :param word:
+    :return:
+    """
+    verb_ending = ''
+    conjugation = []
 
-    verb, conjugation = irregular_conjugation_pattern(word)
+    for verb in irregular_verbs_patterns.basic_irregular_verbs_complete_conjugations.keys():  # ZJEBANE
+        if word.endswith(verb):
+            verb_ending, conjugation = verb, irregular_verbs_patterns.basic_irregular_verbs_complete_conjugations.get(
+                verb)
+        else:  # NAPRAW ŚCIERWO
+            print(irregular_verbs_patterns.all_irregular_verbs_dict.get(verb))
 
-    base = word[:-len(verb)]
+    base = word[:-len(verb_ending)]
     final_conjugated_list = []
 
     for tense in conjugation:
@@ -125,7 +132,7 @@ def conjugate_verb(word):  # main method
         :param word:
         :return:
         """
-        return True if word not in irregular_verbs_patterns.FixedConjugations.ALL_IRREGULAR_VERBS_TUPLE.value else False
+        return True if word not in irregular_verbs_patterns.all_irregular_verbs_dict else False
 
     if word.endswith('ar'):
         endings = enum_verbs_conjugator.TenseEndings.ENDINGS_AR.value
@@ -134,13 +141,10 @@ def conjugate_verb(word):  # main method
     elif word.endswith('ir'):
         endings = enum_verbs_conjugator.TenseEndings.ENDINGS_IR.value
 
-    if is_regular_verb(word):
-        conjugate_change_last_two_letters(word, endings)
-        conjugate_compound_tenses(word)
-        conjugate_add_endings_to_the_end(word)
-    else:
-        print(conjugate_irregular_verb(word))
-
+    conjugate_change_last_two_letters(word, endings)
+    conjugate_compound_tenses(word)
+    conjugate_add_endings_to_the_end(word)
+    print(conjugate_irregular_verb(word))
     print(create_gerundium(word))
     print(create_past_participle(word))
 
@@ -161,4 +165,12 @@ if __name__ == '__main__':
     except TypeError as t_err:
         print(t_err)
 
-    conjugate_verb('achar')
+    print(conjugate_irregular_verb('supor'))
+
+    #
+    # for index, verb in enumerate(
+    #         irregular_verbs_patterns.basic_irregular_verbs_complete_conjugations._fields):  # ZJEBANE
+    #     if 'supor'.endswith(verb):
+    #         print(verb)
+    #     else:
+    #         print(irregular_verbs_patterns.all_irregular_verbs_dict.get(verb))
