@@ -99,24 +99,27 @@ def conjugate_irregular_verb(word):
     :param word:
     :return:
     """
-    verb_ending = ''
-    conjugation = []
 
-    for verb in irregular_verbs_patterns.basic_irregular_verbs_complete_conjugations.keys():  # ZJEBANE
-        if word.endswith(verb):
-            verb_ending, conjugation = verb, irregular_verbs_patterns.basic_irregular_verbs_complete_conjugations.get(
-                verb)
-        else:  # NAPRAW ŚCIERWO
-            print(irregular_verbs_patterns.all_irregular_verbs_dict.get(verb))
+    if irregular_verbs_patterns.all_irregular_verbs_dict.get(word) == None:
 
-    base = word[:-len(verb_ending)]
-    final_conjugated_list = []
+        verb_ending = ''
+        conjugation = []
 
-    for tense in conjugation:
-        for form in tense:
-            final_conjugated_list.append(base + form)
+        for verb in irregular_verbs_patterns.basic_irregular_verbs_complete_conjugations.keys():  # ZJEBANE
+            if word.endswith(verb):
+                verb_ending, conjugation = verb, irregular_verbs_patterns.basic_irregular_verbs_complete_conjugations.get(
+                    verb)
 
-    return final_conjugated_list
+        base = word[:-len(verb_ending)]
+        final_conjugated_list = []
+
+        for tense in conjugation:
+            for form in tense:
+                final_conjugated_list.append(base + form)
+
+        return final_conjugated_list
+    else:
+        return irregular_verbs_patterns.all_irregular_verbs_dict.get(word)
 
 
 def conjugate_verb(word):  # main method
@@ -165,7 +168,7 @@ if __name__ == '__main__':
     except TypeError as t_err:
         print(t_err)
 
-    print(conjugate_irregular_verb('supor'))
+    print(conjugate_irregular_verb('consumir'))
 
     #
     # for index, verb in enumerate(
