@@ -8,16 +8,10 @@ Docstring will go here
 from app import enum_verbs_conjugator
 from app import irregular_verbs_patterns
 from app.enum_verbs_conjugator import TenseEndings
-from collections import namedtuple
 
 
 class NotInfinitiveError(ValueError):
     pass
-
-
-def print_final_conjugated_forms(final_conjugated_forms):
-    for tense in final_conjugated_forms:
-        print(tense)
 
 
 def create_gerundium(word):
@@ -52,7 +46,7 @@ def conjugate_compound_tenses(word):
             for e in auxiliary_verb:
                 final_conjugated_forms.append(e + ' ' + past_participle)
 
-    print_final_conjugated_forms(final_conjugated_forms)
+    return final_conjugated_forms
 
 
 def conjugate_add_endings_to_the_end(word):
@@ -71,7 +65,7 @@ def conjugate_add_endings_to_the_end(word):
     final_conjugated_forms = list(
         zip(enum_verbs_conjugator.GrammaticalPersons.PERSONS.value * tenses_number, conjugated_forms))
 
-    print_final_conjugated_forms(final_conjugated_forms)
+    return final_conjugated_forms
 
 
 def conjugate_change_last_two_letters(word, endings):
@@ -89,8 +83,7 @@ def conjugate_change_last_two_letters(word, endings):
     final_conjugated_forms = list(
         zip(enum_verbs_conjugator.GrammaticalPersons.PERSONS.value * tenses_number, conjugated_forms))
 
-    for e in final_conjugated_forms:
-        print(e)
+    return final_conjugated_forms
 
 
 def conjugate_irregular_verb(word):
@@ -131,25 +124,25 @@ def conjugate_verb(word):  # main method
 
     def is_regular_verb(word):  # sprawdzam, czy regularny
         """
-
+        The method checks whether a verb is regular or not.
         :param word:
-        :return:
+        :return: True if a verb is regular otherwise False
         """
         return True if word not in irregular_verbs_patterns.all_irregular_verbs_dict else False
 
-    if word.endswith('ar'):
-        endings = enum_verbs_conjugator.TenseEndings.ENDINGS_AR.value
-    elif word.endswith('er'):
-        endings = enum_verbs_conjugator.TenseEndings.ENDINGS_ER.value
-    elif word.endswith('ir'):
-        endings = enum_verbs_conjugator.TenseEndings.ENDINGS_IR.value
+    if is_regular_verb(word):
 
-    conjugate_change_last_two_letters(word, endings)
-    conjugate_compound_tenses(word)
-    conjugate_add_endings_to_the_end(word)
-    print(conjugate_irregular_verb(word))
-    print(create_gerundium(word))
-    print(create_past_participle(word))
+        if word.endswith('ar'):
+            endings = enum_verbs_conjugator.TenseEndings.ENDINGS_AR.value
+        elif word.endswith('er'):
+            endings = enum_verbs_conjugator.TenseEndings.ENDINGS_ER.value
+        elif word.endswith('ir'):
+            endings = enum_verbs_conjugator.TenseEndings.ENDINGS_IR.value
+
+        return conjugate_change_last_two_letters(word, endings), conjugate_add_endings_to_the_end(
+            word), conjugate_compound_tenses(word), create_gerundium(word), create_past_participle(word)
+    else:
+        return conjugate_irregular_verb(word)
 
 
 if __name__ == '__main__':
@@ -165,15 +158,7 @@ if __name__ == '__main__':
 
     except NotInfinitiveError as nie:
         print(nie)
-    except TypeError as t_err:
-        print(t_err)
+    except TypeError as te:
+        print(te)
 
-    print(conjugate_irregular_verb('consumir'))
-
-    #
-    # for index, verb in enumerate(
-    #         irregular_verbs_patterns.basic_irregular_verbs_complete_conjugations._fields):  # ZJEBANE
-    #     if 'supor'.endswith(verb):
-    #         print(verb)
-    #     else:
-    #         print(irregular_verbs_patterns.all_irregular_verbs_dict.get(verb))
+    conjugate_verb('achar')
