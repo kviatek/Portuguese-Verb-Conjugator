@@ -105,7 +105,7 @@ def conjugate_irregular_verb(word):
         verb_ending = ''
         conjugation = []
 
-        for verb in irregular_verbs_patterns.basic_irregular_verbs_complete_conjugations.keys():  # ZJEBANE
+        for verb in irregular_verbs_patterns.basic_irregular_verbs_complete_conjugations.keys():
             if word.endswith(verb):
                 verb_ending, conjugation = verb, irregular_verbs_patterns.basic_irregular_verbs_complete_conjugations.get(
                     verb)
