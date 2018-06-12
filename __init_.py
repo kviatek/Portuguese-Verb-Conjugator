@@ -8,10 +8,20 @@ Docstring will go here
 from app import enum_verbs_conjugator
 from app import irregular_verbs_patterns
 from app.enum_verbs_conjugator import TenseEndings
+from collections import namedtuple
 
 
 class NotInfinitiveError(ValueError):
     pass
+
+
+def is_regular_verb(word):  # sprawdzam, czy regularny
+    """
+    The method checks whether a verb is regular or not.
+    :param word: a verb to be checked
+    :return: True if a verb is regular otherwise False
+    """
+    return True if word not in irregular_verbs_patterns.all_irregular_verbs_dict else False
 
 
 def create_gerundium(word):
@@ -73,16 +83,30 @@ def conjugate_change_last_two_letters(word, endings):
     :param endings:
     :return:
     """
-    tenses_number = 6
+
+    # tenses_names = [
+    #     'Presente_Indicativo', 'Pretérito_Perfeito', 'Pretérito_Imperfeito',
+    #     'Pretérito_Mais_Que_Perfeito', 'Presente_de_Subjuntivo', 'Pretérito_Imperfeito_de_Subjuntivo',
+    #     'Futuro_de_Subjuntivo']
+
+    tenses_names = list(enum_verbs_conjugator.TenseEndings.Endings.value._fields)
+
+    tenses_number = 7
+    grammatical_persons_number = 6
     conjugated_forms = []
     for tens, terminations in enumerate(endings):
         for e in terminations:
             conjugated_forms.append(word[:-2] + e)
 
-    final_conjugated_forms = list(
+    conjugated_forms = list(
         zip(enum_verbs_conjugator.GrammaticalPersons.PERSONS.value * tenses_number, conjugated_forms))
 
-    return final_conjugated_forms
+    list_of_chunks = [conjugated_forms[x:x + grammatical_persons_number] for x in
+                      range(0, len(conjugated_forms), grammatical_persons_number)]
+
+    final_dict_of_conjugated_verb = dict(zip(tenses_names, list_of_chunks))
+
+    return final_dict_of_conjugated_verb
 
 
 def conjugate_irregular_verb(word):
@@ -131,6 +155,7 @@ def conjugate_regular_verb(word):
         word), conjugate_compound_tenses(word), create_gerundium(word), create_past_participle(word)
 
 
+
 def conjugate_verb(word):  # main method
     """
     Main method which evaluates whether a verb is regular or not and produces a corresponding
@@ -138,14 +163,6 @@ def conjugate_verb(word):  # main method
     :param word: a verb to be conjugated
     :return: a list of conjugations in all grammatical tenses
     """
-
-    def is_regular_verb(word):  # sprawdzam, czy regularny
-        """
-        The method checks whether a verb is regular or not.
-        :param word: a verb to be checked
-        :return: True if a verb is regular otherwise False
-        """
-        return True if word not in irregular_verbs_patterns.all_irregular_verbs_dict else False
 
     if is_regular_verb(word):
         return conjugate_regular_verb(word)
@@ -169,4 +186,18 @@ if __name__ == '__main__':
     except TypeError as te:
         print(te)
 
-    print(conjugate_verb('achar'))
+
+    print(conjugate_change_last_two_letters('achar', enum_verbs_conjugator.TenseEndings.ENDINGS_AR.value).get(
+        'Presente_de_Subjuntivo'))
+
+
+    imperativo_negativo = []
+
+    for e in conjugate_change_last_two_letters('achar', enum_verbs_conjugator.TenseEndings.ENDINGS_AR.value).get(
+    'Presente_de_Subjuntivo'):
+        imperativo_negativo.append('não ' + e[1])
+
+    for e in imperativo_negativo:
+        print(e)
+
+
