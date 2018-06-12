@@ -160,7 +160,7 @@ por = Tense(('ponho', 'pões', 'põe', 'pomos', 'pondes', 'põem'),
             ('porei', 'porás', 'porá', 'poremos', 'poreis', 'porão'),
             ('ponha', 'ponhas', 'ponha', 'ponhamos', 'ponhais', 'ponham'),
             ('pusesse', 'pusesses', 'pusesse', 'puséssemos', 'pusésseis', 'pusessem'),
-            ('puser', 'puseres', 'puser', 'spusermos', 'puserdes', 'puserem'),
+            ('puser', 'puseres', 'puser', 'pusermos', 'puserdes', 'puserem'),
             ('poria', 'porias', 'poria', 'poríamos', 'poríeis', 'poriam'),
             ('-', 'põe', 'ponha', 'ponhamos', 'ponham'),
             ('-', 'não ponhas', 'não ponha', 'não ponhamos', 'não ponham'))
@@ -241,18 +241,12 @@ vir = Tense(('venho', 'vens', 'vem', 'vimos', 'vindes', 'vêm'),
             ('-', 'vem', 'venha', 'venhamos', 'vinde', 'venham'),
             ('-', 'não não venhas', 'não venha', 'não venhamos', 'não venhais', 'não venham'))
 
-# conjugations = namedtuple('irregular_verbs_conjugations', (
-#     'caber', 'cobrir', 'crer', 'dar', 'dizer', 'fazer', 'ler', 'medir', 'ouvir', 'pedir',
-#     'polir', 'por', 'querer', 'saber', 'ter', 'valer', 'vir'))
-#
-# basic_irregular_verbs_complete_conjugations = conjugations(caber, cobrir, crer, dar, dizer, fazer, ler, medir, ouvir,
-#                                                            pedir, polir, por, querer, saber, ter, valer, ver)
-
 
 basic_irregular_verbs_complete_conjugations = {'caber': caber, 'medir': medir, 'pedir': pedir, 'por': por,
-                                                'valer': valer, 'polir': polir, 'saber': saber, 'dar': dar,
-                                                'dizer': dizer, 'ter': ter, 'cobrir': cobrir, 'ouvir': ouvir,
-                                                'fazer': fazer, 'ler': ler, 'querer': querer, 'crer': crer, 'vir': vir}
+                                               'valer': valer, 'polir': polir, 'saber': saber, 'dar': dar,
+                                               'dizer': dizer, 'ter': ter, 'cobrir': cobrir, 'ouvir': ouvir,
+                                               'haver': haver, 'fazer': fazer, 'ler': ler, 'querer': querer,
+                                               'crer': crer, 'vir': vir}
 
 all_irregular_verbs_dict = {'consumir': None, 'esvair': None, 'readequar': None, 'predizer': None, 'retrair': None,
                             'disperder': None,
