@@ -149,20 +149,20 @@ def conjugate_regular_verb(word):
         imperativo_negativo = []
         presente_de_subjuntivo_list = list(
             conjugate_change_last_two_letters(word, endings).get('Presente_de_Subjuntivo'))
-        for e in presente_de_subjuntivo_list[1:]:
-            imperativo_negativo.append('não ' + e[1])
+        for ending in presente_de_subjuntivo_list[1:]:
+            imperativo_negativo.append('não ' + ending[1])
 
         imperativo_afirmativo = []
 
         if word.endswith('ar'):
-            end = enum_verbs_conjugator.TenseEndings.AFFIRMATIVE_IMPERATIVE_ENDINGS.value.affirmative_imperative_ar_endings
+            ending_tuple = enum_verbs_conjugator.TenseEndings.AFFIRMATIVE_IMPERATIVE_ENDINGS.value.affirmative_imperative_ar_endings
         elif word.endswith('er'):
-            end = enum_verbs_conjugator.TenseEndings.AFFIRMATIVE_IMPERATIVE_ENDINGS.value.affirmative_imperative_er_endings
+            ending_tuple = enum_verbs_conjugator.TenseEndings.AFFIRMATIVE_IMPERATIVE_ENDINGS.value.affirmative_imperative_er_endings
         elif word.endswith('ir'):
-            end = enum_verbs_conjugator.TenseEndings.AFFIRMATIVE_IMPERATIVE_ENDINGS.value.affirmative_imperative_ir_endings
+            ending_tuple = enum_verbs_conjugator.TenseEndings.AFFIRMATIVE_IMPERATIVE_ENDINGS.value.affirmative_imperative_ir_endings
 
-        for e in end:
-            imperativo_afirmativo.append(word[:-2] + e)
+        for ending in ending_tuple:
+            imperativo_afirmativo.append(word[:-2] + ending)
 
         return imperativo_afirmativo, imperativo_negativo
 
