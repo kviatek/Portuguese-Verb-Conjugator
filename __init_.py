@@ -84,11 +84,6 @@ def conjugate_change_last_two_letters(word, endings):
     :return:
     """
 
-    # tenses_names = [
-    #     'Presente_Indicativo', 'Pretérito_Perfeito', 'Pretérito_Imperfeito',
-    #     'Pretérito_Mais_Que_Perfeito', 'Presente_de_Subjuntivo', 'Pretérito_Imperfeito_de_Subjuntivo',
-    #     'Futuro_de_Subjuntivo']
-
     tenses_names = list(enum_verbs_conjugator.TenseEndings.Endings.value._fields)
 
     tenses_number = 7
@@ -144,6 +139,21 @@ def conjugate_regular_verb(word):
     :param word:
     :return:
     """
+
+    def imperative(word):
+        """
+
+        :param word:
+        :return:
+        """
+        imperativo_negativo = []
+
+        for e in conjugate_change_last_two_letters(word, endings).get(
+                'Presente_de_Subjuntivo'):
+            imperativo_negativo.append('não ' + e[1])
+
+        return imperativo_negativo
+
     if word.endswith('ar'):
         endings = enum_verbs_conjugator.TenseEndings.ENDINGS_AR.value
     elif word.endswith('er'):
@@ -152,8 +162,7 @@ def conjugate_regular_verb(word):
         endings = enum_verbs_conjugator.TenseEndings.ENDINGS_IR.value
 
     return conjugate_change_last_two_letters(word, endings), conjugate_add_endings_to_the_end(
-        word), conjugate_compound_tenses(word), create_gerundium(word), create_past_participle(word)
-
+        word), conjugate_compound_tenses(word), create_gerundium(word), create_past_participle(word), imperative(word)
 
 
 def conjugate_verb(word):  # main method
@@ -186,18 +195,9 @@ if __name__ == '__main__':
     except TypeError as te:
         print(te)
 
+    # print(conjugate_change_last_two_letters('achar', enum_verbs_conjugator.TenseEndings.ENDINGS_AR.value))
 
-    print(conjugate_change_last_two_letters('achar', enum_verbs_conjugator.TenseEndings.ENDINGS_AR.value).get(
-        'Presente_de_Subjuntivo'))
+    # for e in conjugate_change_last_two_letters('achar', enum_verbs_conjugator.TenseEndings.ENDINGS_AR.value).items():
+    #     print(e)
 
-
-    imperativo_negativo = []
-
-    for e in conjugate_change_last_two_letters('achar', enum_verbs_conjugator.TenseEndings.ENDINGS_AR.value).get(
-    'Presente_de_Subjuntivo'):
-        imperativo_negativo.append('não ' + e[1])
-
-    for e in imperativo_negativo:
-        print(e)
-
-
+    print(conjugate_verb('achar'))
