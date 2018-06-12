@@ -85,9 +85,10 @@ def conjugate_change_last_two_letters(word, endings):
 
     tenses_names = list(enum_verbs_conjugator.TenseEndings.Endings.value._fields)
 
-    tenses_number = 7
+    tenses_number = 8
     grammatical_persons_number = 6
     conjugated_forms = []
+
     for tens, terminations in enumerate(endings):
         for e in terminations:
             conjugated_forms.append(word[:-2] + e)
@@ -143,8 +144,10 @@ def conjugate_regular_verb(word):
         """
 
         :param word:
+        :param imperative_endings:
         :return:
         """
+
         imperative_affirmative = []
         imperative_negative = []
 
