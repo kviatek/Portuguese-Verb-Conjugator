@@ -67,7 +67,7 @@ def conjugate_add_endings_to_the_end(word):
     tenses_number = 2
     conjugated_forms = []
 
-    for ending in enum_verbs_conjugator.TenseEndings.CONDITIONAL_AND_FUTURE_ENDINGS.value:
+    for ending in enum_verbs_conjugator.TenseEndings.CONDITIONAL_AND_FUTURE_SIMPLE_ENDINGS.value:
         for e in ending:
             conjugated_forms.append(word + e)
 
@@ -147,12 +147,24 @@ def conjugate_regular_verb(word):
         :return:
         """
         imperativo_negativo = []
-
-        for e in conjugate_change_last_two_letters(word, endings).get(
-                'Presente_de_Subjuntivo'):
+        presente_de_subjuntivo_list = list(
+            conjugate_change_last_two_letters(word, endings).get('Presente_de_Subjuntivo'))
+        for e in presente_de_subjuntivo_list[1:]:
             imperativo_negativo.append('não ' + e[1])
 
-        return imperativo_negativo
+        imperativo_afirmativo = []
+
+        if word.endswith('ar'):
+            end = enum_verbs_conjugator.TenseEndings.AFFIRMATIVE_IMPERATIVE_ENDINGS.value.affirmative_imperative_ar_endings
+        elif word.endswith('er'):
+            end = enum_verbs_conjugator.TenseEndings.AFFIRMATIVE_IMPERATIVE_ENDINGS.value.affirmative_imperative_er_endings
+        elif word.endswith('ir'):
+            end = enum_verbs_conjugator.TenseEndings.AFFIRMATIVE_IMPERATIVE_ENDINGS.value.affirmative_imperative_ir_endings
+
+        for e in end:
+            imperativo_afirmativo.append(word[:-2] + e)
+
+        return imperativo_afirmativo, imperativo_negativo
 
     if word.endswith('ar'):
         endings = enum_verbs_conjugator.TenseEndings.ENDINGS_AR.value
@@ -194,10 +206,5 @@ if __name__ == '__main__':
         print(nie)
     except TypeError as te:
         print(te)
-
-    # print(conjugate_change_last_two_letters('achar', enum_verbs_conjugator.TenseEndings.ENDINGS_AR.value))
-
-    # for e in conjugate_change_last_two_letters('achar', enum_verbs_conjugator.TenseEndings.ENDINGS_AR.value).items():
-    #     print(e)
 
     print(conjugate_verb('achar'))
