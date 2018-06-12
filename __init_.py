@@ -8,7 +8,6 @@ Docstring will go here
 from app import enum_verbs_conjugator
 from app import irregular_verbs_patterns
 from app.enum_verbs_conjugator import TenseEndings
-from collections import namedtuple
 
 
 class NotInfinitiveError(ValueError):
@@ -111,7 +110,7 @@ def conjugate_irregular_verb(word):
     :return:
     """
 
-    if irregular_verbs_patterns.all_irregular_verbs_dict.get(word) == None:
+    if irregular_verbs_patterns.all_irregular_verbs_dict.get(word) is None:
 
         verb_ending = ''
         conjugation = []
@@ -140,41 +139,38 @@ def conjugate_regular_verb(word):
     :return:
     """
 
-    def imperative(word):
+    def imperative(word, imperative_endings):
         """
 
         :param word:
         :return:
         """
-        imperativo_negativo = []
+        imperative_affirmative = []
+        imperative_negative = []
+
+        for ending in imperative_endings:
+            imperative_affirmative.append(word[:-2] + ending)
+
         presente_de_subjuntivo_list = list(
             conjugate_change_last_two_letters(word, endings).get('Presente_de_Subjuntivo'))
         for ending in presente_de_subjuntivo_list[1:]:
-            imperativo_negativo.append('não ' + ending[1])
+            imperative_negative.append('não ' + ending[1])
 
-        imperativo_afirmativo = []
-
-        if word.endswith('ar'):
-            ending_tuple = enum_verbs_conjugator.TenseEndings.AFFIRMATIVE_IMPERATIVE_ENDINGS.value.affirmative_imperative_ar_endings
-        elif word.endswith('er'):
-            ending_tuple = enum_verbs_conjugator.TenseEndings.AFFIRMATIVE_IMPERATIVE_ENDINGS.value.affirmative_imperative_er_endings
-        elif word.endswith('ir'):
-            ending_tuple = enum_verbs_conjugator.TenseEndings.AFFIRMATIVE_IMPERATIVE_ENDINGS.value.affirmative_imperative_ir_endings
-
-        for ending in ending_tuple:
-            imperativo_afirmativo.append(word[:-2] + ending)
-
-        return imperativo_afirmativo, imperativo_negativo
+        return imperative_affirmative, imperative_negative
 
     if word.endswith('ar'):
         endings = enum_verbs_conjugator.TenseEndings.ENDINGS_AR.value
+        imperative_endings = enum_verbs_conjugator.TenseEndings.AFFIRMATIVE_IMPERATIVE_ENDINGS.value.affirmative_imperative_ar_endings
     elif word.endswith('er'):
         endings = enum_verbs_conjugator.TenseEndings.ENDINGS_ER.value
+        imperative_endings = enum_verbs_conjugator.TenseEndings.AFFIRMATIVE_IMPERATIVE_ENDINGS.value.affirmative_imperative_er_endings
     elif word.endswith('ir'):
         endings = enum_verbs_conjugator.TenseEndings.ENDINGS_IR.value
+        imperative_endings = enum_verbs_conjugator.TenseEndings.AFFIRMATIVE_IMPERATIVE_ENDINGS.value.affirmative_imperative_ir_endings
 
     return conjugate_change_last_two_letters(word, endings), conjugate_add_endings_to_the_end(
-        word), conjugate_compound_tenses(word), create_gerundium(word), create_past_participle(word), imperative(word)
+        word), conjugate_compound_tenses(word), create_gerundium(word), create_past_participle(word), imperative(word,
+                                                                                                                 imperative_endings)
 
 
 def conjugate_verb(word):  # main method
