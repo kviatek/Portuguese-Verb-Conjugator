@@ -20,7 +20,8 @@ def is_regular_verb(word):  # sprawdzam, czy regularny
     :param word: a verb to be checked
     :return: True if a verb is regular otherwise False
     """
-    return True if word not in irregular_verbs_patterns.all_irregular_verbs_dict else False
+    return True if word not in irregular_verbs_patterns.all_irregular_verbs_dict \
+                   and word not in irregular_verbs_patterns.basic_irregular_verbs_complete_conjugations else False
 
 
 def create_gerundium(word):
@@ -110,8 +111,10 @@ def conjugate_irregular_verb(word):
     :param word:
     :return:
     """
-
-    if irregular_verbs_patterns.all_irregular_verbs_dict.get(word) is None:
+    if word in irregular_verbs_patterns.basic_irregular_verbs_complete_conjugations.keys():
+        return irregular_verbs_patterns.basic_irregular_verbs_complete_conjugations.get(word)
+    elif word not in irregular_verbs_patterns.basic_irregular_verbs_complete_conjugations.keys() \
+            and irregular_verbs_patterns.all_irregular_verbs_dict.get(word) is None:
 
         verb_ending = ''
         conjugation = []
@@ -206,4 +209,5 @@ if __name__ == '__main__':
     except TypeError as te:
         print(te)
 
-    print(conjugate_verb('achar'))
+    print(conjugate_verb('haver'))
+    # print(irregular_verbs_patterns.basic_irregular_verbs_complete_conjugations.get('ter'))
