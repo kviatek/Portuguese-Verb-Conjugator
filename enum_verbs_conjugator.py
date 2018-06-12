@@ -43,12 +43,18 @@ class TenseEndings(Enum):
                          ('ir', 'ires', 'ir', 'irmos', 'irdes', 'irem')
                          )
 
-    CONDITIONAL_MOOD_AND_FUTURE_INDICATIVE_MOOD = namedtuple('NAME_FUTURE_CONDITIONAL',
-                                                             'conditional future_simple')
+    # CONDITIONAL AND FUTURE SIMPLE ENDIGNS FOR conjugate_add_endings_to_the_end() METHOD
 
-    CONDITIONAL_AND_FUTURE_ENDINGS = CONDITIONAL_MOOD_AND_FUTURE_INDICATIVE_MOOD(
+    CONDITIONAL_AND_FUTURE_SIMPLE_NAMED_TUPLE_DEFINITION = namedtuple('NAME_FUTURE_CONDITIONAL',
+                                                                      'conditional future_simple')
+
+    CONDITIONAL_AND_FUTURE_SIMPLE_ENDINGS = CONDITIONAL_AND_FUTURE_SIMPLE_NAMED_TUPLE_DEFINITION(
         ('ei', 'ás', 'á', 'emos', 'des', 'ão'), ('ia', 'ias', 'ia', 'íamos', 'íeis', 'iam'))
 
-    # IMPERATIVE_MOOD = namedtuple('imperative_mood', 'affirmative_imperative negative_imperative')
-    #
-    # IMPERATIVE_ENDINGS = IMPERATIVE_MOOD()
+    # AFFIRMATIVE IMPERATIVE ENDIGNS FOR imperative() METHOD
+
+    IMPERATIVE_MOOD = namedtuple('affirmative_imperative_mood', (
+        'affirmative_imperative_ar_endings', 'affirmative_imperative_er_endings', 'affirmative_imperative_ir_endings'))
+
+    AFFIRMATIVE_IMPERATIVE_ENDINGS = IMPERATIVE_MOOD(('a', 'e', 'emos', 'ai', 'ei'), ('e', 'a', 'amos', 'ei', 'am'),
+                                                     ('e', 'a', 'amos', 'i', 'am'))
