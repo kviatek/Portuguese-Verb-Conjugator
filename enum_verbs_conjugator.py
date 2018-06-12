@@ -52,7 +52,3 @@ class TenseEndings(Enum):
     # IMPERATIVE_MOOD = namedtuple('imperative_mood', 'affirmative_imperative negative_imperative')
     #
     # IMPERATIVE_ENDINGS = IMPERATIVE_MOOD()
-
-
-if __name__ == '__main__':
-    pass
