@@ -245,7 +245,7 @@ vir = Tense(('venho', 'vens', 'vem', 'vimos', 'vindes', 'vêm'),
 basic_irregular_verbs_complete_conjugations = {'caber': caber, 'medir': medir, 'pedir': pedir, 'por': por,
                                                'valer': valer, 'polir': polir, 'saber': saber, 'dar': dar,
                                                'dizer': dizer, 'ter': ter, 'cobrir': cobrir, 'ouvir': ouvir,
-                                               'haver': haver, 'fazer': fazer, 'ler': ler, 'querer': querer,
+                                               'fazer': fazer, 'ler': ler, 'querer': querer,
                                                'crer': crer, 'vir': vir}
 
 all_irregular_verbs_dict = {'consumir': None, 'esvair': None, 'readequar': None, 'predizer': None, 'retrair': None,
@@ -340,4 +340,4 @@ all_irregular_verbs_dict = {'consumir': None, 'esvair': None, 'readequar': None,
                             'mobiliar': None,
                             'tumefazer': None, 'reouvir': None, 'subtrair': None, 'encobrir': None, 'dormir': None,
                             'dispor': None,
-                            'reter': None, 'regredir': None, 'deslinguar': None}
+                            'reter': None, 'regredir': None, 'deslinguar': None, 'haver': haver}
