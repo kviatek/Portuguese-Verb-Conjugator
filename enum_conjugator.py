@@ -54,7 +54,7 @@ class TenseEndings(Enum):
     # AFFIRMATIVE IMPERATIVE ENDIGNS FOR imperative() METHOD
 
     IMPERATIVE_MOOD = namedtuple('affirmative_imperative_mood', (
-        'affirmative_imperative_ar_endings', 'affirmative_imperative_er_endings', 'affirmative_imperative_ir_endings'))
+        'ar_endings', 'er_endings', 'ir_endings'))
 
     AFFIRMATIVE_IMPERATIVE_ENDINGS = IMPERATIVE_MOOD(('a', 'e', 'emos', 'ai', 'ei'), ('e', 'a', 'amos', 'ei', 'am'),
                                                      ('e', 'a', 'amos', 'i', 'am'))
