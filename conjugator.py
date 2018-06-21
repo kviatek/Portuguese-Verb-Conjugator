@@ -66,10 +66,14 @@ def conjugate_compound_tenses(word):
     """
     final_conjugated_forms = []
     past_participle = create_past_participle(word)
+
+    # Verb 'ter' is an auxiliary verb, its conjugation is imported from irregular_verbs.py module
+    # and omitting unnecessary tenses conjugations
+
     for index, auxiliary_verb in enumerate(
-            irregular_verbs.ter):  # Verb 'ter' is an auxiliary verb, its conjugation is imported from irregular_verbs.py module
-        if index != 1 and index != 3 and index != 9 and index != 10:  # omitting unnecessary tenses conjugations
-            for e in auxiliary_verb:  # adding up past participle to forms of a verb 'ter'
+            irregular_verbs.ter):
+        if index != 1 and index != 3 and index != 9 and index != 10:
+            for e in auxiliary_verb:
                 final_conjugated_forms.append(e + ' ' + past_participle)
 
     return final_conjugated_forms
@@ -77,7 +81,8 @@ def conjugate_compound_tenses(word):
 
 def conjugate_add_endings_to_the_end(word):
     """
-    The method conjugate verbs by adding to its infinitive form adequate grammatical endings depending of type of a tense.
+    The method conjugate verbs by adding to its infinitive form
+    adequate grammatical endings depending on a type of a tense.
     :param word: a verb to be conjugated
     :return: list of conjugated forms of all grammatical tenses
     """
@@ -88,15 +93,15 @@ def conjugate_add_endings_to_the_end(word):
         for e in ending:
             conjugated_forms.append(word + e)
 
-    final_conjugated_forms = list(  # linking all conjugated forms with corresponding grammatical persons
-        zip(enum_conjugator.GrammaticalPersons.PERSONS.value * tenses_number, conjugated_forms))
+    # linking all conjugated forms with corresponding grammatical persons
+    final_conjugated_forms = link_conjugated_forms_with_grammatical_persons(tenses_number, conjugated_forms)
 
     return final_conjugated_forms
 
 
 def conjugate_change_last_two_letters(word, endings):
     """
-    The method conjugate verbs by adding to its root an adequate grammatical endings depending of type of a tense.
+    The method conjugate verbs by adding to its root an adequate grammatical endings depending on a type of a tense.
     :param word: a verb to be conjugated
     :param endings:
     :return: a dictionary with tenses names as keys and a list of conjugated forms as a value.
