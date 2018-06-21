@@ -1,17 +1,26 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 """
 Docstring will go here
 
 """
 
-from app import enum_conjugator
-from app import irregular_verbs
-from app.enum_conjugator import TenseEndings
+import enum_conjugator
+import irregular_verbs
 
 
 class NotInfinitiveError(ValueError):
     pass
+
+
+def link_conjugated_forms_with_grammatical_persons(tenses_number, conjugated_forms):
+    """
+    Method links conjugated forms of a verb with respective grammatical persons names.
+    :param tenses_number: number of tenses
+    :param conjugated_forms: a list of conjugated forms of a verb
+    :return: a list of tuples with pairs grammatical person name, conjugated wrb
+    """
+    return list(zip(enum_conjugator.GrammaticalPersons.PERSONS.value * tenses_number, conjugated_forms))
 
 
 def print_conjugation(conjugation):
@@ -19,9 +28,9 @@ def print_conjugation(conjugation):
         print(e)
 
 
-def is_regular_verb(word):  # sprawdzam, czy regularny
+def is_regular_verb(word):
     """
-    The method checks whether a verb is regular or not.
+    The method checks whether a verb is regular or not by looking it up in a dictionary of all existent irregular verbs.
     :param word: a verb to be checked
     :return: True if a verb is regular otherwise False
     """
@@ -31,7 +40,7 @@ def is_regular_verb(word):  # sprawdzam, czy regularny
 
 def create_gerundium(word):
     """
-    Method creates a gerundium form of a verb
+    Method returns a gerundium form of a verb by changing the last two letters to an appropriate ending.
     :param word:
     :return: gerundium of a verb
     """
@@ -40,7 +49,7 @@ def create_gerundium(word):
 
 def create_past_participle(word):
     """
-    Method returns a past participle form a verb
+    Method returns a past participle form a verb by changing the last two letters to an appropriate ending.
     :param word: verb whose past participle form need to be created
     :return: past participle form of a verb
     """
@@ -50,43 +59,47 @@ def create_past_participle(word):
 def conjugate_compound_tenses(word):
     """
     Method create conjugations of all compund tenses with use of auxiliary verb 'ter'
+    There's a past participle created based on a verb and linked with an adequate form o a verb ter.
+    The method makes use of a create_past_participle() function to create a past participle form.
     :param word: a verb to be conjugated
     :return: list of conjugated forms
     """
     final_conjugated_forms = []
     past_participle = create_past_participle(word)
-    for index, auxiliary_verb in enumerate(irregular_verbs.ter):
-        if index != 1 and index != 3 and index != 9 and index != 10:
-            for e in auxiliary_verb:
+    for index, auxiliary_verb in enumerate(
+            irregular_verbs.ter):  # Verb 'ter' is an auxiliary verb, its conjugation is imported from irregular_verbs.py module
+        if index != 1 and index != 3 and index != 9 and index != 10:  # omitting unnecessary tenses conjugations
+            for e in auxiliary_verb:  # adding up past participle to forms of a verb 'ter'
                 final_conjugated_forms.append(e + ' ' + past_participle)
 
-    return final_conjugated_forms  # lista
+    return final_conjugated_forms
 
 
 def conjugate_add_endings_to_the_end(word):
     """
-    The method conjugate verbs by adding to its root adequate grammatical endings.
+    The method conjugate verbs by adding to its infinitive form adequate grammatical endings depending of type of a tense.
     :param word: a verb to be conjugated
     :return: list of conjugated forms of all grammatical tenses
     """
-    tenses_number = 2
+    tenses_number = 2  # number of tenses created by adding an ending to an infinitive
     conjugated_forms = []
 
-    for ending in enum_conjugator.TenseEndings.CONDITIONAL_AND_FUTURE_SIMPLE_ENDINGS.value:
+    for ending in enum_conjugator.TenseEndings.CONDITIONAL_AND_FUTURE_SIMPLE_ENDINGS.value:  # adding endings
         for e in ending:
             conjugated_forms.append(word + e)
 
-    final_conjugated_forms = list(
+    final_conjugated_forms = list(  # linking all conjugated forms with corresponding grammatical persons
         zip(enum_conjugator.GrammaticalPersons.PERSONS.value * tenses_number, conjugated_forms))
 
-    return final_conjugated_forms  # lista
+    return final_conjugated_forms
 
 
 def conjugate_change_last_two_letters(word, endings):
     """
-    :param word:
+    The method conjugate verbs by adding to its root an adequate grammatical endings depending of type of a tense.
+    :param word: a verb to be conjugated
     :param endings:
-    :return:
+    :return: a dictionary with tenses names as keys and a list of conjugated forms as a value.
     """
 
     tenses_names = list(enum_conjugator.TenseEndings.Endings.value._fields)
@@ -99,11 +112,12 @@ def conjugate_change_last_two_letters(word, endings):
         for e in terminations:
             conjugated_forms.append(word[:-2] + e)
 
-    conjugated_forms = list(
-        zip(enum_conjugator.GrammaticalPersons.PERSONS.value * tenses_number, conjugated_forms))
+    # linking conjugated verbs with grammatical persons names
+    conjugated_forms = link_conjugated_forms_with_grammatical_persons(tenses_number, conjugated_forms)
 
+    # list of conjugations divided by tenses
     conjugations_divided_by_tenses = [conjugated_forms[x:x + grammatical_persons_number] for x in
-                      range(0, len(conjugated_forms), grammatical_persons_number)]
+                                      range(0, len(conjugated_forms), grammatical_persons_number)]
 
     final_conjugated_forms = dict(zip(tenses_names, conjugations_divided_by_tenses))
 
@@ -214,6 +228,5 @@ if __name__ == '__main__':
     except TypeError as te:
         print(te)
 
-    # print(conjugate_verb('achar'))
     print(conjugate_change_last_two_letters('achar', enum_conjugator.TenseEndings.ENDINGS_AR.value))
-    print(conjugate_add_endings_to_the_end('achar'))
+    # path = os.path.dirname(amodule.__file__)
