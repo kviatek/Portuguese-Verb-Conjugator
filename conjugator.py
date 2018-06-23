@@ -9,19 +9,39 @@ import enum_conjugator
 import irregular_verbs
 import logging
 
+# Ordinary logs
+
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
-formatter = logging.Formatter('%(levelname)s:%(name)s:%(message)s')
-file_handler = logging.FileHandler('conjugator.log')
-file_handler.setFormatter(formatter)
-logger.addHandler(file_handler)
 
-logger_error = logging.getLogger(__name__)
-logger.setLevel(logging.ERROR)
 formatter = logging.Formatter('%(levelname)s:%(name)s:%(message)s')
+
 file_handler = logging.FileHandler('conjugator.log')
 file_handler.setFormatter(formatter)
-logger_error.addHandler(file_handler)
+
+stream_handler = logging.StreamHandler()
+stream_handler.setFormatter(formatter)
+
+logger.addHandler(file_handler)
+logger.addHandler(stream_handler)
+
+# =====================================================================================
+
+# Error logs
+
+error_logger = logging.getLogger(__name__)
+error_logger.setLevel(logging.ERROR)
+
+error_formatter = logging.Formatter('%(levelname)s:%(name)s:%(message)s')
+
+error_file_handler = logging.FileHandler('conjugator.log')
+error_file_handler.setFormatter(error_formatter)
+
+error_stream_handler = logging.StreamHandler()
+error_stream_handler.setFormatter(error_formatter)
+
+error_logger.addHandler(error_file_handler)
+error_logger.addHandler(error_stream_handler)
 
 
 class NotInfinitiveError(ValueError):
@@ -250,7 +270,7 @@ if __name__ == '__main__':
             raise NotInfinitiveError
 
     except NotInfinitiveError as nie:
-        logger_error.error('A palavra inserida não é infinitivo | Not an infinitive')
+        error_logger.exception('A palavra inserida não é infinitivo | Not an infinitive')
 
     except TypeError as te:
-        logger_error.error('A entrada incorreta | An incorrect input')
+        error_logger.exception('A entrada incorreta | An incorrect input')
