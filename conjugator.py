@@ -7,6 +7,21 @@ Docstring will go here
 
 import enum_conjugator
 import irregular_verbs
+import logging
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+formatter = logging.Formatter('%(levelname)s:%(name)s:%(message)s')
+file_handler = logging.FileHandler('conjugator.log')
+file_handler.setFormatter(formatter)
+logger.addHandler(file_handler)
+
+logger_error = logging.getLogger(__name__)
+logger.setLevel(logging.ERROR)
+formatter = logging.Formatter('%(levelname)s:%(name)s:%(message)s')
+file_handler = logging.FileHandler('conjugator.log')
+file_handler.setFormatter(formatter)
+logger_error.addHandler(file_handler)
 
 
 class NotInfinitiveError(ValueError):
@@ -35,7 +50,7 @@ def is_regular_verb(word):
     :return: True if a verb is regular otherwise False
     """
     return True if word not in irregular_verbs.all_irregular_verbs_dict \
-                   and word not in irregular_verbs.basic_irregular_verbs_complete_conjugations else False
+                   and word not in irregular_verbs.basic_irregular_verbs else False
 
 
 def create_gerundium(word):
@@ -131,21 +146,27 @@ def conjugate_change_last_two_letters(word, endings):
 
 def conjugate_irregular_verb(word):
     """
-
+    Method
     :param word:
-    :return:
+    :return: list of c
     """
-    if word in irregular_verbs.basic_irregular_verbs_complete_conjugations.keys():
-        return irregular_verbs.basic_irregular_verbs_complete_conjugations.get(word)
-    elif word not in irregular_verbs.basic_irregular_verbs_complete_conjugations.keys() \
-            and irregular_verbs.all_irregular_verbs_dict.get(word) is None:
+
+    # Checing whehter a verb is in the list of irregular verbs whcih don't follow any conjugation pattern.
+    # If present, its complete conjugation is returned from the dictionary
+
+    if word in irregular_verbs.basic_irregular_verbs.keys():
+        return irregular_verbs.basic_irregular_verbs.get(word)
+    elif word not in irregular_verbs.basic_irregular_verbs.keys() \
+            and irregular_verbs.all_irregular_verbs_dict.get(word) is None:  # if True a verb not yet added to the dict
 
         verb_ending = ''
         conjugation = []
 
-        for verb in irregular_verbs.basic_irregular_verbs_complete_conjugations.keys():
+        # going through a list of verbs that serve as a conjugation pattern for others.
+        # Their complete conjugations are used entirely as an ending added to a its root.
+        for verb in irregular_verbs.basic_irregular_verbs.keys():
             if word.endswith(verb):
-                verb_ending, conjugation = verb, irregular_verbs.basic_irregular_verbs_complete_conjugations.get(
+                verb_ending, conjugation = verb, irregular_verbs.basic_irregular_verbs.get(
                     verb)
 
         base = word[:-len(verb_ending)]
@@ -221,17 +242,15 @@ if __name__ == '__main__':
 
     try:
         # word = input('Enter a verb to be conjugated\n').lower()
-        word = 'encontrar'
+        word = 'achar'
         if not word.isalpha():
-            raise TypeError('A entrada incorreta | An incorrect input')
+            raise TypeError
 
         if not word.endswith(('ar', 'er', 'ir')):
-            raise NotInfinitiveError('A palavra inserida não é infinitivo | Not an infinitive')
+            raise NotInfinitiveError
 
     except NotInfinitiveError as nie:
-        print(nie)
-    except TypeError as te:
-        print(te)
+        logger_error.error('A palavra inserida não é infinitivo | Not an infinitive')
 
-    print(conjugate_change_last_two_letters('achar', enum_conjugator.TenseEndings.ENDINGS_AR.value))
-    # path = os.path.dirname(amodule.__file__)
+    except TypeError as te:
+        logger_error.error('A entrada incorreta | An incorrect input')
