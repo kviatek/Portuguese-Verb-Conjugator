@@ -8,6 +8,7 @@ Docstring will go here
 import enum_conjugator
 import irregular_verbs
 import logging
+from pprint import pprint
 
 # Ordinary logs
 
@@ -91,9 +92,22 @@ def create_past_participle(word):
     return word[:-2] + 'ado' if word.endswith('ar') else word[:-2] + 'ido'
 
 
+def divide_final_conjugation_forms_by_tenses(conjugated_forms):
+    """
+    Method takes an iterable with ready conjugations as an input and create a list of lists
+    where every list contains all conjugated verbs for a corresponding grammatical tense.
+    :param conjugated_forms:
+    :return:
+    """
+    grammatical_persons_number = 6
+    conjugations_divided_by_tenses = [conjugated_forms[x:x + grammatical_persons_number] for x in
+                                      range(0, len(conjugated_forms), grammatical_persons_number)]
+    return conjugations_divided_by_tenses
+
+
 def conjugate_compound_tenses(word):
     """
-    Method create conjugations of all compund tenses with use of auxiliary verb 'ter'
+    Method create conjugations of all compound tenses with use of auxiliary verb 'ter'
     There's a past participle created based on a verb and linked with an adequate form o a verb ter.
     The method makes use of a create_past_participle() function to create a past participle form.
     :param word: a verb to be conjugated
@@ -116,22 +130,19 @@ def conjugate_compound_tenses(word):
 
 def conjugate_add_endings_to_the_end(word):
     """
-    The method conjugate verbs by adding to its infinitive form
-    adequate grammatical endings depending on a type of a tense.
+    The method conjugate verbs by adding to its infinitive form adequate grammatical endings 
+    depending on a type of a tense.
     :param word: a verb to be conjugated
     :return: list of conjugated forms of all grammatical tenses
     """
-    tenses_number = 2  # number of tenses created by adding an ending to an infinitive
+
     conjugated_forms = []
 
     for ending in enum_conjugator.TenseEndings.CONDITIONAL_AND_FUTURE_SIMPLE_ENDINGS.value:  # adding endings
         for e in ending:
             conjugated_forms.append(word + e)
 
-    # linking all conjugated forms with corresponding grammatical persons
-    final_conjugated_forms = link_conjugated_forms_with_grammatical_persons(tenses_number, conjugated_forms)
-
-    return final_conjugated_forms
+    return divide_final_conjugation_forms_by_tenses(conjugated_forms)
 
 
 def conjugate_change_last_two_letters(word, endings):
@@ -144,24 +155,17 @@ def conjugate_change_last_two_letters(word, endings):
 
     tenses_names = list(enum_conjugator.TenseEndings.Endings.value._fields)
 
-    tenses_number = 8
-    grammatical_persons_number = 6
     conjugated_forms = []
 
-    for tens, terminations in enumerate(endings):
-        for e in terminations:
-            conjugated_forms.append(word[:-2] + e)
+    for terminations in endings:
+        for termination in terminations:
+            conjugated_forms.append(word[:-2] + termination)
 
-    # linking conjugated verbs with grammatical persons names
-    conjugated_forms = link_conjugated_forms_with_grammatical_persons(tenses_number, conjugated_forms)
-
-    # list of conjugations divided by tenses
-    conjugations_divided_by_tenses = [conjugated_forms[x:x + grammatical_persons_number] for x in
-                                      range(0, len(conjugated_forms), grammatical_persons_number)]
-
+    # list of conjugations divided by tenses, every tense is a list inside
+    conjugations_divided_by_tenses = divide_final_conjugation_forms_by_tenses(conjugated_forms)
     final_conjugated_forms = dict(zip(tenses_names, conjugations_divided_by_tenses))
 
-    return final_conjugated_forms  # słownik
+    return final_conjugated_forms
 
 
 def conjugate_irregular_verb(word):
@@ -274,3 +278,7 @@ if __name__ == '__main__':
 
     except TypeError as te:
         error_logger.exception('A entrada incorreta | An incorrect input')
+
+    pprint(conjugate_verb(word))
+    # pprint(conjugate_change_last_two_letters(word, enum_conjugator.TenseEndings.ENDINGS_AR.value))
+    pprint(conjugate_add_endings_to_the_end(word))
