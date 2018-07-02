@@ -130,7 +130,7 @@ def conjugate_compound_tenses(word):
 
 def conjugate_add_endings_to_the_end(word):
     """
-    The method conjugate verbs by adding to its infinitive form adequate grammatical endings 
+    The method conjugate verbs by adding to its infinitive form adequate grammatical endings
     depending on a type of a tense.
     :param word: a verb to be conjugated
     :return: list of conjugated forms of all grammatical tenses
@@ -181,7 +181,7 @@ def conjugate_irregular_verb(word):
     if word in irregular_verbs.basic_irregular_verbs.keys():
         return irregular_verbs.basic_irregular_verbs.get(word)
     elif word not in irregular_verbs.basic_irregular_verbs.keys() \
-            and irregular_verbs.all_irregular_verbs_dict.get(word) is None:  # if True a verb not yet added to the dict
+            and irregular_verbs.all_irregular_verbs_dict.get(word) is None:
 
         verb_ending = ''
         conjugation = []
@@ -205,33 +205,41 @@ def conjugate_irregular_verb(word):
         return irregular_verbs.all_irregular_verbs_dict.get(word)  # lista
 
 
+def imperative(word, imperative_endings, endings):
+    """
+
+    :param word:
+    :param imperative_endings:
+    :return:
+    """
+
+    imperative_affirmative = []
+    imperative_negative = []
+
+    # Positive imperative is created by adding corresponding endings to a root of a verb
+
+    for ending in imperative_endings:
+        imperative_affirmative.append(word[:-2] + ending)
+
+    # Negative imperative consists of negated forms of presente de subjuntivo_by a word 'não'.
+    # Below a ready presente de subjuntivo conjugation is created by calling conjugate_change_last_two_letters()
+    # which produces a dictionary, then correct conjugations are extracted by calling get() method.
+
+    presente_de_subjuntivo_list = list(
+        conjugate_change_last_two_letters(word, endings).get('Presente_de_Subjuntivo'))
+
+    for ending in presente_de_subjuntivo_list[1:]:
+        imperative_negative.append('não ' + ending[1])
+
+    return imperative_affirmative, imperative_negative  # lista
+
+
 def conjugate_regular_verb(word):
     """
 
     :param word:
     :return:
     """
-
-    def imperative(word, imperative_endings):
-        """
-
-        :param word:
-        :param imperative_endings:
-        :return:
-        """
-
-        imperative_affirmative = []
-        imperative_negative = []
-
-        for ending in imperative_endings:
-            imperative_affirmative.append(word[:-2] + ending)
-
-        presente_de_subjuntivo_list = list(
-            conjugate_change_last_two_letters(word, endings).get('Presente_de_Subjuntivo'))
-        for ending in presente_de_subjuntivo_list[1:]:
-            imperative_negative.append('não ' + ending[1])
-
-        return imperative_affirmative, imperative_negative  # lista
 
     if word.endswith('ar'):
         endings = enum_conjugator.TenseEndings.ENDINGS_AR.value
@@ -245,7 +253,8 @@ def conjugate_regular_verb(word):
 
     return conjugate_change_last_two_letters(word, endings), conjugate_add_endings_to_the_end(
         word), conjugate_compound_tenses(word), create_gerundium(word), create_past_participle(word), imperative(word,
-                                                                                                                 imperative_endings)
+                                                                                                                 imperative_endings,
+                                                                                                                 endings)
 
 
 def conjugate_verb(word):  # main method
@@ -280,5 +289,3 @@ if __name__ == '__main__':
         error_logger.exception('A entrada incorreta | An incorrect input')
 
     pprint(conjugate_verb(word))
-    # pprint(conjugate_change_last_two_letters(word, enum_conjugator.TenseEndings.ENDINGS_AR.value))
-    pprint(conjugate_add_endings_to_the_end(word))
